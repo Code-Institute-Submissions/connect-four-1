@@ -1,25 +1,27 @@
-# **Connect4 Command Line Interface Game- Project Portfolio 3 - Python**
+# **Connect4 Command Line Interface Game - Project Portfolio 3 - Python**
 
+Connect4 is a Command Line Interface styled interactive game that allows 2 players to play against each other on the same device.Connect4 is based off the popular Connect4 game uses a similar concept of a connecting 4 pieces in a row to win.
 
 # Contents
 
-* [Objective](<#objective>) 
+* [Objective](<#objective>)
 * [User Experience](<#user-experience-ux>)
-    * [Site Aims](<#site-aims>)
-    * [User Stories](<#user-stories>)
-    * [Site Structure](<#site-structure>)
+  * [Site Aims](<#site-aims>)
+  * [User Stories](<#user-stories>)
+  * [Site Structure](<#site-structure>)
 * [Features](<#features>)
 * [Future Features](<#future-features>)
 * [Technologies Used](<#technologies-used>)
 * [Testing](<#testing>)
-    * [Manual Testing](<#manual-testing>)
-    * [Bugs Fixed](<#bugs-fixed>)
+  * [Manual Testing](<#manual-testing>)
+  * [Bugs Fixed](<#bugs-fixed>)
 * [Deployment](<#deployment>)
 * [Credits](<#credits>)
 * [Acknowledgements](<#acknowledgements>)
 
 # Objective
 
+The aim of this project is to deliver an interactive and engaging command line interface game that is satisfying for the user to play.
 
 [Back to top](<#contents>)
 
@@ -27,40 +29,51 @@
 
 ## Site Aims
 
+* To provide the player with an interactive and engaging game that can be played against another player
+* To create a game that encourages the player to play again
+* To provide an interactive experience that is easy to navigate and understand
+* To provide a clear and appropriate response to any user inputs
+
 ## User Stories
+
+The **user** is any person who has an interest in the old school board games like Connect4, and any games that run via command line.
+
+
+| ID  | ROLE |                                   ACTION                                   |                    GOAL                     |
+| --- | :--- | :------------------------------------------------------------------------: | :-----------------------------------------: |
+| 1   | USER |            As a user, I want to be able play the Connect4 game             |            So I can can have fun            |
+| 2   | USER |    As a user, I want to be able to navigate around the interface easily    | so it doesn't take me out of the experience |
+| 3   | USER | As a user, I want to see clearly from the opening screen what the game is  |        So as to avoid any confusion         |
+| 4   | USER |       As a user, I want to be able to access game rules and controls       |       So I know how to play the game        |
+| 5   | USER |       As a user, I want to be able to start the game when I am ready       |           So I can prepare myself           |
+| 6   | USER |               As a user, I want to be able to track my wins                |           So I can improve on it            |
+| 7   | USER | As a user, I want to be able to start a new game when the current one ends |   So I can see if I can beat my opponent    |
 
 [Back to top](<#contents>)
 
 ## Flowchart - Python Logic
 
-
 # Features
-
 
 [Back to top](<#contents>)
 
 # Future Features
 
-
 [Back to top](<#contents>)
 
 # Technologies Used
-
 
 [Back to top](<#contents>)
 
 # Testing
 
-
 [Back to top](<#contents>)
 
 ## Bugs Fixed
 
-
 [Back to top](<#contents>)
 
 # Deployment
-
 
 ## To fork the repository on GitHub
 
@@ -83,10 +96,8 @@ A copy of the GitHub Repository can be made by forking the GitHub account. Chang
 
 # Credits
 
-
 [Back to top](<#contents>)
 
 # Acknowledgements
-
 
 [Back to top](<#contents>)
