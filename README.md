@@ -38,7 +38,6 @@ The aim of this project is to deliver an interactive and engaging command line i
 
 The **user** is any person who has an interest in the old school board games like Connect4, and any games that run via command line.
 
-
 | ID  | ROLE |                                   ACTION                                   |                    GOAL                     |
 | --- | :--- | :------------------------------------------------------------------------: | :-----------------------------------------: |
 | 1   | USER |            As a user, I want to be able play the Connect4 game             |            So I can can have fun            |
@@ -52,6 +51,8 @@ The **user** is any person who has an interest in the old school board games lik
 [Back to top](<#contents>)
 
 ## Flowchart - Python Logic
+
+![Connect4 Flowchart](docs\flowchart\connect4-flowchart.png)
 
 # Features
 
