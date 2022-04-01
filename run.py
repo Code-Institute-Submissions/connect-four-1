@@ -23,7 +23,7 @@ class GameBoard():
         For easy access for players
         '''
         # Prints the column numbers over the corresponding columns
-        print('   0  ', ' 1  ', ' 2  ', ' 3  ', ' 4  ', ' 5  ', ' 6  ', ' 7  ', ' 8  ', ' 9',)
+        print('   1  ', '  2  ', '   3  ', '  4  ', '  5  ', '  6  ', '  7  ', '  8  ', '  9  ', '  0  ',)
         grid = ''
         for row in self.board:
             grid += '-' * 62 + '\n'
@@ -38,16 +38,18 @@ class GameBoard():
             
         """
         column = int(column) # column value is interger
-        if column <= 8 and column >= 0 or column is None:
+        if column <= 8 and column >= -1 or column is None:
             if self.board[0][column] == '    ':
-                for row in range(ROW_COUNT-1, -1, -1):  # Use -1, -1 as the top and bottom rows are not slots
+                for row in range(ROW_COUNT-1, -1, -1):
                     if self.board[row][column] == '    ':
                         self.board[row][column] = player
                         break
+                return True
             else:
                 print('Column is full, please pick another column')
         else:
             print('Please pick a number 0 - 9')
+        
     
     def check_move(self, player: str):
         pass
@@ -58,12 +60,13 @@ def run_game():
     game.print_board()
 
     while not game.check_move(PLAYER_1) and not game.check_move(PLAYER_2):
-        column = input(f'Player 1 ({PLAYER_1}) insert piece in col (0-9): ')
-        game.drop_player_piece(column, PLAYER_1)
+        
+        player_move = input(f'Player 1 ({PLAYER_1}) insert piece in col (0-9): ')
+        game.drop_player_piece(int(player_move)-1, PLAYER_1)
         game.print_board()
 
-        column = input(f'Player 2 ({PLAYER_2}) insert piece in col (0-9): ')
-        game.drop_player_piece(column, PLAYER_2)
+        player_move = input(f'Player 2 ({PLAYER_2}) insert piece in col (0-9): ')
+        game.drop_player_piece(int(player_move)-1, PLAYER_2)
         game.print_board()
 
 
