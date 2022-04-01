@@ -52,7 +52,7 @@ The **user** is any person who has an interest in the old school board games lik
 
 ## Flowchart - Python Logic
 
-![Connect4 Flowchart](docs\flowchart\connect4-flowchart.png)
+![Connect4 Flowchart](docs/flowchart/connect4-flowchart.png)
 
 # Features
 
