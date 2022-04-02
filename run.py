@@ -2,8 +2,8 @@
 
 COLUMN_COUNT = 10
 ROW_COUNT = 7
-PLAYER_1 =  ' \U0001F534 '  # unicode for red circle
-PLAYER_2 =  ' \U0001F7E1 '  # Unicode for yellow circle
+PLAYER_1 =  ' \U0001F534  '  # unicode for red circle
+PLAYER_2 =  ' \U0001F7E1  '  # Unicode for yellow circle
 
 
 class GameBoard():
@@ -23,7 +23,7 @@ class GameBoard():
         For easy access for players
         '''
         # Prints the column numbers over the corresponding columns
-        print('   1  ', '  2  ', '   3  ', '  4  ', '  5  ', '  6  ', '  7  ', '  8  ', '  9  ', '  0  ',)
+        print('   1  ', '  2  ', '   3  ', '  4  ', '  5  ', '  6  ', '  7  ', '  8  ', '  9  ', '  10  ')
         grid = ''
         for row in self.board:
             grid += '-' * 62 + '\n'
@@ -38,7 +38,7 @@ class GameBoard():
             
         """
         column = int(column) # column value is interger
-        if column <= 8 and column >= -1 or column is None:
+        if column <= 9 and column >= 0 or column is None:
             if self.board[0][column] == '    ':
                 for row in range(ROW_COUNT-1, -1, -1):
                     if self.board[row][column] == '    ':
@@ -48,7 +48,7 @@ class GameBoard():
             else:
                 print('Column is full, please pick another column')
         else:
-            print('Please pick a number 0 - 9')
+            print('Please pick a number 1 - 10')
         
     
     def check_move(self, player: str):
@@ -61,11 +61,11 @@ def run_game():
 
     while not game.check_move(PLAYER_1) and not game.check_move(PLAYER_2):
         
-        player_move = input(f'Player 1 ({PLAYER_1}) insert piece in col (0-9): ')
+        player_move = input(f'Player 1 ({PLAYER_1}) insert red disc in column (1-10): ')
         game.drop_player_piece(int(player_move)-1, PLAYER_1)
         game.print_board()
 
-        player_move = input(f'Player 2 ({PLAYER_2}) insert piece in col (0-9): ')
+        player_move = input(f'Player 2 ({PLAYER_2}) insert yellow disc in column (1-10): ')
         game.drop_player_piece(int(player_move)-1, PLAYER_2)
         game.print_board()
 
