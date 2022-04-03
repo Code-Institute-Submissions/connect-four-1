@@ -7,13 +7,20 @@ ROW_COUNT = 7
 PLAYER_1 = ' \U0001F534  '  # unicode for red circle
 PLAYER_2 = ' \U0001F7E1  '  # Unicode for yellow circle
 
-
 def cls():
     """
     Clear the console
     """
     os.system("cls" if os.name == "nt" else "clear")
 
+def welcome_message():
+    pass
+
+def rules_screen():
+    pass
+
+def main_menu():
+    pass
 
 class GameBoard():
     """
@@ -105,6 +112,10 @@ class GameBoard():
                     return True
 
     def check_tie(self):
+        """
+        Checks if all the spaces have been filled
+        If so it returns True
+        """
         for i in self.board:
             for j in i:
                 if j == '    ':
@@ -127,9 +138,11 @@ def run_game():
                 )
                 game.drop_player_piece(int(player_move) - 1, PLAYER_1)
                 if game.check_move(PLAYER_1):
+                    print('')
                     print(f'PLAYER 1 ({PLAYER_1}) WINS!')
-                    print(figlet_format('Game Over!', font = "banner3"))
-                    time.sleep(3)
+                    print('')
+                    print('+', '-'*60, '+')
+                    print(figlet_format('Game Over!', font = "marquee"))
                     quit()
             else:
 
@@ -138,20 +151,29 @@ def run_game():
                 )
                 game.drop_player_piece(int(player_move) - 1, PLAYER_2)
                 if game.check_move(PLAYER_2):
+                    print('')
                     print(f'PLAYER 2 ({PLAYER_2}) WINS!')
-                    print(figlet_format('Game Over!', font = "banner3"))
-                    time.sleep(3)
+                    print('')
+                    print('+', '-'*60, '+')
+                    print(figlet_format('Game Over!', font = "marquee"))
                     quit()
                     
             if game.check_tie():
+                print('')
                 print('No winners')
-                print(figlet_format('Game Over!', font = "banner3"))
-                time.sleep(3)
+                print('')
+                print('+', '-'*60, '+')
+                print(figlet_format('Game Over!', font = "marquee"))
                 quit()
 
         except ValueError:
             print('That is not a number ... Please try again')
 
+def play_again():
+    pass
+
+def high_scores():
+    pass
 
 if __name__ == '__main__':
     run_game()
