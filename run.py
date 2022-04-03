@@ -34,22 +34,22 @@ class GameBoard():
         grid += '-' * 62
         print(grid)
 
-    def drop_player_piece(self, column):
+    def drop_player_piece(self, column, player):
         """
         Drops a piece into the Connect4 selected column
         Fills the position with the PLAYER piece
         """
         column = int(column) # column value is interger
-        if column <= 9 and column >= 0 or column is None: 
+        if column <= 9 and column >= 0 or column is None: # Checks that the number input is between 1 and 10
             if self.board[0][column] == '    ':
                 for row in range(ROW_COUNT-1, -1, -1):
                     if self.board[row][column] == '    ':
                         if self.turn == 0:
-                            self.board[row][column] = PLAYER_1
+                            self.board[row][column] = player
                             self.print_board()
                             self.turn+=1
                         else:
-                            self.board[row][column] = PLAYER_2
+                            self.board[row][column] = player
                             self.print_board()
                             self.turn+=1
                             self.turn = self.turn % 2
@@ -62,8 +62,32 @@ class GameBoard():
                  
                      
     def check_move(self, player: str):
-        pass
-
+        """
+        Check the horizontal, vertical and diagonal lines for 4 in a row for a win
+        """
+        # Check horizontal lines
+        for column in range(COLUMN_COUNT-3):
+            for row in range(ROW_COUNT):
+                if self.board[row][column] == player and self.board[row][column+1] == player and self.board[row][column+2] == player and self.board[row][column+3] == player:
+                    return True
+               
+        # Check the vertical lines
+        for column in range(COLUMN_COUNT):
+            for row in range(ROW_COUNT-3):
+                if self.board[row][column] == player and self.board[row+1][column] == player and self.board[row+2][column] == player and self.board[row+3][column] == player:
+                    return True
+                
+        # Check the diagonal line win to the right (counting positively up the columns and rows each time)
+        for column in range(COLUMN_COUNT-3):
+            for row in range(ROW_COUNT-3):
+                if self.board[row][column] == player and self.board[row+1][column+1] == player and self.board[row+2][column+2] == player and self.board[row+3][column+3] == player:
+                    return True
+        
+        # Check the diagonal line win to the left (counting negatively down the rows and counting positively up the rows each time)
+        for column in range(COLUMN_COUNT-3):
+            for row in range(3, ROW_COUNT):
+                if self.board[row][column] == player and self.board[row-1][column+1] == player and self.board[row-2][column+2] == player and self.board[row-3][column+3] == player:
+                    return True
 
 def run_game():
     """
@@ -77,12 +101,20 @@ def run_game():
         try:
             if game.turn == 0:
                 player_move = input(f'Player 1 ({PLAYER_1}) insert red disc in column (1-10): ')
-                game.drop_player_piece(int(player_move)-1)
+                game.drop_player_piece(int(player_move)-1, PLAYER_1)
+                if game.check_move(PLAYER_1):
+                    print(f'PLAYER 1 ({PLAYER_1}) WINS!')
+                    quit()
                   
             else:
 
                 player_move = input(f'Player 2 ({PLAYER_2}) insert yellow disc in column (1-10): ')
-                game.drop_player_piece(int(player_move)-1)
+                game.drop_player_piece(int(player_move)-1, PLAYER_2)
+                if game.check_move(PLAYER_2):
+                    print(f'PLAYER 2 ({PLAYER_2}) WINS!')
+                    quit()
+            
+            
                 
         except ValueError:
             print('That is not a number ... Please try again')
