@@ -34,21 +34,32 @@ class GameBoard():
         grid += '-' * 62
         print(grid)
 
-    def drop_player_piece(self, column, turn):
+    def drop_player_piece(self, column):
         """
         Drops a piece into the Connect4 selected column
-        Fills the position with the PLAYER piece  
+        Fills the position with the PLAYER piece
         """
         column = int(column) # column value is interger
-        if column <= 9 and column >= 0 or column is None:
+        if column <= 9 and column >= 0 or column is None: 
             if self.board[0][column] == '    ':
                 for row in range(ROW_COUNT-1, -1, -1):
                     if self.board[row][column] == '    ':
-                        if turn == 0:
+                        if self.turn == 0:
                             self.board[row][column] = PLAYER_1
+                            self.print_board()
+                            self.turn+=1
                         else:
                             self.board[row][column] = PLAYER_2
+                            self.print_board()
+                            self.turn+=1
+                            self.turn = self.turn % 2
                         break
+            else:
+                print("You cannot put a piece in the full column.")
+                print("Please choose another column.\n")
+        else:
+            print('That is not a valid number, try again')
+                 
                      
     def check_move(self, player: str):
         pass
@@ -59,24 +70,20 @@ def run_game():
     Starts the game and sets the turn value for Player 1 to start
     """
     game = GameBoard(0)
-    game.print_board()
-    game_win = False
+    game.print_board() # Initial game board
+    game_play = False
 
-    while not game_win:
+    while not game_play:
         try:
             if game.turn == 0:
                 player_move = input(f'Player 1 ({PLAYER_1}) insert red disc in column (1-10): ')
-                game.drop_player_piece(int(player_move)-1, 0)
-                game.print_board()
+                game.drop_player_piece(int(player_move)-1)
                   
-            elif game.turn == 1:
+            else:
 
                 player_move = input(f'Player 2 ({PLAYER_2}) insert yellow disc in column (1-10): ')
-                game.drop_player_piece(int(player_move)-1, 1)
-                game.print_board()
+                game.drop_player_piece(int(player_move)-1)
                 
-            game.turn+=1
-            game.turn = game.turn % 2
         except ValueError:
             print('That is not a number ... Please try again')
                 
