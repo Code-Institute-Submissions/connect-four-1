@@ -1,4 +1,6 @@
 import os
+import time
+from pyfiglet import figlet_format
 
 COLUMN_COUNT = 10
 ROW_COUNT = 7
@@ -79,44 +81,35 @@ class GameBoard():
         # Check horizontal lines
         for column in range(COLUMN_COUNT - 3):
             for row in range(ROW_COUNT):
-                if self.board[row][column] == player and self.board[row][
-                        column + 1] == player and self.board[row][
-                            column +
-                            2] == player and self.board[row][column +
-                                                             3] == player:
+                if self.board[row][column] == player and self.board[row][column + 1] == player and self.board[row][column +2] == player and self.board[row][column +3] == player:
                     return True
 
         # Check the vertical lines
         for column in range(COLUMN_COUNT):
             for row in range(ROW_COUNT - 3):
-                if self.board[row][column] == player and self.board[
-                        row + 1][column] == player and self.board[
-                            row + 2][column] == player and self.board[
-                                row + 3][column] == player:
+                if self.board[row][column] == player and self.board[row + 1][column] == player and self.board[row + 2][column] == player and self.board[row + 3][column] == player:
                     return True
 
         # Check the diagonal line win to the right
         # counting positively up the columns and rows each time
         for column in range(COLUMN_COUNT - 3):
             for row in range(ROW_COUNT - 3):
-                if self.board[row][column] == player and self.board[row + 1][
-                        column + 1] == player and self.board[row + 2][
-                            column +
-                            2] == player and self.board[row + 3][column +
-                                                                 3] == player:
+                if self.board[row][column] == player and self.board[row + 1][column + 1] == player and self.board[row + 2][column + 2] == player and self.board[row + 3][column +3] == player:
                     return True
 
         # Check the diagonal line win to the left
         # counting negatively down the rows and counting positively up the rows each time
         for column in range(COLUMN_COUNT - 3):
             for row in range(3, ROW_COUNT):
-                if self.board[row][column] == player and self.board[row - 1][
-                        column + 1] == player and self.board[row - 2][
-                            column +
-                            2] == player and self.board[row - 3][column +
-                                                                 3] == player:
+                if self.board[row][column] == player and self.board[row - 1][column + 1] == player and self.board[row - 2][column +2] == player and self.board[row - 3][column +3] == player:
                     return True
 
+    def check_tie(self):
+        for i in self.board:
+            for j in i:
+                if j == '    ':
+                    return False
+        return True
 
 def run_game():
     """
@@ -135,8 +128,9 @@ def run_game():
                 game.drop_player_piece(int(player_move) - 1, PLAYER_1)
                 if game.check_move(PLAYER_1):
                     print(f'PLAYER 1 ({PLAYER_1}) WINS!')
+                    print(figlet_format('Game Over!', font = "banner3"))
+                    time.sleep(3)
                     quit()
-
             else:
 
                 player_move = input(
@@ -145,7 +139,15 @@ def run_game():
                 game.drop_player_piece(int(player_move) - 1, PLAYER_2)
                 if game.check_move(PLAYER_2):
                     print(f'PLAYER 2 ({PLAYER_2}) WINS!')
+                    print(figlet_format('Game Over!', font = "banner3"))
+                    time.sleep(3)
                     quit()
+                    
+            if game.check_tie():
+                print('No winners')
+                print(figlet_format('Game Over!', font = "banner3"))
+                time.sleep(3)
+                quit()
 
         except ValueError:
             print('That is not a number ... Please try again')
