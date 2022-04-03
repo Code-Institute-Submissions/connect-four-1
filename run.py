@@ -12,9 +12,10 @@ class GameBoard():
     Function print_board() prints the current game board
     """
 
-    def __init__(self):
+    def __init__(self, turn):
         self.board = [['    ' for i in range(COLUMN_COUNT)]
                       for j in range(ROW_COUNT)]
+        self.turn = turn
 
     def print_board(self):
         '''
@@ -23,7 +24,7 @@ class GameBoard():
         For easy access for players
         '''
         # Prints the column numbers over the corresponding columns
-        print('   1  ', '  2  ', '   3  ', '  4  ', '  5  ', '  6  ', '  7  ', '  8  ', '  9  ', '  10  ')
+        print('    1 ', '   2 ', '   3  ', '  4  ', '  5  ', '  6  ', '  7  ', '  8  ', '  9  ', ' 10 ')
         grid = ''
         for row in self.board:
             grid += '-' * 62 + '\n'
@@ -33,42 +34,51 @@ class GameBoard():
         grid += '-' * 62
         print(grid)
 
-    def drop_player_piece(self, column, player: str):
+    def drop_player_piece(self, column, turn):
         """
-            
+        Drops a piece into the Connect4 selected column
+        Fills the position with the PLAYER piece  
         """
         column = int(column) # column value is interger
         if column <= 9 and column >= 0 or column is None:
             if self.board[0][column] == '    ':
                 for row in range(ROW_COUNT-1, -1, -1):
                     if self.board[row][column] == '    ':
-                        self.board[row][column] = player
+                        if turn == 0:
+                            self.board[row][column] = PLAYER_1
+                        else:
+                            self.board[row][column] = PLAYER_2
                         break
-                return True
-            else:
-                print('Column is full, please pick another column')
-        else:
-            print('Please pick a number 1 - 10')
-        
-    
+                     
     def check_move(self, player: str):
         pass
 
 
 def run_game():
-    game = GameBoard()
+    """
+    Starts the game and sets the turn value for Player 1 to start
+    """
+    game = GameBoard(0)
     game.print_board()
+    game_win = False
 
-    while not game.check_move(PLAYER_1) and not game.check_move(PLAYER_2):
-        
-        player_move = input(f'Player 1 ({PLAYER_1}) insert red disc in column (1-10): ')
-        game.drop_player_piece(int(player_move)-1, PLAYER_1)
-        game.print_board()
+    while not game_win:
+        try:
+            if game.turn == 0:
+                player_move = input(f'Player 1 ({PLAYER_1}) insert red disc in column (1-10): ')
+                game.drop_player_piece(int(player_move)-1, 0)
+                game.print_board()
+                  
+            elif game.turn == 1:
 
-        player_move = input(f'Player 2 ({PLAYER_2}) insert yellow disc in column (1-10): ')
-        game.drop_player_piece(int(player_move)-1, PLAYER_2)
-        game.print_board()
-
-
+                player_move = input(f'Player 2 ({PLAYER_2}) insert yellow disc in column (1-10): ')
+                game.drop_player_piece(int(player_move)-1, 1)
+                game.print_board()
+                
+            game.turn+=1
+            game.turn = game.turn % 2
+        except ValueError:
+            print('That is not a number ... Please try again')
+                
 if __name__ == '__main__':
     run_game()
