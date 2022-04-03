@@ -1,11 +1,17 @@
 # Write your code to expect a terminal of 80 characters wide and 24 rows high
+import os
 
 COLUMN_COUNT = 10
 ROW_COUNT = 7
 PLAYER_1 =  ' \U0001F534  '  # unicode for red circle
 PLAYER_2 =  ' \U0001F7E1  '  # Unicode for yellow circle
 
-
+def cls():
+    """
+    Clear the console
+    """
+    os.system("cls" if os.name == "nt" else "clear")
+    
 class GameBoard():
     """
     Declares a string to self.board
@@ -24,7 +30,6 @@ class GameBoard():
         For easy access for players
         '''
         # Prints the column numbers over the corresponding columns
-        print('    1 ', '   2 ', '   3  ', '  4  ', '  5  ', '  6  ', '  7  ', '  8  ', '  9  ', ' 10 ')
         grid = ''
         for row in self.board:
             grid += '-' * 62 + '\n'
@@ -32,6 +37,7 @@ class GameBoard():
                 grid += f'||{column}'  # for the number of rows print the same number of columns
             grid += '||\n'  # Need to add one more column to the result to create the number of columns
         grid += '-' * 62
+        print('    1 ', '   2 ', '   3  ', '  4  ', '  5  ', '  6  ', '  7  ', '  8  ', '  9  ', ' 10 ')
         print(grid)
 
     def drop_player_piece(self, column, player):
@@ -45,10 +51,12 @@ class GameBoard():
                 for row in range(ROW_COUNT-1, -1, -1):
                     if self.board[row][column] == '    ':
                         if self.turn == 0:
+                            cls()
                             self.board[row][column] = player
                             self.print_board()
                             self.turn+=1
                         else:
+                            cls()
                             self.board[row][column] = player
                             self.print_board()
                             self.turn+=1
@@ -113,8 +121,6 @@ def run_game():
                 if game.check_move(PLAYER_2):
                     print(f'PLAYER 2 ({PLAYER_2}) WINS!')
                     quit()
-            
-            
                 
         except ValueError:
             print('That is not a number ... Please try again')
