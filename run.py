@@ -4,8 +4,8 @@ from pyfiglet import figlet_format
 
 COLUMN_COUNT = 10
 ROW_COUNT = 7
-PLAYER_1 = ' \U0001F534  '  # unicode for red circle
-PLAYER_2 = ' \U0001F7E1  '  # Unicode for yellow circle
+PLAYER_1 = ' \U0001F534 '  # unicode for red circle
+PLAYER_2 = ' \U0001F7E1 '  # Unicode for yellow circle
 
 def cls():
     """
