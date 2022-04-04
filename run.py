@@ -139,7 +139,7 @@ def run_game():
                 game.drop_player_piece(int(player_move) - 1, PLAYER_1)
                 if game.check_move(PLAYER_1):
                     print('')
-                    print(f'                    PLAYER 1 ({PLAYER_1}) WINS!')
+                    print(f'                    PLAYER 1 ({PLAYER_1} ) WINS!')
                     print('')
                     print('+', '-'*60, '+')
                     print(figlet_format(' Game Over!', font = "marquee"))
@@ -152,7 +152,7 @@ def run_game():
                 game.drop_player_piece(int(player_move) - 1, PLAYER_2)
                 if game.check_move(PLAYER_2):
                     print('')
-                    print(f'                    PLAYER 2 ({PLAYER_2}) WINS!')
+                    print(f'                    PLAYER 2 ({PLAYER_2} ) WINS!')
                     print('')
                     print('+', '-'*60, '+')
                     print(figlet_format('Game Over!', font = "marquee"))
