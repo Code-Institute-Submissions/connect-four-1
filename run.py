@@ -134,7 +134,7 @@ def run_game():
         try:
             if game.turn == 0:
                 player_move = input(
-                    f' Player 1 ({PLAYER_1}) insert red disc in column (1-10): '
+                    f' Player 1 ({PLAYER_1} ) insert red disc in column (1-10): '
                 )
                 game.drop_player_piece(int(player_move) - 1, PLAYER_1)
                 if game.check_move(PLAYER_1):
@@ -147,7 +147,7 @@ def run_game():
             else:
 
                 player_move = input(
-                    f'Player 2 ({PLAYER_2}) insert yellow disc in column (1-10): '
+                    f'Player 2 ({PLAYER_2} ) insert yellow disc in column (1-10): '
                 )
                 game.drop_player_piece(int(player_move) - 1, PLAYER_2)
                 if game.check_move(PLAYER_2):
