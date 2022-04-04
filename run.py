@@ -49,6 +49,7 @@ class GameBoard():
             # Need to add one more column to the result to create the number of columns
             grid += ' ||\n'
         grid += '-' * 64
+        print(' ')
         print('    1 ', '   2 ', '   3  ', '  4  ', '  5  ', '  6  ', '  7  ',
               '  8  ', '  9  ', '  10')
         print(grid)
