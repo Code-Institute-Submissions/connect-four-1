@@ -29,7 +29,7 @@ class GameBoard():
     """
 
     def __init__(self, turn):
-        self.board = [['    ' for i in range(COLUMN_COUNT)]
+        self.board = [['   ' for i in range(COLUMN_COUNT)]
                       for j in range(ROW_COUNT)]
         self.turn = turn
 
@@ -42,15 +42,15 @@ class GameBoard():
         # Prints the column numbers over the corresponding columns
         grid = ''
         for row in self.board:
-            grid += '-' * 62 + '\n'
+            grid += '-' * 64 + '\n'
             for column in row:
                 # for the number of rows print the same number of columns
-                grid += f'||{column}'
+                grid += f' ||{column}'
             # Need to add one more column to the result to create the number of columns
-            grid += '||\n'
-        grid += '-' * 62
+            grid += ' ||\n'
+        grid += '-' * 64
         print('    1 ', '   2 ', '   3  ', '  4  ', '  5  ', '  6  ', '  7  ',
-              '  8  ', '  9  ', ' 10 ')
+              '  8  ', '  9  ', '  10')
         print(grid)
 
     def drop_player_piece(self, column, player):
@@ -61,9 +61,9 @@ class GameBoard():
         column = int(column)  # column value is interger
         # Checks that the number input is between 1 and 10
         if column <= 9 and column >= 0 or column is None:
-            if self.board[0][column] == '    ':
+            if self.board[0][column] == '   ':
                 for row in range(ROW_COUNT - 1, -1, -1):
-                    if self.board[row][column] == '    ':
+                    if self.board[row][column] == '   ':
                         if self.turn == 0:
                             cls()
                             self.board[row][column] = player
@@ -77,9 +77,9 @@ class GameBoard():
                             self.turn = self.turn % 2
                         break
             else:
-                print("Column full, please choose another column")
+                print(" Column full, please choose another column")
         else:
-            print('That is not a valid number, try again')
+            print(' That is not a valid number, try again')
 
     def check_move(self, player: str):
         """
@@ -118,7 +118,7 @@ class GameBoard():
         """
         for i in self.board:
             for j in i:
-                if j == '    ':
+                if j == '   ':
                     return False
         return True
 
@@ -134,15 +134,15 @@ def run_game():
         try:
             if game.turn == 0:
                 player_move = input(
-                    f'Player 1 ({PLAYER_1}) insert red disc in column (1-10): '
+                    f' Player 1 ({PLAYER_1}) insert red disc in column (1-10): '
                 )
                 game.drop_player_piece(int(player_move) - 1, PLAYER_1)
                 if game.check_move(PLAYER_1):
                     print('')
-                    print(f'PLAYER 1 ({PLAYER_1}) WINS!')
+                    print(f'                    PLAYER 1 ({PLAYER_1}) WINS!')
                     print('')
                     print('+', '-'*60, '+')
-                    print(figlet_format('Game Over!', font = "marquee"))
+                    print(figlet_format(' Game Over!', font = "marquee"))
                     quit()
             else:
 
@@ -152,7 +152,7 @@ def run_game():
                 game.drop_player_piece(int(player_move) - 1, PLAYER_2)
                 if game.check_move(PLAYER_2):
                     print('')
-                    print(f'PLAYER 2 ({PLAYER_2}) WINS!')
+                    print(f'                    PLAYER 2 ({PLAYER_2}) WINS!')
                     print('')
                     print('+', '-'*60, '+')
                     print(figlet_format('Game Over!', font = "marquee"))
@@ -160,14 +160,14 @@ def run_game():
                     
             if game.check_tie():
                 print('')
-                print('No winners')
+                print('                          No winners')
                 print('')
                 print('+', '-'*60, '+')
-                print(figlet_format('Game Over!', font = "marquee"))
+                print(figlet_format(' Game Over!', font = "marquee"))
                 quit()
 
         except ValueError:
-            print('That is not a number ... Please try again')
+            print(' That is not a number ... Please try again')
 
 def play_again():
     pass
