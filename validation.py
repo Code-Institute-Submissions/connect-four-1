@@ -142,7 +142,6 @@ def get_users():
     global player_two
 
     while True:
-
         # Player 1 create username/login
         print(' ')
         menu_choice = input(' Player 1\n \n Press 1) Create username\n \n Press 2) Login')
@@ -150,30 +149,25 @@ def get_users():
         if menu_choice == '1':
             player_one = create_username(PLAYERS[0], 0)
             print(' ')
-
         elif menu_choice == '2':
             print(' ')
             player_one = None
             player_one = player_login(0)
-
         else:
             if menu_choice != '1' or '2':
                 print(' Please press 1 or 2 as your option')
                 continue
 
     # Player 2 create username/login
-
         print(' ')
         menu_choice = input(' Player 2\n \n Press 1) Create username\n \n Press 2) Login')
         print(' ')
         if menu_choice == '1':
             player_two = create_username(PLAYERS[1], 1)
             print('')
-
         elif menu_choice == '2':
             print(' ')
             player_two = player_login(1)
-
         else:
             if menu_choice != '1' or '2':
                 print(' ')
