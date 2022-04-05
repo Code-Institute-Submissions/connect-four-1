@@ -92,7 +92,9 @@ def player_login(player_number):
                 print(f'Welcome back {player_username}. You are Player 1')
                 return player_username  
             else:
+                print(' ')
                 print('Cannot find username')
+                print(' ')
                 continue
         else:
             # Player 2 inputs username
@@ -102,9 +104,13 @@ def player_login(player_number):
                     print(f'Welcome back {player_username}. You are Player 2')
                     return player_username
                 else:
-                    print('Cannot choose a username thats already logged in')    
+                    print(' ')
+                    print('Cannot choose a username thats already logged in')
+                    print(' ') 
             else:
+                print(' ')
                 print('Cannot find username')
+                print(' ')
                 continue
 
 
@@ -119,10 +125,8 @@ def validate_player_name(player):
             print(' ')
             print('Username must be between 3 and 10 characters long')
             print(' ')
-
         else:
             return True
-
     except TypeError:
         return False
 
