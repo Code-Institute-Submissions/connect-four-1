@@ -127,7 +127,7 @@ def run_game():
     """
     Starts the game and sets the turn value for Player 1 to start
     """
-    game = GameBoard(0)
+    game = GameBoard(0) # Set the turn to 0
     game.print_board()  # Initial game board
     game_play = False
 
