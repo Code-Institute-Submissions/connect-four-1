@@ -158,7 +158,7 @@ def run_game():
                     print('+', '-'*60, '+')
                     print(figlet_format('Game Over!', font = "marquee"))
                     quit()
-                    
+
             if game.check_tie():
                 print('')
                 print('                          No winners')

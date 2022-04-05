@@ -15,6 +15,8 @@ SHEET = GSPREAD_CLIENT.open('connect4')
 
 # Constant variables
 USERNAME = SHEET.worksheet('usernames')
+FIRST_PLAYER = 0
+SECOND_PLAYER = 1
 
 class Users():
     """
@@ -23,9 +25,8 @@ class Users():
     or players 2 username, validates users input when creating
     the username
     """
-    def __init__(self, player, player_number:int):
+    def __init__(self, player):
         self.player = player
-        self.player_number = player_number
         
     
     def get_user_name(self):
@@ -40,21 +41,20 @@ class Users():
         """
         while True:
             # Player One creates username
-            if self.player_number == 0:
+            if self.player == 0:
                 print(' ')
-                self.player = input(" Player 1 please enter a username: ")
+                player_name = input(" Player 1 please enter a username: ")
                 print(' ')
-                if validate_player_name(self.player):
+                if validate_player_name(player_name):
                     # Checks if the user input is already in google sheets database and if it isn't runs the code
-                    if self.player not in USERNAME.col_values(1):
+                    if player_name not in USERNAME.col_values(1):
                         # Converts the player input into an list item so it can be handled in google sheets
-                        player1_username = self.player.split()
+                        player1_username = player_name.split()
                         #Adds the created username to the google sheets database
                         USERNAME.append_row(player1_username)
                         print(' ')
-                        print(f" Hello {self.player} ...you are player 1...")
+                        print(f" Hello {player_name} ...you are player 1...")
                         print(' ')
-                        break
                     else:
                         # If the username is in the google sheets database it prints the below error
                         print(' ')
@@ -67,19 +67,18 @@ class Users():
             else:
                 # Player Two creates username
                 print(' ')
-                self.player = input(" Player 2 please enter a username: ")
+                player_name = input(" Player 2 please enter a username: ")
                 print(' ')
-                if validate_player_name(self.player):
+                if validate_player_name(player_name):
                     # Checks if the user input is already in google sheets database and if it isn't runs the code
-                    if self.player not in USERNAME.col_values(1):
+                    if player_name not in USERNAME.col_values(1):
                         # Converts the player input into an list item so it can be handled in google sheets
-                        player2_username = self.player.split()
+                        player2_username = player_name.split()
                         # Adds the created username to the google sheets database
                         USERNAME.append_row(player2_username)
                         print(' ')
-                        print(f" Hello {self.player} ...you are player 2 ...caluclating next move...")
+                        print(f" Hello {player_name} ...you are player 2 ...caluclating next move...")
                         print(' ')
-                        break
                     else:
                         # If the username is in the google sheets database it prints the below error
                         print(' ')
@@ -89,6 +88,7 @@ class Users():
                         continue
                 else:
                     continue
+            return player_name
 
 
 def validate_player_name(player):
@@ -109,10 +109,8 @@ def validate_player_name(player):
     except TypeError:
         return False
 
-PLAYERS = ['Player 1', 'Player 2']
-player_one = Users(PLAYERS[0], 0)
+
+player_one = Users(FIRST_PLAYER)
 player_one.get_user_name()
-print(player_one.player)
-player_two = Users(PLAYERS[1], 1)
+player_two = Users(SECOND_PLAYER)
 player_two.get_user_name()
-print(player_two.player)
