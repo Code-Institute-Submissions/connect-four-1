@@ -69,7 +69,7 @@ def rules_screen():
     Back to the Welcome Screen or to get started
     """
     vis.blank_line()
-    cprint(figlet_format(' Game Rules', font = "rev"), COLORS['RED'], attrs=['bold'])
+    cprint(figlet_format(' Game Rules', font = "rev", justify = 'center'), COLORS['RED'], attrs=['bold'])
     vis.blank_line()
     cprint(' Connect 4 CLI is a two player game played on a singular device \n'.center(80), COLORS['YELLOW'], attrs=['bold'])
     time.sleep(1.5)
@@ -96,17 +96,17 @@ def rules_screen():
     cls()
     # Input choice for users to navigate to next screen
     vis.blank_line()
-    cprint(figlet_format(' Game Rules', font = "rev"), COLORS['RED'], attrs=['bold'])
+    cprint(figlet_format(' Game Rules', font = "rev", justify = 'center'), COLORS['RED'], attrs=['bold'])
     vis.blank_line()
-    cprint(' Press 1) To get started \n '.center(80), COLORS['YELLOW'], attrs=['bold'])
-    cprint(' Press 2) Game Rules \n '.center(80), COLORS['YELLOW'], attrs=['bold'])
+    cprint(' Press 1) To Welcome Screen \n '.center(80), COLORS['YELLOW'], attrs=['bold'])
+    cprint(' Press 2) To get started \n '.center(80), COLORS['YELLOW'], attrs=['bold'])
     menu_choice = input()
 
     while menu_choice not in ("1", "2"):
         cls()
-        print(figlet_format(' Game Rules', font = "banner"), COLORS['RED'], attrs=['bold'])
+        print(figlet_format(' Game Rules', font = "rev", justify = 'center'), COLORS['RED'], attrs=['bold'])
         print(" Please press 1 or 2 to make your choice \n".center(80), COLORS['RED'])
-        cprint(' Press 1) To get started \n '.center(80), COLORS['YELLOW'], attrs=['bold'])
+        cprint(' Press 1) To Welcome Screen\n '.center(80), COLORS['YELLOW'], attrs=['bold'])
         cprint(' Press 2) Game Rules \n '.center(80), COLORS['YELLOW'], attrs=['bold'])
         menu_choice = input()
         continue
