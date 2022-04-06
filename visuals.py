@@ -17,5 +17,6 @@ def connect4_title():
     Function to print off the connect 4 title
     """
     color = 'yellow'
-    cprint(figlet_format('Connect 4!', font = "banner"), color, attrs=['bold'])
+    blank_line()
+    cprint(figlet_format(' Connect 4!', font = "banner"), color, attrs=['bold'])
     

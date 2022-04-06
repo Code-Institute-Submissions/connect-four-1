@@ -41,7 +41,6 @@ def create_username(player, player_number):
             if validate_player_name(player):
                 if player not in USERNAME.col_values(1):
                     run.cls()
-                    vis.blank_line()
                     vis.connect4_title()
                     print(f" Hello {player} ...you are player 1...")
                     time.sleep(1.4)
@@ -51,7 +50,6 @@ def create_username(player, player_number):
                     run.cls()
                 else:
                     run.cls()
-                    vis.blank_line()
                     vis.connect4_title()
                     print(' Username not available please pick another')
                     vis.blank_line()
@@ -64,7 +62,6 @@ def create_username(player, player_number):
             if validate_player_name(player):
                 if player not in USERNAME.col_values(1):
                     run.cls()
-                    vis.blank_line()
                     vis.connect4_title()
                     print(f" Hello {player} ...you are player 2 ...caluclating next move...")
                     # Converts the player input into an list item so it can be handled in google sheets
@@ -72,7 +69,6 @@ def create_username(player, player_number):
                     USERNAME.append_row(player2_username)
                 else:
                     run.cls()
-                    vis.blank_line()
                     vis.connect4_title()
                     print(' Username not available please pick another')
                     vis.blank_line()
@@ -98,7 +94,6 @@ def player_login(player_number):
             player_username = input(" Player 1 please enter your username: ")
             if player_username in USERNAME.col_values(1):
                 run.cls()
-                vis.blank_line()
                 vis.connect4_title()
                 print(f' Welcome back {player_username}. You are Player 1')
                 time.sleep(1.4)
@@ -106,7 +101,6 @@ def player_login(player_number):
                 return player_username
             else:
                 run.cls()
-                vis.blank_line()
                 vis.connect4_title()
                 print(' Cannot find username')
                 vis.blank_line()
@@ -117,14 +111,12 @@ def player_login(player_number):
             if player_username in USERNAME.col_values(1):
                 if player_username != player_one:
                     run.cls()
-                    vis.blank_line()
                     vis.connect4_title()
                     print(f' Welcome back {player_username}. You are Player 2')
                     time.sleep(1.4)
                     return player_username
                 else:
                     run.cls()
-                    vis.blank_line()
                     vis.connect4_title()
                     print(' Cannot choose a username thats already logged in')
                     vis.blank_line()
@@ -144,7 +136,6 @@ def validate_player_name(player):
     """
     try:
         if len(player) < 3 or len(player) > 10:
-            vis.blank_line()
             vis.connect4_title()
             vis.blank_line()
             print(' Username must be between 3 and 10 characters long')
@@ -173,45 +164,37 @@ def get_users():
         menu_choice = input(' Player 1\n \n Press 1) Create username\n \n Press 2) Login')
         if menu_choice == '1':
             run.cls()
-            vis.blank_line()
             vis.connect4_title()
             player_one = create_username(PLAYERS[0], 0)
         elif menu_choice == '2':
             run.cls()
-            vis.blank_line()
             vis.connect4_title()
             player_one = None
             player_one = player_login(0)
         else:
             if menu_choice != '1' or '2':
                 run.cls()
-                vis.blank_line()
                 vis.connect4_title()
                 print(' Please press 1 or 2 to make your choice')
                 vis.blank_line()
                 continue
 
         # Player 2 create username/login
-        vis.blank_line()
         vis.connect4_title()
         menu_choice = input(' Player 2\n \n Press 1) Create username\n \n Press 2) Login')
         if menu_choice == '1':
             run.cls()
-            vis.blank_line()
             vis.connect4_title()
             player_two = create_username(PLAYERS[1], 1)
         elif menu_choice == '2':
             run.cls()
-            vis.blank_line()
             vis.connect4_title()
             player_two = player_login(1)
         else:
             if menu_choice != '1' or '2':
                 run.cls()
-                vis.blank_line()
                 vis.connect4_title()
                 print(' Please press 1 or 2 to make your choice')
                 vis.blank_line()
                 continue
         return player_one, player_two
-
