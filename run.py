@@ -15,7 +15,7 @@ def cls():
     os.system("cls" if os.name == "nt" else "clear")
 
 def welcome_message():
-    pass
+    print(figlet_format(' Connect 4!', font = "pebbles"))
 
 def rules_screen():
     pass
@@ -178,6 +178,9 @@ def high_scores():
     pass
 
 if __name__ == '__main__':
+    cls()
+    welcome_message()
     val.get_users()
+    cls()
     run_game()
     

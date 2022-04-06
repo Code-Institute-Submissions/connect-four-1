@@ -2,6 +2,7 @@ import gspread
 from google.oauth2.service_account import Credentials
 import run as run
 import time
+from pyfiglet import figlet_format
 
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
@@ -36,45 +37,43 @@ def create_username(player, player_number):
 
         # Player One creates username
         if player_number == 0:
-            time.sleep(0.6)
-            print(' ')
             player = input(" Player 1 please enter a username: ")
-            run.cls()
             if validate_player_name(player):
                 if player not in USERNAME.col_values(1):
+                    run.cls()
+                    print(figlet_format(' Connect 4!', font = "pebbles"))
+                    print(' ')
+                    print(f" Hello {player} ...you are player 1...")
+                    time.sleep(1.4)
                     # Converts the player input into an list item so it can be handled in google sheets
                     player1_username = player.split()
                     USERNAME.append_row(player1_username)
                     run.cls()
-                    time.sleep(0.6)
-                    print(' ')
-                    print(f" Hello {player} ...you are player 1...")
                 else:
-                    time.sleep(0.6)
-                    print(' ')
+                    run.cls()
+                    print(figlet_format(' Connect 4!', font = "pebbles"))
                     print(' Username not available please pick another')
+                    print(' ')
                     continue
             else:
                 continue
         else:
             # Player Two creates username
-            time.sleep(0.6)
-            print(' ')
             player = input(" Player 2 please enter a username: ")
-            run.cls()
             if validate_player_name(player):
                 if player not in USERNAME.col_values(1):
+                    run.cls()
+                    print(figlet_format(' Connect 4!', font = "pebbles"))
+                    print(' ')
+                    print(f" Hello {player} ...you are player 2 ...caluclating next move...")
                     # Converts the player input into an list item so it can be handled in google sheets
                     player2_username = player.split()
                     USERNAME.append_row(player2_username)
-                    run.cls()
-                    time.sleep(0.6)
-                    print(' ')
-                    print(f" Hello {player} ...you are player 2 ...caluclating next move...")
                 else:
-                    time.sleep(0.6)
+                    run.cls()
+                    print(figlet_format(' Connect 4!', font = "pebbles"))
+                    print(' Username not available please pick another')
                     print(' ')
-                    print('Username not available please pick another')
                     continue
             else:
                 continue
@@ -94,41 +93,41 @@ def player_login(player_number):
     while True:
         if player_number == 0:
             # Player 1 inputs username
-            time.sleep(0.6)
             player_username = input(" Player 1 please enter your username: ")
-            run.cls()
             if player_username in USERNAME.col_values(1):
                 run.cls()
-                time.sleep(0.6)
-                print(' ')
+                print(figlet_format(' Connect 4!', font = "pebbles"))
                 print(f' Welcome back {player_username}. You are Player 1')
+                time.sleep(1.4)
+                run.cls()
                 return player_username  
             else:
-                time.sleep(0.6)
-                print(' ')
+                run.cls()
+                print(figlet_format(' Connect 4!', font = "pebbles"))
                 print(' Cannot find username')
+                print(' ')
                 continue
         else:
             # Player 2 inputs username
-            time.sleep(0.6)
-            print(' ')
             player_username = input(" Player 2 please enter a username: ")
-            run.cls()
             if player_username in USERNAME.col_values(1):
                 if player_username != player_one:
                     run.cls()
-                    time.sleep(0.6)
+                    print(figlet_format(' Connect 4!', font = "pebbles"))
                     print(' ')
                     print(f' Welcome back {player_username}. You are Player 2')
+                    time.sleep(1.4)
                     return player_username
                 else:
-                    time.sleep(0.6)
-                    print(' ')
+                    run.cls()
+                    print(figlet_format(' Connect 4!', font = "pebbles"))
                     print(' Cannot choose a username thats already logged in')
+                    print(' ')
             else:
-                time.sleep(0.6)
-                print(' ')
+                run.cls()
+                print(figlet_format(' Connect 4!', font = "pebbles"))
                 print(' Cannot find username')
+                print(' ')
                 continue
 
 
@@ -140,7 +139,7 @@ def validate_player_name(player):
     """
     try:
         if len(player) < 3 or len(player) > 10:
-            time.sleep(0.6)
+            print(figlet_format(' Connect 4!', font = "pebbles"))
             print(' ')
             print(' Username must be between 3 and 10 characters long')
         else:
@@ -165,41 +164,38 @@ def get_users():
 
     while True:
         # Player 1 create username/login
-        print(' ')
         menu_choice = input(' Player 1\n \n Press 1) Create username\n \n Press 2) Login')
-        print(' ')
         if menu_choice == '1':
             run.cls()
+            print(figlet_format(' Connect 4!', font = "pebbles"))
             player_one = create_username(PLAYERS[0], 0)
-            print(' ')
         elif menu_choice == '2':
             run.cls()
+            print(figlet_format(' Connect 4!', font = "pebbles"))
             player_one = None
             player_one = player_login(0)
         else:
             if menu_choice != '1' or '2':
                 run.cls()
-                time.sleep(0.6)
+                print(figlet_format(' Connect 4!', font = "pebbles"))
                 print(' Please press 1 or 2 as your option')
                 continue
 
-    # Player 2 create username/login
-        time.sleep(2)
-        run.cls()
-        print(' ')
+        # Player 2 create username/login
+        print(figlet_format(' Connect 4!', font = "pebbles"))
         menu_choice = input(' Player 2\n \n Press 1) Create username\n \n Press 2) Login')
-        print(' ')
         if menu_choice == '1':
             run.cls()
+            print(figlet_format(' Connect 4!', font = "pebbles"))
             player_two = create_username(PLAYERS[1], 1)
-            print('')
         elif menu_choice == '2':
             run.cls()
+            print(figlet_format(' Connect 4!', font = "pebbles"))
             player_two = player_login(1)
         else:
             if menu_choice != '1' or '2':
                 run.cls()
-                time.sleep(0.6)
+                print(figlet_format(' Connect 4!', font = "pebbles"))
                 print(' Please press 1 or 2 as your option')
                 continue
         return player_one, player_two
