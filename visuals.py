@@ -1,4 +1,9 @@
 from pyfiglet import figlet_format
+import colorama
+from termcolor import cprint
+
+
+colorama.init(autoreset=True)
 
 
 def blank_line():
@@ -11,4 +16,6 @@ def connect4_title():
     """
     Function to print off the connect 4 title
     """
-    print(figlet_format(' Connect 4!', font = "banner"))
+    color = 'yellow'
+    cprint(figlet_format('Connect 4!', font = "banner"), color, attrs=['bold'])
+    

@@ -1,18 +1,30 @@
 import os
 import time
 import sys
+from colorama import init
+from termcolor import cprint
 import visuals as vis
 from pyfiglet import figlet_format
 import validation as val
+
+# use Colorama to make Termcolor work on Windows too
+init()
 
 COLUMN_COUNT = 10
 ROW_COUNT = 7
 PLAYER_1 = ' \U0001F534 '  # unicode for red circle
 PLAYER_2 = ' \U0001F7E1 '  # Unicode for yellow circle
 
+COLORS = {
+    'RED' : 'red',
+    'BLUE' : 'blue',
+    'YELLOW' : 'yellow'
+}
+
+
 def cls():
     """
-    Clear the console
+    Clears the console
     """
     os.system("cls" if os.name == "nt" else "clear")
 
@@ -26,7 +38,8 @@ def welcome_message():
     Or can go to the game rules - rules_screen function
     """
     vis.connect4_title()
-    menu_choice = input(' Welcome to Connect4 Command Line Interface Game \n \n Press 1) To get started\n \n Press 2) Game Rules \n ')
+    cprint(' Welcome to Connect4 Command Line Interface Game \n', COLORS['RED'], attrs=['bold'])
+    menu_choice = input(' Press 1) To get started \n \n Press 2) Game Rules \n ')
 
     while menu_choice not in ("1", "2"):
         cls()
