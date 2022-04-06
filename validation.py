@@ -2,7 +2,11 @@ import gspread
 from google.oauth2.service_account import Credentials
 import run as run
 import time
+import colorama
+from termcolor import cprint
 import visuals as vis
+
+colorama.init(autoreset=True)
 
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
@@ -37,13 +41,14 @@ def create_username(player, player_number):
 
         # Player One creates username
         if player_number == 0:
-            player = input(" Player 1 please enter a username: ")
+            cprint("Player 1 please enter a username: ".center(80), run.COLORS['BLUE'], attrs=['bold'])
+            player = input()
             if validate_player_name(player):
                 if player not in USERNAME.col_values(1):
                     run.cls()
                     vis.connect4_title()
-                    print(f" Hello {player} ...you are player 1...")
-                    time.sleep(1.4)
+                    cprint(f"Hello {player} ...you are player 1({run.PLAYER_1} )...".center(80), run.COLORS['RED'], attrs=['bold'])
+                    time.sleep(2)
                     # Converts the player input into an list item so it can be handled in google sheets
                     player1_username = player.split()
                     USERNAME.append_row(player1_username)
@@ -51,27 +56,27 @@ def create_username(player, player_number):
                 else:
                     run.cls()
                     vis.connect4_title()
-                    print(' Username not available please pick another')
-                    vis.blank_line()
+                    cprint('Username not available please pick another \n'.center(80), run.COLORS['RED'], attrs=['bold'])
                     continue
             else:
                 continue
         else:
             # Player Two creates username
-            player = input(" Player 2 please enter a username: ")
+            cprint("Player 2 please enter a username: ".center(80), run.COLORS['BLUE'], attrs=['bold'])
+            player = input()
             if validate_player_name(player):
                 if player not in USERNAME.col_values(1):
                     run.cls()
                     vis.connect4_title()
-                    print(f" Hello {player} ...you are player 2 ...caluclating next move...")
+                    cprint(f"Hello {player} ...you are player 2 ({run.PLAYER_2} )".center(80), run.COLORS['YELLOW'], attrs=['bold'])
+                    time.sleep(2)
                     # Converts the player input into an list item so it can be handled in google sheets
                     player2_username = player.split()
                     USERNAME.append_row(player2_username)
                 else:
                     run.cls()
                     vis.connect4_title()
-                    print(' Username not available please pick another')
-                    vis.blank_line()
+                    cprint('Username not available please pick another'.center(80), run.COLORS['RED'], attrs=['bold'])
                     continue
             else:
                 continue
@@ -91,40 +96,39 @@ def player_login(player_number):
     while True:
         if player_number == 0:
             # Player 1 inputs username
-            player_username = input(" Player 1 please enter your username: ")
+            cprint("Player 1 please log in with your username: ".center(80), run.COLORS['BLUE'], attrs=['bold'])
+            player_username = input()
             if player_username in USERNAME.col_values(1):
                 run.cls()
                 vis.connect4_title()
-                print(f' Welcome back {player_username}. You are Player 1')
-                time.sleep(1.4)
+                cprint(f'Welcome back {player_username}. You are Player 1 ({run.PLAYER_1} )'.center(80), run.COLORS['RED'], attrs=['bold'])
+                time.sleep(2)
                 run.cls()
                 return player_username
             else:
                 run.cls()
                 vis.connect4_title()
-                print(' Cannot find username')
-                vis.blank_line()
+                cprint('Cannot find username \n'.center(80), run.COLORS['RED'], attrs=['bold'])
                 continue
         else:
             # Player 2 inputs username
-            player_username = input(" Player 2 please enter a username: ")
+            cprint("Player 2 please log in with your username: ".center(80), run.COLORS['BLUE'], attrs=['bold'])
+            player_username = input()
             if player_username in USERNAME.col_values(1):
                 if player_username != player_one:
                     run.cls()
                     vis.connect4_title()
-                    print(f' Welcome back {player_username}. You are Player 2')
-                    time.sleep(1.4)
+                    cprint(f'Welcome back {player_username}. You are Player 2 ({run.PLAYER_2} )'.center(80), run.COLORS['YELLOW'], attrs=['bold'])
+                    time.sleep(2)
                     return player_username
                 else:
                     run.cls()
                     vis.connect4_title()
-                    print(' Cannot choose a username thats already logged in')
-                    vis.blank_line()
+                    cprint('Cannot choose a username thats already logged in \n'.center(80), run.COLORS['RED'], attrs=['bold'])
             else:
                 run.cls()
                 vis.connect4_title()
-                print(' Cannot find username')
-                vis.blank_line()
+                cprint('Cannot find username \n'.center(80), run.COLORS['RED'], attrs=['bold'])
                 continue
 
 
@@ -138,7 +142,7 @@ def validate_player_name(player):
         if len(player) < 3 or len(player) > 10:
             vis.connect4_title()
             vis.blank_line()
-            print(' Username must be between 3 and 10 characters long')
+            cprint('Username must be between 3 and 10 characters long'.center(80), run.COLORS['RED'], attrs=['bold'])
         else:
             return True
     except TypeError:
@@ -161,7 +165,10 @@ def get_users():
 
     while True:
         # Player 1 create username/login
-        menu_choice = input(' Player 1\n \n Press 1) Create username\n \n Press 2) Login')
+        cprint('Player 1\n '.center(80), run.COLORS['RED'], attrs=['bold'])
+        cprint('Press 1) Create username\n '.center(80), run.COLORS['YELLOW'], attrs=['bold'])
+        cprint('Press 2) Login \n'.center(80), run.COLORS['YELLOW'], attrs=['bold'])
+        menu_choice = input()
         if menu_choice == '1':
             run.cls()
             vis.connect4_title()
@@ -175,13 +182,16 @@ def get_users():
             if menu_choice != '1' or '2':
                 run.cls()
                 vis.connect4_title()
-                print(' Please press 1 or 2 to make your choice')
+                cprint('Please press 1 or 2 to make your choice'.center(80), run.COLORS['YELLOW'], attrs=['bold'])
                 vis.blank_line()
                 continue
 
         # Player 2 create username/login
         vis.connect4_title()
-        menu_choice = input(' Player 2\n \n Press 1) Create username\n \n Press 2) Login')
+        cprint('Player 2\n '.center(80), run.COLORS['YELLOW'], attrs=['bold'])
+        cprint('Press 1) Create username\n '.center(80), run.COLORS['BLUE'], attrs=['bold'])
+        cprint('Press 2) Login \n'.center(80), run.COLORS['BLUE'], attrs=['bold'])
+        menu_choice = input()
         if menu_choice == '1':
             run.cls()
             vis.connect4_title()
@@ -194,7 +204,7 @@ def get_users():
             if menu_choice != '1' or '2':
                 run.cls()
                 vis.connect4_title()
-                print(' Please press 1 or 2 to make your choice')
+                cprint('Please press 1 or 2 to make your choice'.center(80), run.COLORS['YELLOW'], attrs=['bold'])
                 vis.blank_line()
                 continue
         return player_one, player_two
