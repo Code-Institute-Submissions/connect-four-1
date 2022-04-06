@@ -37,6 +37,7 @@ def create_username(player, player_number):
         # Player One creates username
         if player_number == 0:
             time.sleep(0.6)
+            print(' ')
             player = input(" Player 1 please enter a username: ")
             run.cls()
             if validate_player_name(player):
@@ -46,18 +47,19 @@ def create_username(player, player_number):
                     USERNAME.append_row(player1_username)
                     run.cls()
                     time.sleep(0.6)
+                    print(' ')
                     print(f" Hello {player} ...you are player 1...")
                 else:
                     time.sleep(0.6)
                     print(' ')
                     print(' Username not available please pick another')
-                    print(' ')
                     continue
             else:
                 continue
         else:
             # Player Two creates username
             time.sleep(0.6)
+            print(' ')
             player = input(" Player 2 please enter a username: ")
             run.cls()
             if validate_player_name(player):
@@ -67,12 +69,12 @@ def create_username(player, player_number):
                     USERNAME.append_row(player2_username)
                     run.cls()
                     time.sleep(0.6)
+                    print(' ')
                     print(f" Hello {player} ...you are player 2 ...caluclating next move...")
                 else:
                     time.sleep(0.6)
                     print(' ')
                     print('Username not available please pick another')
-                    print(' ')
                     continue
             else:
                 continue
@@ -98,35 +100,35 @@ def player_login(player_number):
             if player_username in USERNAME.col_values(1):
                 run.cls()
                 time.sleep(0.6)
+                print(' ')
                 print(f' Welcome back {player_username}. You are Player 1')
                 return player_username  
             else:
                 time.sleep(0.6)
                 print(' ')
                 print(' Cannot find username')
-                print(' ')
                 continue
         else:
             # Player 2 inputs username
             time.sleep(0.6)
+            print(' ')
             player_username = input(" Player 2 please enter a username: ")
             run.cls()
             if player_username in USERNAME.col_values(1):
                 if player_username != player_one:
                     run.cls()
                     time.sleep(0.6)
+                    print(' ')
                     print(f' Welcome back {player_username}. You are Player 2')
                     return player_username
                 else:
                     time.sleep(0.6)
                     print(' ')
                     print(' Cannot choose a username thats already logged in')
-                    print(' ')
             else:
                 time.sleep(0.6)
                 print(' ')
                 print(' Cannot find username')
-                print(' ')
                 continue
 
 
@@ -139,8 +141,8 @@ def validate_player_name(player):
     try:
         if len(player) < 3 or len(player) > 10:
             time.sleep(0.6)
-            print(' Username must be between 3 and 10 characters long')
             print(' ')
+            print(' Username must be between 3 and 10 characters long')
         else:
             return True
     except TypeError:
@@ -163,6 +165,7 @@ def get_users():
 
     while True:
         # Player 1 create username/login
+        print(' ')
         menu_choice = input(' Player 1\n \n Press 1) Create username\n \n Press 2) Login')
         print(' ')
         if menu_choice == '1':
@@ -183,6 +186,7 @@ def get_users():
     # Player 2 create username/login
         time.sleep(2)
         run.cls()
+        print(' ')
         menu_choice = input(' Player 2\n \n Press 1) Create username\n \n Press 2) Login')
         print(' ')
         if menu_choice == '1':
