@@ -77,7 +77,7 @@ def rules_screen():
     time.sleep(1.5)
     cprint(' Or logs in with a username previously made \n'.center(80), COLORS['YELLOW'], attrs=['bold'])
     time.sleep(1.5)
-    cprint(' IMPORTANT! Remember the username you have created \n'.center(80), COLORS['RED'], attrs=['bold'], attrs=['bold'])
+    cprint(' IMPORTANT! Remember the username you have created \n'.center(80), COLORS['RED'], attrs=['bold'])
     time.sleep(1.5)
     cprint(' Your scores will be attached to your username \n'.center(80), COLORS['YELLOW'], attrs=['bold'])
     time.sleep(1.5)
@@ -106,8 +106,8 @@ def rules_screen():
         cls()
         print(figlet_format(' Game Rules', font = "banner"), COLORS['RED'], attrs=['bold'])
         print(" Please press 1 or 2 to make your choice \n".center(80), COLORS['RED'])
-        cprint(' Press 1) To get started \n '.center(80), COLORS['YELLOW']attrs=['bold'])
-        cprint(' Press 2) Game Rules \n '.center(80), COLORS['YELLOW']attrs=['bold'])
+        cprint(' Press 1) To get started \n '.center(80), COLORS['YELLOW'], attrs=['bold'])
+        cprint(' Press 2) Game Rules \n '.center(80), COLORS['YELLOW'], attrs=['bold'])
         menu_choice = input()
         continue
     
