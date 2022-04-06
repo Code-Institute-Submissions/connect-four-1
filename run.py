@@ -1,6 +1,7 @@
 import os
 import time
 import sys
+import visuals as vis
 from pyfiglet import figlet_format
 import validation as val
 
@@ -24,21 +25,21 @@ def welcome_message():
     To get started creating a suername or logging in
     Or can go to the game rules - rules_screen function
     """
-    print(figlet_format(' Connect 4!', font = "banner"))
+    vis.connect4_title()
     menu_choice = input(' Welcome to Connect4 Command Line Interface Game \n \n Press 1) To get started\n \n Press 2) Game Rules \n ')
 
     while menu_choice not in ("1", "2"):
         cls()
-        print(figlet_format(' Connect 4!', font = "banner"))
+        vis.connect4_title()
         print(" Please press 1 or 2 to make your choice")
-        print(' ')
+        vis.blank_line()
         menu_choice = input(' Press 1) To get started\n \n Press 2) Game Rules \n ')
-        print(' ')
+        vis.blank_line()
         continue
 
     if menu_choice == '1':
         cls()
-        print(figlet_format(' Connect 4!', font = "banner"))
+        vis.connect4_title()
         val.get_users()
     elif menu_choice == '2':
         cls()
@@ -51,52 +52,52 @@ def rules_screen():
     Once the rules are explained, the user can naviagte
     Back to the Welcome Screen or to get started
     """
-    print(' ')
+    vis.blank_line()
     print(figlet_format(' Game Rules', font = "banner"))
-    print(' ')
+    vis.blank_line()
     print(' Connect 4 is a two player game played on a singular device')
     time.sleep(1.5)
-    print(' ')
+    vis.blank_line()
     print(' Each player either creates a new username ...')
     time.sleep(1.5)
-    print(' ')
+    vis.blank_line()
     print(' Or logs in with a username previously made')
     time.sleep(1.5)
-    print(' ')
+    vis.blank_line()
     print(' IMPORTANT! Remember the username created')
     time.sleep(1.5)
-    print(' ')
+    vis.blank_line()
     print(' Your scores will be attached to your username')
     time.sleep(1.5)
-    print(' ')
+    vis.blank_line()
     print(' Player 1 will be assigned a red disc and Player 2 a yellow disc')
     time.sleep(1.5)
-    print(' ')
+    vis.blank_line()
     print(' The goal of the game is to get 4 of your discs in a row')
     time.sleep(1.5)
-    print(' ')
+    vis.blank_line()
     print(' Either 4 horizontally, or vertically, or diagonally')
     time.sleep(1.6)
-    print(' ')
+    vis.blank_line()
     print(' Have fun!')
     time.sleep(1.6)
-    print(' ')
+    vis.blank_line()
     input(' Press any key to move on... \n ')
     
     cls()
     # Input choice for users to navigate to next screen
-    print(' ')
+    vis.blank_line()
     print(figlet_format(' Game Rules', font = "banner"))
-    print(' ')
+    vis.blank_line()
     menu_choice = input(' Press 1) To go back to Welcome Screen\n \n Press 2) To get started \n ')
 
     while menu_choice not in ("1", "2"):
         cls()
         print(figlet_format(' Game Rules', font = "banner"))
         print(" Please press 1 or 2 to make your choice")
-        print(' ')
+        vis.blank_line()
         menu_choice = input(' Press 1) To go back to Welcome Screen\n \n Press 2) To get started \n ')
-        print(' ')
+        vis.blank_line()
         continue
     
     if menu_choice == '1':
@@ -104,7 +105,7 @@ def rules_screen():
         welcome_message()
     elif menu_choice == '2':
         cls()
-        print(figlet_format(' Connect 4!', font = "banner"))
+        vis.connect4_title()
         val.get_users()
 
 
@@ -138,7 +139,7 @@ class GameBoard():
             # Need to add one more column to the result to create the number of columns
             grid += ' ||\n'
         grid += '-' * 64
-        print(' ')
+        vis.blank_line()
         print('    1 ', '   2 ', '   3  ', '  4  ', '  5  ', '  6  ', '  7  ',
               '  8  ', '  9  ', '  10')
         print(grid)
@@ -228,9 +229,9 @@ def run_game():
                 )
                 game.drop_player_piece(int(player_move) - 1, PLAYER_1)
                 if game.check_move(PLAYER_1):
-                    print('')
+                    vis.blank_line()
                     print(f'                    PLAYER 1 ({PLAYER_1} ) WINS!')
-                    print('')
+                    vis.blank_line()
                     print('+', '-'*60, '+')
                     print(figlet_format(' Game Over!', font = "marquee"))
                     quit()
@@ -241,17 +242,17 @@ def run_game():
                 )
                 game.drop_player_piece(int(player_move) - 1, PLAYER_2)
                 if game.check_move(PLAYER_2):
-                    print('')
+                    vis.blank_line()
                     print(f'                    PLAYER 2 ({PLAYER_2} ) WINS!')
-                    print('')
+                    vis.blank_line()
                     print('+', '-'*60, '+')
                     print(figlet_format('Game Over!', font = "marquee"))
                     quit()
 
             if game.check_tie():
-                print('')
+                vis.blank_line()
                 print('                          No winners')
-                print('')
+                vis.blank_line()
                 print('+', '-'*60, '+')
                 print(figlet_format(' Game Over!', font = "marquee"))
                 quit()
