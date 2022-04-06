@@ -50,8 +50,6 @@ def create_username(player, player_number):
                     print(' Username not available please pick another')
                     print(' ')
                     continue
-            else:
-                continue
         else:
             # Player Two creates username
             print(' ')
@@ -69,8 +67,7 @@ def create_username(player, player_number):
                     print(' ')
                     print('Username not available please pick another')
                     print(' ')
-            else:
-                continue
+                    continue
         return player
 
 
@@ -95,7 +92,6 @@ def player_login(player_number):
                 print(' ')
                 print('Cannot find username')
                 print(' ')
-                continue
         else:
             # Player 2 inputs username
             player_username = input(" Player 2 please enter a username: ")
@@ -106,7 +102,7 @@ def player_login(player_number):
                 else:
                     print(' ')
                     print('Cannot choose a username thats already logged in')
-                    print(' ') 
+                    print(' ')
             else:
                 print(' ')
                 print('Cannot find username')
