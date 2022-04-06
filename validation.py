@@ -1,5 +1,7 @@
 import gspread
 from google.oauth2.service_account import Credentials
+import run as run
+import time
 
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
@@ -34,40 +36,46 @@ def create_username(player, player_number):
 
         # Player One creates username
         if player_number == 0:
-            print(' ')
+            time.sleep(0.6)
             player = input(" Player 1 please enter a username: ")
-            print(' ')
+            run.cls()
             if validate_player_name(player):
                 if player not in USERNAME.col_values(1):
                     # Converts the player input into an list item so it can be handled in google sheets
                     player1_username = player.split()
                     USERNAME.append_row(player1_username)
-                    print(' ')
+                    run.cls()
+                    time.sleep(0.6)
                     print(f" Hello {player} ...you are player 1...")
-                    print(' ')
                 else:
+                    time.sleep(0.6)
                     print(' ')
                     print(' Username not available please pick another')
                     print(' ')
                     continue
+            else:
+                continue
         else:
             # Player Two creates username
-            print(' ')
+            time.sleep(0.6)
             player = input(" Player 2 please enter a username: ")
-            print(' ')
+            run.cls()
             if validate_player_name(player):
                 if player not in USERNAME.col_values(1):
                     # Converts the player input into an list item so it can be handled in google sheets
                     player2_username = player.split()
                     USERNAME.append_row(player2_username)
-                    print(' ')
+                    run.cls()
+                    time.sleep(0.6)
                     print(f" Hello {player} ...you are player 2 ...caluclating next move...")
-                    print(' ')
                 else:
+                    time.sleep(0.6)
                     print(' ')
                     print('Username not available please pick another')
                     print(' ')
                     continue
+            else:
+                continue
         return player
 
 
@@ -84,28 +92,40 @@ def player_login(player_number):
     while True:
         if player_number == 0:
             # Player 1 inputs username
+            time.sleep(0.6)
             player_username = input(" Player 1 please enter your username: ")
+            run.cls()
             if player_username in USERNAME.col_values(1):
-                print(f'Welcome back {player_username}. You are Player 1')
+                run.cls()
+                time.sleep(0.6)
+                print(f' Welcome back {player_username}. You are Player 1')
                 return player_username  
             else:
+                time.sleep(0.6)
                 print(' ')
-                print('Cannot find username')
+                print(' Cannot find username')
                 print(' ')
+                continue
         else:
             # Player 2 inputs username
+            time.sleep(0.6)
             player_username = input(" Player 2 please enter a username: ")
+            run.cls()
             if player_username in USERNAME.col_values(1):
                 if player_username != player_one:
-                    print(f'Welcome back {player_username}. You are Player 2')
+                    run.cls()
+                    time.sleep(0.6)
+                    print(f' Welcome back {player_username}. You are Player 2')
                     return player_username
                 else:
+                    time.sleep(0.6)
                     print(' ')
-                    print('Cannot choose a username thats already logged in')
+                    print(' Cannot choose a username thats already logged in')
                     print(' ')
             else:
+                time.sleep(0.6)
                 print(' ')
-                print('Cannot find username')
+                print(' Cannot find username')
                 print(' ')
                 continue
 
@@ -118,8 +138,8 @@ def validate_player_name(player):
     """
     try:
         if len(player) < 3 or len(player) > 10:
-            print(' ')
-            print('Username must be between 3 and 10 characters long')
+            time.sleep(0.6)
+            print(' Username must be between 3 and 10 characters long')
             print(' ')
         else:
             return True
@@ -143,39 +163,40 @@ def get_users():
 
     while True:
         # Player 1 create username/login
-        print(' ')
         menu_choice = input(' Player 1\n \n Press 1) Create username\n \n Press 2) Login')
         print(' ')
         if menu_choice == '1':
+            run.cls()
             player_one = create_username(PLAYERS[0], 0)
             print(' ')
         elif menu_choice == '2':
-            print(' ')
+            run.cls()
             player_one = None
             player_one = player_login(0)
         else:
             if menu_choice != '1' or '2':
+                run.cls()
+                time.sleep(0.6)
                 print(' Please press 1 or 2 as your option')
                 continue
 
     # Player 2 create username/login
-        print(' ')
+        time.sleep(2)
+        run.cls()
         menu_choice = input(' Player 2\n \n Press 1) Create username\n \n Press 2) Login')
         print(' ')
         if menu_choice == '1':
+            run.cls()
             player_two = create_username(PLAYERS[1], 1)
             print('')
         elif menu_choice == '2':
-            print(' ')
+            run.cls()
             player_two = player_login(1)
         else:
             if menu_choice != '1' or '2':
-                print(' ')
+                run.cls()
+                time.sleep(0.6)
                 print(' Please press 1 or 2 as your option')
-                print(' ')
                 continue
         return player_one, player_two
 
-
-get_users()
-print(player_one, player_two)

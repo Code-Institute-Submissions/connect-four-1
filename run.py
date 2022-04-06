@@ -1,6 +1,7 @@
 import os
 import time
 from pyfiglet import figlet_format
+import validation as val
 
 COLUMN_COUNT = 10
 ROW_COUNT = 7
@@ -177,5 +178,6 @@ def high_scores():
     pass
 
 if __name__ == '__main__':
+    val.get_users()
     run_game()
     
