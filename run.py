@@ -15,7 +15,7 @@ def cls():
     os.system("cls" if os.name == "nt" else "clear")
 
 def welcome_message():
-    print(figlet_format(' Connect 4!', font = "pebbles"))
+    print(figlet_format(' Connect 4!', font = "banner"))
 
 def rules_screen():
     pass

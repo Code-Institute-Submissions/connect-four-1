@@ -41,8 +41,7 @@ def create_username(player, player_number):
             if validate_player_name(player):
                 if player not in USERNAME.col_values(1):
                     run.cls()
-                    print(figlet_format(' Connect 4!', font = "pebbles"))
-                    print(' ')
+                    print(figlet_format(' Connect 4!', font = "banner"))
                     print(f" Hello {player} ...you are player 1...")
                     time.sleep(1.4)
                     # Converts the player input into an list item so it can be handled in google sheets
@@ -51,7 +50,7 @@ def create_username(player, player_number):
                     run.cls()
                 else:
                     run.cls()
-                    print(figlet_format(' Connect 4!', font = "pebbles"))
+                    print(figlet_format(' Connect 4!', font = "banner"))
                     print(' Username not available please pick another')
                     print(' ')
                     continue
@@ -63,15 +62,14 @@ def create_username(player, player_number):
             if validate_player_name(player):
                 if player not in USERNAME.col_values(1):
                     run.cls()
-                    print(figlet_format(' Connect 4!', font = "pebbles"))
-                    print(' ')
+                    print(figlet_format(' Connect 4!', font = "banner"))
                     print(f" Hello {player} ...you are player 2 ...caluclating next move...")
                     # Converts the player input into an list item so it can be handled in google sheets
                     player2_username = player.split()
                     USERNAME.append_row(player2_username)
                 else:
                     run.cls()
-                    print(figlet_format(' Connect 4!', font = "pebbles"))
+                    print(figlet_format(' Connect 4!', font = "banner"))
                     print(' Username not available please pick another')
                     print(' ')
                     continue
@@ -96,14 +94,14 @@ def player_login(player_number):
             player_username = input(" Player 1 please enter your username: ")
             if player_username in USERNAME.col_values(1):
                 run.cls()
-                print(figlet_format(' Connect 4!', font = "pebbles"))
+                print(figlet_format(' Connect 4!', font = "banner"))
                 print(f' Welcome back {player_username}. You are Player 1')
                 time.sleep(1.4)
                 run.cls()
                 return player_username  
             else:
                 run.cls()
-                print(figlet_format(' Connect 4!', font = "pebbles"))
+                print(figlet_format(' Connect 4!', font = "banner"))
                 print(' Cannot find username')
                 print(' ')
                 continue
@@ -113,19 +111,18 @@ def player_login(player_number):
             if player_username in USERNAME.col_values(1):
                 if player_username != player_one:
                     run.cls()
-                    print(figlet_format(' Connect 4!', font = "pebbles"))
-                    print(' ')
+                    print(figlet_format(' Connect 4!', font = "banner"))
                     print(f' Welcome back {player_username}. You are Player 2')
                     time.sleep(1.4)
                     return player_username
                 else:
                     run.cls()
-                    print(figlet_format(' Connect 4!', font = "pebbles"))
+                    print(figlet_format(' Connect 4!', font = "banner"))
                     print(' Cannot choose a username thats already logged in')
                     print(' ')
             else:
                 run.cls()
-                print(figlet_format(' Connect 4!', font = "pebbles"))
+                print(figlet_format(' Connect 4!', font = "banner"))
                 print(' Cannot find username')
                 print(' ')
                 continue
@@ -139,7 +136,7 @@ def validate_player_name(player):
     """
     try:
         if len(player) < 3 or len(player) > 10:
-            print(figlet_format(' Connect 4!', font = "pebbles"))
+            print(figlet_format(' Connect 4!', font = "banner"))
             print(' ')
             print(' Username must be between 3 and 10 characters long')
         else:
@@ -167,35 +164,35 @@ def get_users():
         menu_choice = input(' Player 1\n \n Press 1) Create username\n \n Press 2) Login')
         if menu_choice == '1':
             run.cls()
-            print(figlet_format(' Connect 4!', font = "pebbles"))
+            print(figlet_format(' Connect 4!', font = "banner"))
             player_one = create_username(PLAYERS[0], 0)
         elif menu_choice == '2':
             run.cls()
-            print(figlet_format(' Connect 4!', font = "pebbles"))
+            print(figlet_format(' Connect 4!', font = "banner"))
             player_one = None
             player_one = player_login(0)
         else:
             if menu_choice != '1' or '2':
                 run.cls()
-                print(figlet_format(' Connect 4!', font = "pebbles"))
+                print(figlet_format(' Connect 4!', font = "banner"))
                 print(' Please press 1 or 2 as your option')
                 continue
 
         # Player 2 create username/login
-        print(figlet_format(' Connect 4!', font = "pebbles"))
+        print(figlet_format(' Connect 4!', font = "banner"))
         menu_choice = input(' Player 2\n \n Press 1) Create username\n \n Press 2) Login')
         if menu_choice == '1':
             run.cls()
-            print(figlet_format(' Connect 4!', font = "pebbles"))
+            print(figlet_format(' Connect 4!', font = "banner"))
             player_two = create_username(PLAYERS[1], 1)
         elif menu_choice == '2':
             run.cls()
-            print(figlet_format(' Connect 4!', font = "pebbles"))
+            print(figlet_format(' Connect 4!', font = "banner"))
             player_two = player_login(1)
         else:
             if menu_choice != '1' or '2':
                 run.cls()
-                print(figlet_format(' Connect 4!', font = "pebbles"))
+                print(figlet_format(' Connect 4!', font = "banner"))
                 print(' Please press 1 or 2 as your option')
                 continue
         return player_one, player_two
