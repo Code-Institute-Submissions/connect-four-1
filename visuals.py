@@ -18,5 +18,5 @@ def connect4_title():
     """
     color = 'yellow'
     blank_line()
-    cprint(figlet_format(' Connect 4!', font = "banner"), color, attrs=['bold'])
+    cprint(figlet_format(' Connect4 !', font = "rev"), color, attrs=['bold'])
     
