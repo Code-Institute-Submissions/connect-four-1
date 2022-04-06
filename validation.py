@@ -175,7 +175,8 @@ def get_users():
             if menu_choice != '1' or '2':
                 run.cls()
                 print(figlet_format(' Connect 4!', font = "banner"))
-                print(' Please press 1 or 2 as your option')
+                print(' Please press 1 or 2 to make your choice')
+                print(' ')
                 continue
 
         # Player 2 create username/login
@@ -193,7 +194,8 @@ def get_users():
             if menu_choice != '1' or '2':
                 run.cls()
                 print(figlet_format(' Connect 4!', font = "banner"))
-                print(' Please press 1 or 2 as your option')
+                print(' Please press 1 or 2 to make your choice')
+                print(' ')
                 continue
         return player_one, player_two
 

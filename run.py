@@ -1,5 +1,6 @@
 import os
 import time
+import sys
 from pyfiglet import figlet_format
 import validation as val
 
@@ -15,10 +16,97 @@ def cls():
     os.system("cls" if os.name == "nt" else "clear")
 
 def welcome_message():
+    """
+    This is the first screen seen by the player.
+    It prints off the initial welcome message and title
+    And opens the welcome screen menu
+    From here the user can go to Get Started - val.get_users function
+    To get started creating a suername or logging in
+    Or can go to the game rules - rules_screen function
+    """
     print(figlet_format(' Connect 4!', font = "banner"))
+    menu_choice = input(' Welcome to Connect4 Command Line Interface Game \n \n Press 1) To get started\n \n Press 2) Game Rules \n ')
+
+    while menu_choice not in ("1", "2"):
+        cls()
+        print(figlet_format(' Connect 4!', font = "banner"))
+        print(" Please press 1 or 2 to make your choice")
+        print(' ')
+        menu_choice = input(' Press 1) To get started\n \n Press 2) Game Rules \n ')
+        print(' ')
+        continue
+
+    if menu_choice == '1':
+        cls()
+        print(figlet_format(' Connect 4!', font = "banner"))
+        val.get_users()
+    elif menu_choice == '2':
+        cls()
+        rules_screen()
 
 def rules_screen():
-    pass
+    """
+    This function issues a series of print statements to the user
+    Explaining the rules of the game
+    Once the rules are explained, the user can naviagte
+    Back to the Welcome Screen or to get started
+    """
+    print(' ')
+    print(figlet_format(' Game Rules', font = "banner"))
+    print(' ')
+    print(' Connect 4 is a two player game played on a singular device')
+    time.sleep(1.5)
+    print(' ')
+    print(' Each player either creates a new username ...')
+    time.sleep(1.5)
+    print(' ')
+    print(' Or logs in with a username previously made')
+    time.sleep(1.5)
+    print(' ')
+    print(' IMPORTANT! Remember the username created')
+    time.sleep(1.5)
+    print(' ')
+    print(' Your scores will be attached to your username')
+    time.sleep(1.5)
+    print(' ')
+    print(' Player 1 will be assigned a red disc and Player 2 a yellow disc')
+    time.sleep(1.5)
+    print(' ')
+    print(' The goal of the game is to get 4 of your discs in a row')
+    time.sleep(1.5)
+    print(' ')
+    print(' Either 4 horizontally, or vertically, or diagonally')
+    time.sleep(1.6)
+    print(' ')
+    print(' Have fun!')
+    time.sleep(1.6)
+    print(' ')
+    input(' Press any key to move on... \n ')
+    
+    cls()
+    # Input choice for users to navigate to next screen
+    print(' ')
+    print(figlet_format(' Game Rules', font = "banner"))
+    print(' ')
+    menu_choice = input(' Press 1) To go back to Welcome Screen\n \n Press 2) To get started \n ')
+
+    while menu_choice not in ("1", "2"):
+        cls()
+        print(figlet_format(' Game Rules', font = "banner"))
+        print(" Please press 1 or 2 to make your choice")
+        print(' ')
+        menu_choice = input(' Press 1) To go back to Welcome Screen\n \n Press 2) To get started \n ')
+        print(' ')
+        continue
+    
+    if menu_choice == '1':
+        cls()
+        welcome_message()
+    elif menu_choice == '2':
+        cls()
+        print(figlet_format(' Connect 4!', font = "banner"))
+        val.get_users()
+
 
 def main_menu():
     pass
@@ -60,7 +148,7 @@ class GameBoard():
         Drops a piece into the Connect4 selected column
         Fills the position with the PLAYER piece
         """
-        column = int(column)  # column value is interger
+        column = int(column) 
         # Checks that the number input is between 1 and 10
         if column <= 9 and column >= 0 or column is None:
             if self.board[0][column] == '   ':
@@ -177,10 +265,14 @@ def play_again():
 def high_scores():
     pass
 
-if __name__ == '__main__':
-    cls()
+def start_game():
     welcome_message()
-    val.get_users()
     cls()
     run_game()
+    
+    
+if __name__ == '__main__':
+    cls()
+    start_game()
+    
     
