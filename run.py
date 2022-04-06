@@ -1,10 +1,10 @@
 import os
 import time
 import sys
+from pyfiglet import figlet_format
 from colorama import init
 from termcolor import cprint
 import visuals as vis
-from pyfiglet import figlet_format
 import validation as val
 
 # use Colorama to make Termcolor work on Windows too
@@ -40,16 +40,16 @@ def welcome_message():
     """
     vis.connect4_title()
     cprint(' Welcome to Connect4 Command Line Interface Game \n'.center(80), COLORS['BLUE'], attrs=['bold'])
-    cprint(' Press 1) To get started \n '.center(80), COLORS['YELLOW'])
-    cprint(' Press 2) Game Rules \n '.center(80), COLORS['YELLOW'])
+    cprint(' Press 1) To get started \n '.center(80), COLORS['YELLOW'], attrs=['bold'])
+    cprint(' Press 2) Game Rules \n '.center(80), COLORS['YELLOW'], attrs=['bold'])
     menu_choice = input()
     
     while menu_choice not in ("1", "2"):
         cls()
         vis.connect4_title()
         cprint(" Please press 1 or 2 to make your choice \n".center(80), COLORS['RED'], attrs=['bold'])
-        cprint(' Press 1) To get started \n '.center(80), COLORS['YELLOW'])
-        cprint(' Press 2) Game Rules \n '.center(80), COLORS['YELLOW'])
+        cprint(' Press 1) To get started \n '.center(80), COLORS['YELLOW'], attrs=['bold'])
+        cprint(' Press 2) Game Rules \n '.center(80), COLORS['YELLOW'], attrs=['bold'])
         menu_choice = input()
         continue
 
@@ -71,25 +71,25 @@ def rules_screen():
     vis.blank_line()
     cprint(figlet_format(' Game Rules', font = "rev"), COLORS['RED'], attrs=['bold'])
     vis.blank_line()
-    cprint(' Connect 4 CLI is a two player game played on a singular device \n'.center(80), COLORS['YELLOW'])
+    cprint(' Connect 4 CLI is a two player game played on a singular device \n'.center(80), COLORS['YELLOW'], attrs=['bold'])
     time.sleep(1.5)
-    cprint(' Each player either creates a new username ...\n'.center(80), COLORS['YELLOW'])
+    cprint(' Each player either creates a new username ...\n'.center(80), COLORS['YELLOW'], attrs=['bold'])
     time.sleep(1.5)
-    cprint(' Or logs in with a username previously made \n'.center(80), COLORS['YELLOW'])
+    cprint(' Or logs in with a username previously made \n'.center(80), COLORS['YELLOW'], attrs=['bold'])
     time.sleep(1.5)
-    cprint(' IMPORTANT! Remember the username you have created \n'.center(80), COLORS['RED'], attrs=['bold'])
+    cprint(' IMPORTANT! Remember the username you have created \n'.center(80), COLORS['RED'], attrs=['bold'], attrs=['bold'])
     time.sleep(1.5)
-    cprint(' Your scores will be attached to your username \n'.center(80), COLORS['YELLOW'])
+    cprint(' Your scores will be attached to your username \n'.center(80), COLORS['YELLOW'], attrs=['bold'])
     time.sleep(1.5)
-    cprint(f' Player 1 will be assigned a red disc ({PLAYER_1} )and Player 2 a yellow disc ({PLAYER_2} ) \n'.center(80), COLORS['YELLOW'])
+    cprint(f' Player 1 will be assigned a red disc ({PLAYER_1} )and Player 2 a yellow disc ({PLAYER_2} ) \n'.center(80), COLORS['YELLOW'], attrs=['bold'])
     time.sleep(1.5)
-    cprint(' The goal of the game is to get 4 of your discs in a row \n'.center(80), COLORS['YELLOW'])
+    cprint(' The goal of the game is to get 4 of your discs in a row \n'.center(80), COLORS['YELLOW'], attrs=['bold'])
     time.sleep(1.5)
-    cprint(' Either 4 horizontally, or vertically, or diagonally \n'.center(80), COLORS['YELLOW'])
+    cprint(' Either 4 horizontally, or vertically, or diagonally \n'.center(80), COLORS['YELLOW'], attrs=['bold'])
     time.sleep(1.6)
-    cprint(' Have fun! \n'.center(80), COLORS['YELLOW'])
+    cprint(' Have fun! \n'.center(80), COLORS['YELLOW'], attrs=['bold'])
     time.sleep(1.6)
-    cprint(' Press any key to move on... \n '.center(80), COLORS['BLUE'])
+    cprint(' Press any key to move on... \n '.center(80), COLORS['BLUE'], attrs=['bold'])
     input()
     
     
@@ -98,17 +98,16 @@ def rules_screen():
     vis.blank_line()
     cprint(figlet_format(' Game Rules', font = "rev"), COLORS['RED'], attrs=['bold'])
     vis.blank_line()
-    cprint(' Press 1) To get started \n '.center(80), COLORS['YELLOW'])
-    cprint(' Press 2) Game Rules \n '.center(80), COLORS['YELLOW'])
+    cprint(' Press 1) To get started \n '.center(80), COLORS['YELLOW'], attrs=['bold'])
+    cprint(' Press 2) Game Rules \n '.center(80), COLORS['YELLOW'], attrs=['bold'])
     menu_choice = input()
 
     while menu_choice not in ("1", "2"):
         cls()
-        print(figlet_format(' Game Rules', font = "banner"))
+        print(figlet_format(' Game Rules', font = "banner"), COLORS['RED'], attrs=['bold'])
         print(" Please press 1 or 2 to make your choice \n".center(80), COLORS['RED'])
-        vis.blank_line()
-        cprint(' Press 1) To get started \n '.center(80), COLORS['YELLOW'])
-        cprint(' Press 2) Game Rules \n '.center(80), COLORS['YELLOW'])
+        cprint(' Press 1) To get started \n '.center(80), COLORS['YELLOW']attrs=['bold'])
+        cprint(' Press 2) Game Rules \n '.center(80), COLORS['YELLOW']attrs=['bold'])
         menu_choice = input()
         continue
     
