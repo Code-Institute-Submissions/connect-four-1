@@ -102,8 +102,8 @@ def player_login(player_number):
                 run.cls()
                 vis.connect4_title()
                 cprint(f'Welcome back {player_username}. You are Player 1 ({run.PLAYER_1} )'.center(80), run.COLORS['RED'], attrs=['bold'])
-                time.sleep(2)
-                run.cls()
+                vis.blank_line()
+                
                 return player_username
             else:
                 run.cls()
@@ -119,7 +119,7 @@ def player_login(player_number):
                     run.cls()
                     vis.connect4_title()
                     cprint(f'Welcome back {player_username}. You are Player 2 ({run.PLAYER_2} )'.center(80), run.COLORS['YELLOW'], attrs=['bold'])
-                    time.sleep(2)
+                    vis.blank_line()
                     return player_username
                 else:
                     run.cls()
@@ -193,11 +193,12 @@ def get_user_one():
             vis.connect4_title()
             player_one = None
             player_one = player_login(0)
-            
+            loading = ".....Loading.....".center(80)
+            vis.typing_text(loading)
             player1_data = USERNAME.find(player_one).row
             player1_total_wins = int(USERNAME.row_values(player1_data)[1])
             player1_total_losses = int(USERNAME.row_values(player1_data)[2])
-            
+    
             return player_one, player1_total_wins, player1_total_losses
         
         else:
@@ -248,7 +249,8 @@ def get_user_two():
             run.cls()
             vis.connect4_title()
             player_two = player_login(1)
-
+            loading = ".....Loading.....".center(80)
+            vis.typing_text(loading)
             player2_data = USERNAME.find(player_two).row
             player2_total_wins = int(USERNAME.row_values(player2_data)[1])
             player2_total_losses = int(USERNAME.row_values(player2_data)[2])

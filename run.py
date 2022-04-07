@@ -1,11 +1,14 @@
 import os
 import time
 import sys
+import subprocess
 from pyfiglet import figlet_format
 from colorama import init
 from termcolor import cprint
 import visuals as vis
 import validation as val
+import cursor
+
 
 # use Colorama to make Termcolor work on Windows too
 init(autoreset=True)
@@ -30,7 +33,7 @@ def cls():
     """
     Clears the console
     """
-    os.system("cls" if os.name == "nt" else "clear")
+    subprocess.call(['tput', 'reset'])
 
 
 def welcome_message():
@@ -43,6 +46,7 @@ def welcome_message():
     Or can go to the game rules - rules_screen function
     """
     vis.connect4_title()
+    cursor.hide()
     cprint('Welcome to Connect4 Command Line Interface Game \n'.center(80),
            COLORS['BLUE'],
            attrs=['bold'])
@@ -498,6 +502,7 @@ def start_game():
     Loads the various functions in order to create the game
     """
     welcome_message()
+    cls()
     vis.connect4_title()
     val.get_user_two()
     cls()

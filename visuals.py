@@ -1,5 +1,7 @@
 from pyfiglet import figlet_format
 import colorama
+import sys
+import time
 from termcolor import cprint
 import run as run
 import validation as val
@@ -34,10 +36,10 @@ def game_bar():
     blank_line()
     cprint(' '.center(80), run.COLORS['WHITE'], run.COLORS['BLUE_HL'])
     cprint(
-        f'{val.player_one} wins: {val.player1_wins}  Losses: {val.player1_losses}      {val.player_two} wins: {val.player2_wins} Losses: {val.player2_losses}'
+        f'{val.player_one} - wins: {val.player1_wins}  Losses: {val.player1_losses}      {val.player_two} - wins: {val.player2_wins} Losses: {val.player2_losses}'
         .center(80), run.COLORS['WHITE'], run.COLORS['BLUE_HL'])
     cprint(
-        f' Overall stats: wins:   {val.player1_total_wins}  Losses: {val.player1_total_losses}            wins: {val.player2_total_wins}  Losses: {val.player2_total_losses}'
+        f' History - wins: {val.player1_total_wins} Losses: {val.player1_total_losses}    History - wins: {val.player2_total_wins}  Losses: {val.player2_total_losses}'
         .center(80), run.COLORS['WHITE'], run.COLORS['BLUE_HL'])
     cprint(' '.center(80), run.COLORS['WHITE'], run.COLORS['BLUE_HL'])
 
@@ -69,3 +71,9 @@ def game_over_text(player):
         cprint('GAME OVER!'.center(80), run.COLORS['WHITE'],
                run.COLORS['YELLOW_HL'])
         cprint(' '.center(80), run.COLORS['WHITE'], run.COLORS['BLUE_HL'])
+        
+def typing_text(text):
+    for character in text:
+        sys.stdout.write(character)
+        sys.stdout.flush()
+        time.sleep(0.05)
