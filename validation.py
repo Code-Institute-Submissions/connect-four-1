@@ -161,6 +161,12 @@ def get_user_one():
     Stores the players input in a variable called player_one
     """
     global player_one
+    global player1_wins
+    global player1_total_wins
+    global player1_losses
+    global player1_total_losses
+    player1_wins = 0
+    player1_losses = 0
     
     while True:
         # Player 1 create username/login
@@ -172,13 +178,28 @@ def get_user_one():
             run.cls()
             vis.connect4_title()
             player_one = create_username(PLAYERS[0], 0)
-            return player_one
+            
+            #Find the row corresponding to the player username data
+            player1_data = USERNAME.find(player_one).row
+            #Get the value of a specific index of row values
+            #Store the values in variables
+            player1_total_wins = int(USERNAME.row_values(player1_data)[1])
+            player1_total_losses = int(USERNAME.row_values(player1_data)[2])
+            
+            return player_one, player1_total_wins, player1_total_losses
+        
         elif menu_choice == '2':
             run.cls()
             vis.connect4_title()
             player_one = None
             player_one = player_login(0)
-            return player_one
+            
+            player1_data = USERNAME.find(player_one).row
+            player1_total_wins = int(USERNAME.row_values(player1_data)[1])
+            player1_total_losses = int(USERNAME.row_values(player1_data)[2])
+            
+            return player_one, player1_total_wins, player1_total_losses
+        
         else:
             if menu_choice != '1' or '2':
                 run.cls()
@@ -197,6 +218,12 @@ def get_user_two():
     Stores the players input in a variable called player_two
     """
     global player_two
+    global player2_wins
+    global player2_total_wins
+    global player2_losses
+    global player2_total_losses
+    player2_wins = 0
+    player2_losses = 0
     
     while True:
         # Player 2 create username/login
@@ -208,12 +235,25 @@ def get_user_two():
             run.cls()
             vis.connect4_title()
             player_two = create_username(PLAYERS[1], 1)
-            return player_two
+            
+            #Find the row corresponding to the player username data
+            player2_data = USERNAME.find(player_two).row
+            #Get the value of a specific index of row values
+            #Store the values in variables
+            player2_total_wins = int(USERNAME.row_values(player2_data)[1])
+            player2_total_losses = int(USERNAME.row_values(player2_data)[2])
+           
+            return player_one, player2_total_wins, player2_total_losses
         elif menu_choice == '2':
             run.cls()
             vis.connect4_title()
             player_two = player_login(1)
-            return player_two
+
+            player2_data = USERNAME.find(player_two).row
+            player2_total_wins = int(USERNAME.row_values(player2_data)[1])
+            player2_total_losses = int(USERNAME.row_values(player2_data)[2])
+           
+            return player_one, player2_total_wins, player2_total_losses
         else:
             if menu_choice != '1' or '2':
                 run.cls()

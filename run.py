@@ -345,13 +345,18 @@ def run_game():
                     attrs=['bold'])
                 player_move = input()
                 game.drop_player_piece(int(player_move) - 1, PLAYER_1)
+                #If player 1 wins
                 if game.check_move(PLAYER_1):
                     vis.blank_line()
                     vis.game_over_text(0)
                     vis.blank_line()
                     cprint('Press any key to move on... \n '.center(80),
-                    COLORS['BLUE'],
-                    attrs=['bold'])
+                           COLORS['BLUE'],
+                           attrs=['bold'])
+                    val.player1_wins += 1
+                    val.player1_total_wins += 1
+                    val.player2_total_losses += 1
+                    val.player2_losses += 1
                     input()
                     play_again()
             else:
@@ -362,13 +367,18 @@ def run_game():
                     attrs=['bold'])
                 player_move = input()
                 game.drop_player_piece(int(player_move) - 1, PLAYER_2)
+                # If player 2 wins
                 if game.check_move(PLAYER_2):
                     vis.blank_line()
                     vis.game_over_text(1)
                     vis.blank_line()
                     cprint('Press any key to move on... \n '.center(80),
-                    COLORS['BLUE'],
-                    attrs=['bold'])
+                           COLORS['BLUE'],
+                           attrs=['bold'])
+                    val.player2_wins += 1
+                    val.player2_total_wins += 1
+                    val.player1_total_losses += 1
+                    val.player1_losses += 1
                     input()
                     play_again()
             if game.check_tie():
@@ -380,15 +390,14 @@ def run_game():
                 vis.game_over_text(3)
                 vis.blank_line()
                 cprint('Press any key to move on... \n '.center(80),
-                COLORS['BLUE'],
-                attrs=['bold'])
+                       COLORS['BLUE'],
+                       attrs=['bold'])
                 input()
                 play_again()
         except ValueError:
             cprint(' That is not a number ... Please try again \n'.center(80),
                    COLORS['RED'],
                    attrs=['bold'])
-
 
 
 def play_again():
@@ -419,37 +428,43 @@ def play_again():
            attrs=['bold'])
 
     options = input()
-    
+
     while options not in ('1', '2', '3', '4'):
         cls()
         vis.connect4_title()
         cprint("Please press 1 or 2 to make your choice \n".center(80),
                COLORS['RED'])
         cprint('What would you like to do? \n'.center(80),
-           COLORS['YELLOW'],
-           attrs=['bold'])
+               COLORS['YELLOW'],
+               attrs=['bold'])
         cprint('Press 1) To play again \n '.center(80),
-           COLORS['BLUE'],
-           attrs=['bold'])
+               COLORS['BLUE'],
+               attrs=['bold'])
         cprint(
-            'Press 2) To go back to Welcome screen(reset players)\n '.center(80),
+            'Press 2) To go back to Welcome screen(reset players)\n '.center(
+                80),
             COLORS['BLUE'],
             attrs=['bold'])
         cprint('Press 3) To see your scores\n'.center(80),
-            COLORS['BLUE'],
-            attrs=['bold'])
+               COLORS['BLUE'],
+               attrs=['bold'])
         cprint('Press 4) To exit game \n'.center(80),
-            COLORS['BLUE'],
-            attrs=['bold'])
+               COLORS['BLUE'],
+               attrs=['bold'])
         options = input()
 
     if options == "1":
         cls()
-        vis.game_bar()
         vis.connect4_title()
-        cprint("Starting a new game between \n".center(80), COLORS['BLUE'], attrs=['bold'])
-        cprint(f"{val.player_one} \n".center(80), COLORS['RED'], attrs=['bold'])
-        cprint(f"{val.player_two}!\n".center(80), COLORS['YELLOW'], attrs=['bold'])
+        cprint("Starting a new game between \n".center(80),
+               COLORS['BLUE'],
+               attrs=['bold'])
+        cprint(f"{val.player_one} \n".center(80),
+               COLORS['RED'],
+               attrs=['bold'])
+        cprint(f"{val.player_two}!\n".center(80),
+               COLORS['YELLOW'],
+               attrs=['bold'])
         cprint('... 3...\n'.center(80), COLORS['BLUE'], attrs=['bold'])
         time.sleep(1)
         cprint('... 2...\n'.center(80), COLORS['RED'], attrs=['bold'])
@@ -469,8 +484,10 @@ def play_again():
     elif options == "4":
         cls()
         vis.connect4_title()
-        cprint("Thanks for playing! See you again soon!\n".center(80), COLORS['BLUE'])
+        cprint("Thanks for playing! See you again soon!\n".center(80),
+               COLORS['BLUE'])
         sys.exit()
+
 
 def high_scores():
     pass
@@ -481,12 +498,10 @@ def start_game():
     Loads the various functions in order to create the game
     """
     welcome_message()
-    cls()
     vis.connect4_title()
     val.get_user_two()
     cls()
     start_screen()
-    
 
 
 if __name__ == '__main__':
