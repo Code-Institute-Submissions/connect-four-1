@@ -2,6 +2,7 @@ from pyfiglet import figlet_format
 import colorama
 from termcolor import cprint
 import run as run
+import validation as val
 
 
 colorama.init(autoreset=True)
@@ -32,6 +33,7 @@ def game_bar():
     """
     
     """
+    blank_line()
     cprint(' '.center(80), run.COLORS['WHITE'], run.COLORS['BLUE_HL'])
-    cprint('Player 1 : {val.player_one} +----+ Player 2 : {val.player_two}'.center(80), run.COLORS['WHITE'], run.COLORS['BLUE_HL'])
+    cprint(f'Player 1 : {val.player_one} +----+ Player 2 : {val.player_two}'.center(80), run.COLORS['WHITE'], run.COLORS['BLUE_HL'])
     cprint(' '.center(80), run.COLORS['WHITE'], run.COLORS['BLUE_HL'])

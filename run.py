@@ -172,7 +172,7 @@ class GameBoard():
             grid += ' ||\n'
         grid += '     ' + '-'* 71
         vis.game_bar()
-        vis.multiple_blank_lines()
+        vis.blank_line
         print('    1 ', '   2 ', '   3  ', '  4  ', '  5  ', '  6  ', '  7  ',
               '  8  ', '  9  ', '  10')
         cprint(grid, COLORS['BLUE'], attrs=['bold'])
