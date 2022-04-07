@@ -166,7 +166,7 @@ def get_user_one():
         # Player 1 create username/login
         cprint('Player 1\n '.center(80), run.COLORS['RED'], attrs=['bold'])
         cprint('Press 1) Create username\n '.center(80), run.COLORS['BLUE'], attrs=['bold'])
-        cprint('Press 2) Login \n'.center(80), run.COLORS['BLUE'], attrs=['bold'])
+        cprint('Press 2) Login '.center(80), run.COLORS['BLUE'], attrs=['bold'])
         menu_choice = input()
         if menu_choice == '1':
             run.cls()
@@ -202,7 +202,7 @@ def get_user_two():
         # Player 2 create username/login
         cprint('Player 2\n '.center(80), run.COLORS['YELLOW'], attrs=['bold'])
         cprint('Press 1) Create username\n '.center(80), run.COLORS['BLUE'], attrs=['bold'])
-        cprint('Press 2) Login \n'.center(80), run.COLORS['BLUE'], attrs=['bold'])
+        cprint('Press 2) Login '.center(80), run.COLORS['BLUE'], attrs=['bold'])
         menu_choice = input()
         if menu_choice == '1':
             run.cls()
