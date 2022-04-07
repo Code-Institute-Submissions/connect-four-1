@@ -33,7 +33,7 @@ def cls():
     """
     Clears the console
     """
-    subprocess.call(['tput', 'reset'])
+    os.system("cls" if os.name == "nt" else "clear")
 
 
 def welcome_message():
