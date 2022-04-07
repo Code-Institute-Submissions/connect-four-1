@@ -183,11 +183,11 @@ def get_user_one():
             if menu_choice != '1' or '2':
                 run.cls()
                 vis.connect4_title()
-                cprint('Please press 1 or 2 to make your choice'.center(80), run.COLORS['YELLOW'], attrs=['bold'])
+                cprint('Please press 1 or 2 to make your choice'.center(80), run.COLORS['RED'], attrs=['bold'])
                 vis.blank_line()
                 continue
 
-            
+
 def get_user_two():
     """
     Allows the player 2 user to create a username or login
@@ -218,7 +218,7 @@ def get_user_two():
             if menu_choice != '1' or '2':
                 run.cls()
                 vis.connect4_title()
-                cprint('Please press 1 or 2 to make your choice'.center(80), run.COLORS['YELLOW'], attrs=['bold'])
+                cprint('Please press 1 or 2 to make your choice'.center(80), run.COLORS['RED'], attrs=['bold'])
                 vis.blank_line()
                 continue
             

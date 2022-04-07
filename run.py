@@ -128,7 +128,7 @@ def start_screen():
     """
     cls()
     cprint(figlet_format(' Ready?', font = "rev", justify = 'center'), COLORS['YELLOW'], attrs=['bold'])
-    cprint(f'{val.player_one}, {val.player_two} are you ready? \n'.center(80), COLORS['BLUE'], attrs=['bold'])
+    cprint(f'{val.player_one}, {val.player_two} are you ready? \n'.center(80), COLORS['WHITE'], attrs=['bold'])
     cprint('Press any key to start...\n'.center(80), COLORS['BLUE'], attrs=['bold'])
     input()
     cprint('... 3...\n'.center(80), COLORS['BLUE'], attrs=['bold'])
@@ -162,13 +162,16 @@ class GameBoard():
         # Prints the column numbers over the corresponding columns
         grid = ''
         for row in self.board:
-            grid += '-' * 64 + '\n'
+            grid += '     ' + '-' * 71 + '\n'
+            # Adds a spaced column at the begining pushing the board towards the center
+            grid += '   '
             for column in row:
                 # for the number of rows print the same number of columns
-                grid += f' ||{column}'
+                grid += f'  ||{column}'
             # Need to add one more column to the result to create the number of columns
             grid += ' ||\n'
-        grid += '-' * 64
+        grid += '     ' + '-'* 71
+        vis.game_bar()
         vis.multiple_blank_lines()
         print('    1 ', '   2 ', '   3  ', '  4  ', '  5  ', '  6  ', '  7  ',
               '  8  ', '  9  ', '  10')
@@ -248,7 +251,7 @@ def run_game():
     Starts the game and sets the turn value for Player 1 to start
     """
     game = GameBoard(0) # Set the turn to 0
-    game.print_board()  # Initial game board
+    game.print_board() # Initial game board
     game_play = False
 
     while not game_play:
