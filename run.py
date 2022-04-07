@@ -294,6 +294,9 @@ def high_scores():
     pass
 
 def start_game():
+    """
+    Loads the various functions in order to create the game
+    """
     welcome_message()
     cls()
     vis.connect4_title()

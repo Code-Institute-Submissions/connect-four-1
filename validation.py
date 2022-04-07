@@ -154,7 +154,11 @@ def validate_player_name(player):
     
 def get_user_one():
     """
-    
+    Allows the player 1 user to create a username or login
+    Calls the appropriate functions depending on the user input
+    1 to create username - create_username()
+    2 to Log In - player_login()
+    Stores the players input in a variable called player_one
     """
     global player_one
     
@@ -185,7 +189,15 @@ def get_user_one():
 
             
 def get_user_two():
+    """
+    Allows the player 2 user to create a username or login
+    Calls the appropriate functions depending on the user input
+    1 to create username - create_username()
+    2 to Log In - player_login()
+    Stores the players input in a variable called player_two
+    """
     global player_two
+    
     while True:
         # Player 2 create username/login
         cprint('Player 2\n '.center(80), run.COLORS['YELLOW'], attrs=['bold'])
