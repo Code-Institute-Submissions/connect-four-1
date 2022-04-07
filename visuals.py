@@ -35,5 +35,15 @@ def game_bar():
     """
     blank_line()
     cprint(' '.center(80), run.COLORS['WHITE'], run.COLORS['BLUE_HL'])
-    cprint(f'Player 1 : {val.player_one} +----+ Player 2 : {val.player_two}'.center(80), run.COLORS['WHITE'], run.COLORS['BLUE_HL'])
+    cprint(f'Player 1 : {val.player_one}                Player 2 : {val.player_two}'.center(80), run.COLORS['WHITE'], run.COLORS['BLUE_HL'])
     cprint(' '.center(80), run.COLORS['WHITE'], run.COLORS['BLUE_HL'])
+    
+
+def game_over_text():
+    """
+    
+    """
+    blank_line()
+    cprint(' '.center(80), run.COLORS['WHITE'], run.COLORS['RED_HL'])
+    cprint('GAME OVER!'.center(80), run.COLORS['WHITE'], run.COLORS['RED_HL'])
+    cprint(' '.center(80), run.COLORS['WHITE'], run.COLORS['RED_HL'])

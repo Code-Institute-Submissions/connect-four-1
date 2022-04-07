@@ -16,11 +16,12 @@ PLAYER_1 = ' \U0001F534 '  # unicode for red circle
 PLAYER_2 = ' \U0001F7E1 '  # Unicode for yellow circle
 
 COLORS = {
-    'RED' : 'red',
-    'BLUE' : 'blue',
-    'YELLOW' : 'yellow',
-    'BLUE_HL' : 'on_blue',
-    'WHITE' : 'white'
+    'RED': 'red',
+    'BLUE': 'blue',
+    'YELLOW': 'yellow',
+    'BLUE_HL': 'on_blue',
+    'RED_HL' : 'on_red',
+    'WHITE': 'white'
 }
 
 
@@ -29,6 +30,7 @@ def cls():
     Clears the console
     """
     os.system("cls" if os.name == "nt" else "clear")
+
 
 def welcome_message():
     """
@@ -40,17 +42,29 @@ def welcome_message():
     Or can go to the game rules - rules_screen function
     """
     vis.connect4_title()
-    cprint('Welcome to Connect4 Command Line Interface Game \n'.center(80), COLORS['BLUE'], attrs=['bold'])
-    cprint('Press 1) To get started \n '.center(80), COLORS['YELLOW'], attrs=['bold'])
-    cprint('Press 2) Game Rules \n '.center(80), COLORS['YELLOW'], attrs=['bold'])
+    cprint('Welcome to Connect4 Command Line Interface Game \n'.center(80),
+           COLORS['BLUE'],
+           attrs=['bold'])
+    cprint('Press 1) To get started \n '.center(80),
+           COLORS['YELLOW'],
+           attrs=['bold'])
+    cprint('Press 2) Game Rules \n '.center(80),
+           COLORS['YELLOW'],
+           attrs=['bold'])
     menu_choice = input()
-    
+
     while menu_choice not in ("1", "2"):
         cls()
         vis.connect4_title()
-        cprint("Please press 1 or 2 to make your choice \n".center(80), COLORS['RED'], attrs=['bold'])
-        cprint('Press 1) To get started \n '.center(80), COLORS['YELLOW'], attrs=['bold'])
-        cprint('Press 2) Game Rules \n '.center(80), COLORS['YELLOW'], attrs=['bold'])
+        cprint("Please press 1 or 2 to make your choice \n".center(80),
+               COLORS['RED'],
+               attrs=['bold'])
+        cprint('Press 1) To get started \n '.center(80),
+               COLORS['YELLOW'],
+               attrs=['bold'])
+        cprint('Press 2) Game Rules \n '.center(80),
+               COLORS['YELLOW'],
+               attrs=['bold'])
         menu_choice = input()
         continue
 
@@ -62,6 +76,7 @@ def welcome_message():
         cls()
         rules_screen()
 
+
 def rules_screen():
     """
     This function issues a series of print statements to the user
@@ -70,45 +85,81 @@ def rules_screen():
     Back to the Welcome Screen or to get started
     """
     vis.blank_line()
-    cprint(figlet_format(' Game Rules', font = "rev", justify = 'center'), COLORS['RED'], attrs=['bold'])
+    cprint(figlet_format(' Game Rules', font="rev", justify='center'),
+           COLORS['RED'],
+           attrs=['bold'])
     vis.blank_line()
-    cprint('Connect 4 CLI is a two player game played on a singular device \n'.center(80), COLORS['YELLOW'], attrs=['bold'])
+    cprint('Connect 4 CLI is a two player game played on a singular device \n'.
+           center(80),
+           COLORS['YELLOW'],
+           attrs=['bold'])
     time.sleep(1.5)
-    cprint('Each player either creates a new username ...\n'.center(80), COLORS['YELLOW'], attrs=['bold'])
+    cprint('Each player either creates a new username ...\n'.center(80),
+           COLORS['YELLOW'],
+           attrs=['bold'])
     time.sleep(1.5)
-    cprint('Or logs in with a username previously made \n'.center(80), COLORS['YELLOW'], attrs=['bold'])
+    cprint('Or logs in with a username previously made \n'.center(80),
+           COLORS['YELLOW'],
+           attrs=['bold'])
     time.sleep(1.5)
-    cprint('IMPORTANT! Remember the username you have created \n'.center(80), COLORS['RED'], attrs=['bold'])
+    cprint('IMPORTANT! Remember the username you have created \n'.center(80),
+           COLORS['RED'],
+           attrs=['bold'])
     time.sleep(1.5)
-    cprint('Your scores will be attached to your username \n'.center(80), COLORS['YELLOW'], attrs=['bold'])
+    cprint('Your scores will be attached to your username \n'.center(80),
+           COLORS['YELLOW'],
+           attrs=['bold'])
     time.sleep(1.5)
-    cprint(f'Player 1 will be assigned a red disc ({PLAYER_1} )and Player 2 a yellow disc ({PLAYER_2} ) \n'.center(80), COLORS['YELLOW'], attrs=['bold'])
+    cprint(
+        f'Player 1 will be assigned a red disc ({PLAYER_1} )and Player 2 a yellow disc ({PLAYER_2} ) \n'
+        .center(80),
+        COLORS['YELLOW'],
+        attrs=['bold'])
     time.sleep(1.5)
-    cprint('The goal of the game is to get 4 of your discs in a row \n'.center(80), COLORS['YELLOW'], attrs=['bold'])
+    cprint('The goal of the game is to get 4 of your discs in a row \n'.center(
+        80),
+           COLORS['YELLOW'],
+           attrs=['bold'])
     time.sleep(1.5)
-    cprint('Either 4 horizontally, or vertically, or diagonally \n'.center(80), COLORS['YELLOW'], attrs=['bold'])
+    cprint('Either 4 horizontally, or vertically, or diagonally \n'.center(80),
+           COLORS['YELLOW'],
+           attrs=['bold'])
     time.sleep(1.6)
     cprint('Have fun! \n'.center(80), COLORS['YELLOW'], attrs=['bold'])
     time.sleep(1.6)
-    cprint('Press any key to move on... \n '.center(80), COLORS['BLUE'], attrs=['bold'])
+    cprint('Press any key to move on... \n '.center(80),
+           COLORS['BLUE'],
+           attrs=['bold'])
     input()
-    
-    
+
     cls()
     # Input choice for users to navigate to next screen
     vis.blank_line()
-    cprint(figlet_format(' Game Rules', font = "rev", justify = 'center'), COLORS['RED'], attrs=['bold'])
+    cprint(figlet_format(' Game Rules', font="rev", justify='center'),
+           COLORS['RED'],
+           attrs=['bold'])
     vis.blank_line()
-    cprint('Press 1) To Welcome Screen \n '.center(80), COLORS['YELLOW'], attrs=['bold'])
-    cprint('Press 2) To get started \n '.center(80), COLORS['YELLOW'], attrs=['bold'])
+    cprint('Press 1) To Welcome Screen \n '.center(80),
+           COLORS['YELLOW'],
+           attrs=['bold'])
+    cprint('Press 2) To get started \n '.center(80),
+           COLORS['YELLOW'],
+           attrs=['bold'])
     menu_choice = input()
 
     while menu_choice not in ("1", "2"):
         cls()
-        cprint(figlet_format(' Game Rules', font = "rev", justify = 'center'), COLORS['RED'], attrs=['bold'])
-        cprint("Please press 1 or 2 to make your choice \n".center(80), COLORS['RED'])
-        cprint('Press 1) To Welcome Screen\n '.center(80), COLORS['YELLOW'], attrs=['bold'])
-        cprint('Press 2) Game Rules \n '.center(80), COLORS['YELLOW'], attrs=['bold'])
+        cprint(figlet_format(' Game Rules', font="rev", justify='center'),
+               COLORS['RED'],
+               attrs=['bold'])
+        cprint("Please press 1 or 2 to make your choice \n".center(80),
+               COLORS['RED'])
+        cprint('Press 1) To Welcome Screen\n '.center(80),
+               COLORS['YELLOW'],
+               attrs=['bold'])
+        cprint('Press 2) Game Rules \n '.center(80),
+               COLORS['YELLOW'],
+               attrs=['bold'])
         menu_choice = input()
         continue
 
@@ -127,9 +178,15 @@ def start_screen():
     And allow users to start the game when they are ready
     """
     cls()
-    cprint(figlet_format(' Ready?', font = "rev", justify = 'center'), COLORS['YELLOW'], attrs=['bold'])
-    cprint(f'{val.player_one}, {val.player_two} are you ready? \n'.center(80), COLORS['WHITE'], attrs=['bold'])
-    cprint('Press any key to start...\n'.center(80), COLORS['BLUE'], attrs=['bold'])
+    cprint(figlet_format(' Ready?', font="rev", justify='center'),
+           COLORS['YELLOW'],
+           attrs=['bold'])
+    cprint(f'{val.player_one}, {val.player_two} are you ready? \n'.center(80),
+           COLORS['WHITE'],
+           attrs=['bold'])
+    cprint('Press any key to start...\n'.center(80),
+           COLORS['BLUE'],
+           attrs=['bold'])
     input()
     cprint('... 3...\n'.center(80), COLORS['BLUE'], attrs=['bold'])
     time.sleep(1)
@@ -138,9 +195,11 @@ def start_screen():
     cprint('... 1...\n'.center(80), COLORS['YELLOW'], attrs=['bold'])
     time.sleep(1)
     cls()
-    cprint(figlet_format(' PLAY!', font = "rev", justify = 'center'), COLORS['YELLOW'], attrs=['bold'])
+    cprint(figlet_format(' PLAY!', font="rev", justify='center'),
+           COLORS['YELLOW'],
+           attrs=['bold'])
     time.sleep(2)
-    
+
 
 class GameBoard():
     """
@@ -170,11 +229,11 @@ class GameBoard():
                 grid += f'  ||{column}'
             # Need to add one more column to the result to create the number of columns
             grid += ' ||\n'
-        grid += '     ' + '-'* 71
+        grid += '     ' + '-' * 71
         vis.game_bar()
-        vis.blank_line
-        print('    1 ', '   2 ', '   3  ', '  4  ', '  5  ', '  6  ', '  7  ',
-              '  8  ', '  9  ', '  10')
+        vis.blank_line()
+        print('      ', '  1  ', '   2  ', '   3  ', '   4  ', '   5  ', '   6  ', '   7  ',
+              '   8  ', '   9  ', '  10  ')
         cprint(grid, COLORS['BLUE'], attrs=['bold'])
 
     def drop_player_piece(self, column, player):
@@ -182,7 +241,7 @@ class GameBoard():
         Drops a piece into the Connect4 selected column
         Fills the position with the PLAYER piece
         """
-        column = int(column) 
+        column = int(column)
         # Checks that the number input is between 1 and 10
         if column <= 9 and column >= 0 or column is None:
             if self.board[0][column] == '   ':
@@ -201,9 +260,13 @@ class GameBoard():
                             self.turn = self.turn % 2
                         break
             else:
-                cprint(" Column full, please choose another column", COLORS['RED'], attrs=['bold'])
+                cprint(" Column full, please choose another column",
+                       COLORS['RED'],
+                       attrs=['bold'])
         else:
-            cprint(' That is not a valid number, try again \n', COLORS['RED'], attrs=['bold'])
+            cprint(' That is not a valid number, try again \n',
+                   COLORS['RED'],
+                   attrs=['bold'])
 
     def check_move(self, player: str):
         """
@@ -212,27 +275,42 @@ class GameBoard():
         # Check horizontal lines
         for column in range(COLUMN_COUNT - 3):
             for row in range(ROW_COUNT):
-                if self.board[row][column] == player and self.board[row][column + 1] == player and self.board[row][column +2] == player and self.board[row][column +3] == player:
+                if self.board[row][column] == player and self.board[row][
+                        column + 1] == player and self.board[row][
+                            column +
+                            2] == player and self.board[row][column +
+                                                             3] == player:
                     return True
 
         # Check the vertical lines
         for column in range(COLUMN_COUNT):
             for row in range(ROW_COUNT - 3):
-                if self.board[row][column] == player and self.board[row + 1][column] == player and self.board[row + 2][column] == player and self.board[row + 3][column] == player:
+                if self.board[row][column] == player and self.board[
+                        row + 1][column] == player and self.board[
+                            row + 2][column] == player and self.board[
+                                row + 3][column] == player:
                     return True
 
         # Check the diagonal line win to the right
         # counting positively up the columns and rows each time
         for column in range(COLUMN_COUNT - 3):
             for row in range(ROW_COUNT - 3):
-                if self.board[row][column] == player and self.board[row + 1][column + 1] == player and self.board[row + 2][column + 2] == player and self.board[row + 3][column +3] == player:
+                if self.board[row][column] == player and self.board[row + 1][
+                        column + 1] == player and self.board[row + 2][
+                            column +
+                            2] == player and self.board[row + 3][column +
+                                                                 3] == player:
                     return True
 
         # Check the diagonal line win to the left
         # counting negatively down the rows and counting positively up the rows each time
         for column in range(COLUMN_COUNT - 3):
             for row in range(3, ROW_COUNT):
-                if self.board[row][column] == player and self.board[row - 1][column + 1] == player and self.board[row - 2][column +2] == player and self.board[row - 3][column +3] == player:
+                if self.board[row][column] == player and self.board[row - 1][
+                        column + 1] == player and self.board[row - 2][
+                            column +
+                            2] == player and self.board[row - 3][column +
+                                                                 3] == player:
                     return True
 
     def check_tie(self):
@@ -246,55 +324,74 @@ class GameBoard():
                     return False
         return True
 
+
 def run_game():
     """
     Starts the game and sets the turn value for Player 1 to start
     """
-    game = GameBoard(0) # Set the turn to 0
-    game.print_board() # Initial game board
+    game = GameBoard(0)  # Set the turn to 0
+    game.print_board()  # Initial game board
     game_play = False
 
     while not game_play:
         try:
             if game.turn == 0:
-                player_move = input(
-                    f' Player 1 ({PLAYER_1} ) insert red disc in column (1-10): \n'
-                )
+                vis.blank_line()
+                cprint(
+                    f' Player 1 ({PLAYER_1} ) insert red disc in column (1-10): '
+                    .center(80),
+                    COLORS['RED'],
+                    attrs=['bold'])
+                player_move = input()
                 game.drop_player_piece(int(player_move) - 1, PLAYER_1)
                 if game.check_move(PLAYER_1):
                     vis.blank_line()
-                    cprint(f'PLAYER 1 ({PLAYER_1} ) WINS! \n'.center(60), COLORS['RED'], attrs=['bold'])
-                    print('+', '-'*60, '+')
-                    cprint(figlet_format(' Game Over', font = "rev", justify = 'center'), COLORS['RED'], attrs=['bold'])
+                    cprint(f'PLAYER 1 ({PLAYER_1} ) WINS! \n'.center(80),
+                           COLORS['RED'],
+                           attrs=['bold'])
+                    print('+', '-' * 80, '+')
+                    vis.game_over_text()
                     quit()
             else:
-
-                player_move = input(
-                    f'Player 2 ({PLAYER_2} ) insert yellow disc in column (1-10): \n'
-                )
+                vis.blank_line()
+                cprint(
+                    f'Player 2 ({PLAYER_2} ) insert yellow disc in column (1-10): '
+                    .center(80),
+                    COLORS['YELLOW'],
+                    attrs=['bold'])
+                player_move = input()
                 game.drop_player_piece(int(player_move) - 1, PLAYER_2)
                 if game.check_move(PLAYER_2):
                     vis.blank_line()
-                    cprint(f'PLAYER 2 ({PLAYER_2} ) WINS! \n'.center(60), COLORS['YELLOW'], attrs=['bold'])
-                    print('+', '-'*60, '+')
-                    cprint(figlet_format(' Game Over', font = "rev", justify = 'center'), COLORS['RED'], attrs=['bold'])
+                    cprint(f'PLAYER 2 ({PLAYER_2} ) WINS! \n'.center(80),
+                           COLORS['YELLOW'],
+                           attrs=['bold'])
+                    print('+', '-' * 80, '+')
+                    vis.game_over_text()
                     quit()
 
             if game.check_tie():
                 vis.blank_line()
-                cprint('No winners \n'.center(60), COLORS['RED'], attrs=['bold'])
-                print('+', '-'*60, '+')
-                cprint(figlet_format(' Game Over', font = "rev", justify = 'center'), COLORS['RED'], attrs=['bold'])
+                cprint('No winners \n'.center(80),
+                       COLORS['RED'],
+                       attrs=['bold'])
+                print('+', '-' * 60, '+')
+                vis.game_over_text()
                 quit()
 
         except ValueError:
-            cprint(' That is not a number ... Please try again \n', COLORS['RED'], attrs=['bold'])
+            cprint(' That is not a number ... Please try again \n'.center(80),
+                   COLORS['RED'],
+                   attrs=['bold'])
+
 
 def play_again():
     pass
 
+
 def high_scores():
     pass
+
 
 def start_game():
     """
@@ -308,10 +405,8 @@ def start_game():
     start_screen()
     cls()
     run_game()
-    
-    
+
+
 if __name__ == '__main__':
     cls()
     start_game()
-    
-    
