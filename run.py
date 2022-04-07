@@ -85,7 +85,7 @@ def rules_screen():
     Back to the Welcome Screen or to get started
     """
     vis.blank_line()
-    cprint(figlet_format('Game Rules', font="banner3-d", justify='center'),
+    cprint(figlet_format('Game Rules', font="banner3-D", justify='center'),
            COLORS['RED'],
            attrs=['bold'])
     vis.blank_line()
@@ -135,7 +135,7 @@ def rules_screen():
     cls()
     # Input choice for users to navigate to next screen
     vis.blank_line()
-    cprint(figlet_format('Game Rules', font="banner3-d", justify='center'),
+    cprint(figlet_format('Game Rules', font="banner3-D", justify='center'),
            COLORS['RED'],
            attrs=['bold'])
     vis.blank_line()
@@ -149,7 +149,7 @@ def rules_screen():
 
     while menu_choice not in ("1", "2"):
         cls()
-        cprint(figlet_format('Game Rules', font="banner3-d", justify='center'),
+        cprint(figlet_format('Game Rules', font="banner3-D", justify='center'),
                COLORS['RED'],
                attrs=['bold'])
         cprint("Please press 1 or 2 to make your choice \n".center(80),
@@ -178,7 +178,7 @@ def start_screen():
     And allow users to start the game when they are ready
     """
     cls()
-    cprint(figlet_format(' Ready?', font="banner3-d", justify='center'),
+    cprint(figlet_format(' Ready?', font="banner3-D", justify='center'),
            COLORS['YELLOW'],
            attrs=['bold'])
     cprint(f'{val.player_one}, {val.player_two} are you ready? \n'.center(80),
@@ -195,7 +195,7 @@ def start_screen():
     cprint('... 1...\n'.center(80), COLORS['YELLOW'], attrs=['bold'])
     time.sleep(1)
     cls()
-    cprint(figlet_format(' PLAY!', font="banner3-d", justify='center'),
+    cprint(figlet_format(' PLAY!', font="banner3-D", justify='center'),
            COLORS['YELLOW'],
            attrs=['bold'])
     time.sleep(2)
