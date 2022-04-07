@@ -19,7 +19,8 @@ COLORS = {
     'RED' : 'red',
     'BLUE' : 'blue',
     'YELLOW' : 'yellow',
-    'BLUE_HL' : 'on_blue'
+    'BLUE_HL' : 'on_blue',
+    'WHITE' : 'white'
 }
 
 
@@ -39,24 +40,24 @@ def welcome_message():
     Or can go to the game rules - rules_screen function
     """
     vis.connect4_title()
-    cprint(' Welcome to Connect4 Command Line Interface Game \n'.center(80), COLORS['BLUE'], attrs=['bold', 'blink'])
-    cprint(' Press 1) To get started \n '.center(80), COLORS['YELLOW'], attrs=['bold'])
-    cprint(' Press 2) Game Rules \n '.center(80), COLORS['YELLOW'], attrs=['bold'])
+    cprint('Welcome to Connect4 Command Line Interface Game \n'.center(80), COLORS['BLUE'], attrs=['bold'])
+    cprint('Press 1) To get started \n '.center(80), COLORS['YELLOW'], attrs=['bold'])
+    cprint('Press 2) Game Rules \n '.center(80), COLORS['YELLOW'], attrs=['bold'])
     menu_choice = input()
     
     while menu_choice not in ("1", "2"):
         cls()
         vis.connect4_title()
-        cprint(" Please press 1 or 2 to make your choice \n".center(80), COLORS['RED'], attrs=['bold'])
-        cprint(' Press 1) To get started \n '.center(80), COLORS['YELLOW'], attrs=['bold'])
-        cprint(' Press 2) Game Rules \n '.center(80), COLORS['YELLOW'], attrs=['bold'])
+        cprint("Please press 1 or 2 to make your choice \n".center(80), COLORS['RED'], attrs=['bold'])
+        cprint('Press 1) To get started \n '.center(80), COLORS['YELLOW'], attrs=['bold'])
+        cprint('Press 2) Game Rules \n '.center(80), COLORS['YELLOW'], attrs=['bold'])
         menu_choice = input()
         continue
 
     if menu_choice == '1':
         cls()
         vis.connect4_title()
-        val.get_users()
+        val.get_user_one()
     elif menu_choice == '2':
         cls()
         rules_screen()
@@ -71,25 +72,25 @@ def rules_screen():
     vis.blank_line()
     cprint(figlet_format(' Game Rules', font = "rev", justify = 'center'), COLORS['RED'], attrs=['bold'])
     vis.blank_line()
-    cprint(' Connect 4 CLI is a two player game played on a singular device \n'.center(80), COLORS['YELLOW'], attrs=['bold'])
+    cprint('Connect 4 CLI is a two player game played on a singular device \n'.center(80), COLORS['YELLOW'], attrs=['bold'])
     time.sleep(1.5)
-    cprint(' Each player either creates a new username ...\n'.center(80), COLORS['YELLOW'], attrs=['bold'])
+    cprint('Each player either creates a new username ...\n'.center(80), COLORS['YELLOW'], attrs=['bold'])
     time.sleep(1.5)
-    cprint(' Or logs in with a username previously made \n'.center(80), COLORS['YELLOW'], attrs=['bold'])
+    cprint('Or logs in with a username previously made \n'.center(80), COLORS['YELLOW'], attrs=['bold'])
     time.sleep(1.5)
-    cprint(' IMPORTANT! Remember the username you have created \n'.center(80), COLORS['RED'], attrs=['bold'])
+    cprint('IMPORTANT! Remember the username you have created \n'.center(80), COLORS['RED'], attrs=['bold'])
     time.sleep(1.5)
-    cprint(' Your scores will be attached to your username \n'.center(80), COLORS['YELLOW'], attrs=['bold'])
+    cprint('Your scores will be attached to your username \n'.center(80), COLORS['YELLOW'], attrs=['bold'])
     time.sleep(1.5)
-    cprint(f' Player 1 will be assigned a red disc ({PLAYER_1} )and Player 2 a yellow disc ({PLAYER_2} ) \n'.center(80), COLORS['YELLOW'], attrs=['bold'])
+    cprint(f'Player 1 will be assigned a red disc ({PLAYER_1} )and Player 2 a yellow disc ({PLAYER_2} ) \n'.center(80), COLORS['YELLOW'], attrs=['bold'])
     time.sleep(1.5)
-    cprint(' The goal of the game is to get 4 of your discs in a row \n'.center(80), COLORS['YELLOW'], attrs=['bold'])
+    cprint('The goal of the game is to get 4 of your discs in a row \n'.center(80), COLORS['YELLOW'], attrs=['bold'])
     time.sleep(1.5)
-    cprint(' Either 4 horizontally, or vertically, or diagonally \n'.center(80), COLORS['YELLOW'], attrs=['bold'])
+    cprint('Either 4 horizontally, or vertically, or diagonally \n'.center(80), COLORS['YELLOW'], attrs=['bold'])
     time.sleep(1.6)
-    cprint(' Have fun! \n'.center(80), COLORS['YELLOW'], attrs=['bold'])
+    cprint('Have fun! \n'.center(80), COLORS['YELLOW'], attrs=['bold'])
     time.sleep(1.6)
-    cprint(' Press any key to move on... \n '.center(80), COLORS['BLUE'], attrs=['bold'])
+    cprint('Press any key to move on... \n '.center(80), COLORS['BLUE'], attrs=['bold'])
     input()
     
     
@@ -98,30 +99,48 @@ def rules_screen():
     vis.blank_line()
     cprint(figlet_format(' Game Rules', font = "rev", justify = 'center'), COLORS['RED'], attrs=['bold'])
     vis.blank_line()
-    cprint(' Press 1) To Welcome Screen \n '.center(80), COLORS['YELLOW'], attrs=['bold'])
-    cprint(' Press 2) To get started \n '.center(80), COLORS['YELLOW'], attrs=['bold'])
+    cprint('Press 1) To Welcome Screen \n '.center(80), COLORS['YELLOW'], attrs=['bold'])
+    cprint('Press 2) To get started \n '.center(80), COLORS['YELLOW'], attrs=['bold'])
     menu_choice = input()
 
     while menu_choice not in ("1", "2"):
         cls()
-        print(figlet_format(' Game Rules', font = "rev", justify = 'center'), COLORS['RED'], attrs=['bold'])
-        print(" Please press 1 or 2 to make your choice \n".center(80), COLORS['RED'])
-        cprint(' Press 1) To Welcome Screen\n '.center(80), COLORS['YELLOW'], attrs=['bold'])
-        cprint(' Press 2) Game Rules \n '.center(80), COLORS['YELLOW'], attrs=['bold'])
+        cprint(figlet_format(' Game Rules', font = "rev", justify = 'center'), COLORS['RED'], attrs=['bold'])
+        cprint("Please press 1 or 2 to make your choice \n".center(80), COLORS['RED'])
+        cprint('Press 1) To Welcome Screen\n '.center(80), COLORS['YELLOW'], attrs=['bold'])
+        cprint('Press 2) Game Rules \n '.center(80), COLORS['YELLOW'], attrs=['bold'])
         menu_choice = input()
         continue
-    
+
     if menu_choice == '1':
         cls()
         welcome_message()
     elif menu_choice == '2':
         cls()
         vis.connect4_title()
-        val.get_users()
+        val.get_user_one()
 
 
-def main_menu():
-    pass
+def start_screen():
+    """
+    This will show users a start screen message
+    And allow users to start the game when they are ready
+    """
+    cls()
+    cprint(figlet_format(' Ready?', font = "rev", justify = 'center'), COLORS['YELLOW'], attrs=['bold'])
+    cprint(f'{val.player_one}, {val.player_two} are you ready? \n'.center(80), COLORS['BLUE'], attrs=['bold'])
+    cprint('Press any key to start...\n'.center(80), COLORS['BLUE'], attrs=['bold'])
+    input()
+    cprint('... 3...\n'.center(80), COLORS['BLUE'], attrs=['bold'])
+    time.sleep(1)
+    cprint('... 2...\n'.center(80), COLORS['RED'], attrs=['bold'])
+    time.sleep(1)
+    cprint('... 1...\n'.center(80), COLORS['YELLOW'], attrs=['bold'])
+    time.sleep(1)
+    cls()
+    cprint(figlet_format(' PLAY!', font = "rev", justify = 'center'), COLORS['YELLOW'], attrs=['bold'])
+    time.sleep(2)
+    
 
 class GameBoard():
     """
@@ -276,6 +295,11 @@ def high_scores():
 
 def start_game():
     welcome_message()
+    cls()
+    vis.connect4_title()
+    val.get_user_two()
+    cls()
+    start_screen()
     cls()
     run_game()
     

@@ -149,20 +149,15 @@ def validate_player_name(player):
         return False
 
 
-def get_users():
-    """
-    This function calls on the create_username function
-    And the log_in function
-    To give Player 1 and Player 2 options
-    To either create a username or log in
-    It also validates the inputs
-    Its returns the usernames for player 1 and player 2
-    For the game
-    """
 
+
+    
+def get_user_one():
+    """
+    
+    """
     global player_one
-    global player_two
-
+    
     while True:
         # Player 1 create username/login
         cprint('Player 1\n '.center(80), run.COLORS['RED'], attrs=['bold'])
@@ -173,11 +168,13 @@ def get_users():
             run.cls()
             vis.connect4_title()
             player_one = create_username(PLAYERS[0], 0)
+            return player_one
         elif menu_choice == '2':
             run.cls()
             vis.connect4_title()
             player_one = None
             player_one = player_login(0)
+            return player_one
         else:
             if menu_choice != '1' or '2':
                 run.cls()
@@ -186,8 +183,11 @@ def get_users():
                 vis.blank_line()
                 continue
 
+            
+def get_user_two():
+    global player_two
+    while True:
         # Player 2 create username/login
-        vis.connect4_title()
         cprint('Player 2\n '.center(80), run.COLORS['YELLOW'], attrs=['bold'])
         cprint('Press 1) Create username\n '.center(80), run.COLORS['BLUE'], attrs=['bold'])
         cprint('Press 2) Login \n'.center(80), run.COLORS['BLUE'], attrs=['bold'])
@@ -196,10 +196,12 @@ def get_users():
             run.cls()
             vis.connect4_title()
             player_two = create_username(PLAYERS[1], 1)
+            return player_two
         elif menu_choice == '2':
             run.cls()
             vis.connect4_title()
             player_two = player_login(1)
+            return player_two
         else:
             if menu_choice != '1' or '2':
                 run.cls()
@@ -207,4 +209,5 @@ def get_users():
                 cprint('Please press 1 or 2 to make your choice'.center(80), run.COLORS['YELLOW'], attrs=['bold'])
                 vis.blank_line()
                 continue
-        return player_one, player_two
+            
+            
