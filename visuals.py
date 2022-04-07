@@ -11,6 +11,13 @@ def blank_line():
     Function to print off a blank line
     """
     print(' ')
+    
+
+def multiple_blank_lines():
+    blank_line()
+    blank_line()
+    blank_line()
+    blank_line()
 
 def connect4_title():
     """
@@ -19,4 +26,3 @@ def connect4_title():
     color = 'yellow'
     blank_line()
     cprint(figlet_format('Connect4 !', font = "rev", justify = 'center'), color, attrs=['bold'])
-    

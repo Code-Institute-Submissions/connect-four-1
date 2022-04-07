@@ -39,7 +39,7 @@ def welcome_message():
     Or can go to the game rules - rules_screen function
     """
     vis.connect4_title()
-    cprint(' Welcome to Connect4 Command Line Interface Game \n'.center(80), COLORS['BLUE'], attrs=['bold'])
+    cprint(' Welcome to Connect4 Command Line Interface Game \n'.center(80), COLORS['BLUE'], attrs=['bold', 'blink'])
     cprint(' Press 1) To get started \n '.center(80), COLORS['YELLOW'], attrs=['bold'])
     cprint(' Press 2) Game Rules \n '.center(80), COLORS['YELLOW'], attrs=['bold'])
     menu_choice = input()
@@ -150,7 +150,7 @@ class GameBoard():
             # Need to add one more column to the result to create the number of columns
             grid += ' ||\n'
         grid += '-' * 64
-        vis.blank_line()
+        vis.multiple_blank_lines()
         print('    1 ', '   2 ', '   3  ', '  4  ', '  5  ', '  6  ', '  7  ',
               '  8  ', '  9  ', '  10')
         cprint(grid, COLORS['BLUE'], attrs=['bold'])
@@ -179,9 +179,9 @@ class GameBoard():
                             self.turn = self.turn % 2
                         break
             else:
-                print(" Column full, please choose another column")
+                cprint(" Column full, please choose another column", COLORS['RED'], attrs=['bold'])
         else:
-            print(' That is not a valid number, try again')
+            cprint(' That is not a valid number, try again \n', COLORS['RED'], attrs=['bold'])
 
     def check_move(self, player: str):
         """
@@ -236,40 +236,37 @@ def run_game():
         try:
             if game.turn == 0:
                 player_move = input(
-                    f' Player 1 ({PLAYER_1} ) insert red disc in column (1-10): '
+                    f' Player 1 ({PLAYER_1} ) insert red disc in column (1-10): \n'
                 )
                 game.drop_player_piece(int(player_move) - 1, PLAYER_1)
                 if game.check_move(PLAYER_1):
                     vis.blank_line()
-                    print(f'                    PLAYER 1 ({PLAYER_1} ) WINS!')
-                    vis.blank_line()
+                    cprint(f'PLAYER 1 ({PLAYER_1} ) WINS! \n'.center(60), COLORS['RED'], attrs=['bold'])
                     print('+', '-'*60, '+')
-                    print(figlet_format(' Game Over!', font = "marquee"))
+                    cprint(figlet_format(' Game Over', font = "rev", justify = 'center'), COLORS['RED'], attrs=['bold'])
                     quit()
             else:
 
                 player_move = input(
-                    f'Player 2 ({PLAYER_2} ) insert yellow disc in column (1-10): '
+                    f'Player 2 ({PLAYER_2} ) insert yellow disc in column (1-10): \n'
                 )
                 game.drop_player_piece(int(player_move) - 1, PLAYER_2)
                 if game.check_move(PLAYER_2):
                     vis.blank_line()
-                    print(f'                    PLAYER 2 ({PLAYER_2} ) WINS!')
-                    vis.blank_line()
+                    cprint(f'PLAYER 2 ({PLAYER_2} ) WINS! \n'.center(60), COLORS['YELLOW'], attrs=['bold'])
                     print('+', '-'*60, '+')
-                    print(figlet_format('Game Over!', font = "marquee"))
+                    cprint(figlet_format(' Game Over', font = "rev", justify = 'center'), COLORS['RED'], attrs=['bold'])
                     quit()
 
             if game.check_tie():
                 vis.blank_line()
-                print('                          No winners')
-                vis.blank_line()
+                cprint('No winners \n'.center(60), COLORS['RED'], attrs=['bold'])
                 print('+', '-'*60, '+')
-                print(figlet_format(' Game Over!', font = "marquee"))
+                cprint(figlet_format(' Game Over', font = "rev", justify = 'center'), COLORS['RED'], attrs=['bold'])
                 quit()
 
         except ValueError:
-            print(' That is not a number ... Please try again')
+            cprint(' That is not a number ... Please try again \n', COLORS['RED'], attrs=['bold'])
 
 def play_again():
     pass
