@@ -20,7 +20,7 @@ COLORS = {
     'BLUE': 'blue',
     'YELLOW': 'yellow',
     'BLUE_HL': 'on_blue',
-    'RED_HL' : 'on_red',
+    'RED_HL': 'on_red',
     'WHITE': 'white'
 }
 
@@ -178,7 +178,7 @@ def start_screen():
     And allow users to start the game when they are ready
     """
     cls()
-    cprint(figlet_format(' Ready?', font="rev", justify='center'),
+    cprint(figlet_format(' Ready?', font="banner3-d", justify='center'),
            COLORS['YELLOW'],
            attrs=['bold'])
     cprint(f'{val.player_one}, {val.player_two} are you ready? \n'.center(80),
@@ -195,10 +195,12 @@ def start_screen():
     cprint('... 1...\n'.center(80), COLORS['YELLOW'], attrs=['bold'])
     time.sleep(1)
     cls()
-    cprint(figlet_format(' PLAY!', font="rev", justify='center'),
+    cprint(figlet_format(' PLAY!', font="banner3-d", justify='center'),
            COLORS['YELLOW'],
            attrs=['bold'])
     time.sleep(2)
+    cls()
+    run_game()
 
 
 class GameBoard():
@@ -232,8 +234,8 @@ class GameBoard():
         grid += '     ' + '-' * 71
         vis.game_bar()
         vis.blank_line()
-        print('      ', '  1  ', '   2  ', '   3  ', '   4  ', '   5  ', '   6  ', '   7  ',
-              '   8  ', '   9  ', '  10  ')
+        print('      ', '  1  ', '   2  ', '   3  ', '   4  ', '   5  ',
+              '   6  ', '   7  ', '   8  ', '   9  ', '  10  ')
         cprint(grid, COLORS['BLUE'], attrs=['bold'])
 
     def drop_player_piece(self, column, player):
@@ -331,9 +333,8 @@ def run_game():
     """
     game = GameBoard(0)  # Set the turn to 0
     game.print_board()  # Initial game board
-    game_play = False
 
-    while not game_play:
+    while True:
         try:
             if game.turn == 0:
                 cprint(
@@ -350,7 +351,12 @@ def run_game():
                            attrs=['bold'])
                     print('+', '-' * 80, '+')
                     vis.game_over_text()
-                    quit()
+                    vis.blank_line()
+                    cprint('Press any key to move on... \n '.center(80),
+                    COLORS['BLUE'],
+                    attrs=['bold'])
+                    input()
+                    play_again()
             else:
                 cprint(
                     f'Player 2 ({PLAYER_2} ) insert yellow disc in column (1-10): '
@@ -366,8 +372,12 @@ def run_game():
                            attrs=['bold'])
                     print('+', '-' * 78, '+')
                     vis.game_over_text()
-                    quit()
-
+                    vis.blank_line()
+                    cprint('Press any key to move on... \n '.center(80),
+                    COLORS['BLUE'],
+                    attrs=['bold'])
+                    input()
+                    play_again()
             if game.check_tie():
                 vis.blank_line()
                 cprint('No winners \n'.center(80),
@@ -375,17 +385,93 @@ def run_game():
                        attrs=['bold'])
                 print('+', '-' * 60, '+')
                 vis.game_over_text()
-                quit()
-
+                vis.blank_line()
+                cprint('Press any key to move on... \n '.center(80),
+                COLORS['BLUE'],
+                attrs=['bold'])
+                input()
+                play_again()
         except ValueError:
             cprint(' That is not a number ... Please try again \n'.center(80),
                    COLORS['RED'],
                    attrs=['bold'])
 
 
-def play_again():
-    pass
 
+def play_again():
+    
+    cls()
+    vis.connect4_title()
+    cprint('What would you like to do? \n'.center(80),
+           COLORS['YELLOW'],
+           attrs=['bold'])
+    cprint('Press 1) To play again \n '.center(80),
+           COLORS['BLUE'],
+           attrs=['bold'])
+    cprint(
+        'Press 2) To go back to Welcome screen(reset players)\n '.center(80),
+        COLORS['BLUE'],
+        attrs=['bold'])
+    cprint('Press 3) To see your scores\n'.center(80),
+           COLORS['BLUE'],
+           attrs=['bold'])
+    cprint('Press 4) To exit game \n'.center(80),
+           COLORS['BLUE'],
+           attrs=['bold'])
+
+    options = input()
+    
+    while options not in ('1', '2', '3', '4'):
+        cls()
+        vis.connect4_title()
+        cprint("Please press 1 or 2 to make your choice \n".center(80),
+               COLORS['RED'])
+        cprint('What would you like to do? \n'.center(80),
+           COLORS['YELLOW'],
+           attrs=['bold'])
+        cprint('Press 1) To play again \n '.center(80),
+           COLORS['BLUE'],
+           attrs=['bold'])
+        cprint(
+            'Press 2) To go back to Welcome screen(reset players)\n '.center(80),
+            COLORS['BLUE'],
+            attrs=['bold'])
+        cprint('Press 3) To see your scores\n'.center(80),
+            COLORS['BLUE'],
+            attrs=['bold'])
+        cprint('Press 4) To exit game \n'.center(80),
+            COLORS['BLUE'],
+            attrs=['bold'])
+        options = input()
+
+    if options == "1":
+        cls()
+        vis.game_bar()
+        vis.connect4_title()
+        cprint("Starting a new game between \n".center(80), COLORS['BLUE'], attrs=['bold'])
+        cprint(f"{val.player_one} \n".center(80), COLORS['RED'], attrs=['bold'])
+        cprint(f"{val.player_two}!\n".center(80), COLORS['YELLOW'], attrs=['bold'])
+        cprint('... 3...\n'.center(80), COLORS['BLUE'], attrs=['bold'])
+        time.sleep(1)
+        cprint('... 2...\n'.center(80), COLORS['RED'], attrs=['bold'])
+        time.sleep(1)
+        cprint('... 1...\n'.center(80), COLORS['YELLOW'], attrs=['bold'])
+        time.sleep(1)
+        start_screen()
+
+    elif options == "2":
+        time.sleep(1)
+        cls()
+        start_game()
+
+    elif options == "3":
+        pass
+
+    elif options == "4":
+        cls()
+        vis.connect4_title()
+        cprint("Thanks for playing! See you again soon!\n".center(80), COLORS['BLUE'])
+        sys.exit()
 
 def high_scores():
     pass
@@ -401,8 +487,7 @@ def start_game():
     val.get_user_two()
     cls()
     start_screen()
-    cls()
-    run_game()
+    
 
 
 if __name__ == '__main__':
