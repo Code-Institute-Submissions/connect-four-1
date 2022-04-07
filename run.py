@@ -21,6 +21,7 @@ COLORS = {
     'YELLOW': 'yellow',
     'BLUE_HL': 'on_blue',
     'RED_HL': 'on_red',
+    'YELLOW_HL': 'on_yellow',
     'WHITE': 'white'
 }
 
@@ -346,11 +347,7 @@ def run_game():
                 game.drop_player_piece(int(player_move) - 1, PLAYER_1)
                 if game.check_move(PLAYER_1):
                     vis.blank_line()
-                    cprint(f'PLAYER 1 ({PLAYER_1} ) WINS! \n'.center(80),
-                           COLORS['RED'],
-                           attrs=['bold'])
-                    print('+', '-' * 80, '+')
-                    vis.game_over_text()
+                    vis.game_over_text(0)
                     vis.blank_line()
                     cprint('Press any key to move on... \n '.center(80),
                     COLORS['BLUE'],
@@ -367,11 +364,7 @@ def run_game():
                 game.drop_player_piece(int(player_move) - 1, PLAYER_2)
                 if game.check_move(PLAYER_2):
                     vis.blank_line()
-                    cprint(f'PLAYER 2 ({PLAYER_2} ) WINS! \n'.center(80),
-                           COLORS['YELLOW'],
-                           attrs=['bold'])
-                    print('+', '-' * 78, '+')
-                    vis.game_over_text()
+                    vis.game_over_text(1)
                     vis.blank_line()
                     cprint('Press any key to move on... \n '.center(80),
                     COLORS['BLUE'],
@@ -384,7 +377,7 @@ def run_game():
                        COLORS['RED'],
                        attrs=['bold'])
                 print('+', '-' * 60, '+')
-                vis.game_over_text()
+                vis.game_over_text(3)
                 vis.blank_line()
                 cprint('Press any key to move on... \n '.center(80),
                 COLORS['BLUE'],
@@ -399,9 +392,15 @@ def run_game():
 
 
 def play_again():
-    
+    """
+    Function that uses and input to record the users choice
+    From there run the appropriate function
+    To direct the user to the next screen
+    """
     cls()
-    vis.connect4_title()
+    cprint(figlet_format(' Play?', font="banner3-D", justify='center'),
+           COLORS['YELLOW'],
+           attrs=['bold'])
     cprint('What would you like to do? \n'.center(80),
            COLORS['YELLOW'],
            attrs=['bold'])
