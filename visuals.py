@@ -34,7 +34,10 @@ def game_bar():
     blank_line()
     cprint(' '.center(80), run.COLORS['WHITE'], run.COLORS['BLUE_HL'])
     cprint(
-        f'Player 1 : {val.player_one}                Player 2 : {val.player_two}'
+        f'{val.player_one} wins: {val.player1_wins}  Losses: {val.player1_losses}      {val.player_two} wins: {val.player2_wins} Losses: {val.player2_losses}'
+        .center(80), run.COLORS['WHITE'], run.COLORS['BLUE_HL'])
+    cprint(
+        f' Overall stats: wins:   {val.player1_total_wins}  Losses: {val.player1_total_losses}            wins: {val.player2_total_wins}  Losses: {val.player2_total_losses}'
         .center(80), run.COLORS['WHITE'], run.COLORS['BLUE_HL'])
     cprint(' '.center(80), run.COLORS['WHITE'], run.COLORS['BLUE_HL'])
 
@@ -46,26 +49,23 @@ def game_over_text(player):
     Takes the player parameter
     """
     if player == 0:
-        blank_line()
-        cprint(f'PLAYER 1 ({val.player_one}) WINS! \n'.center(80),
-               run.COLORS['WHITE'], run.COLORS['RED_HL'])
         cprint(' '.center(80), run.COLORS['WHITE'], run.COLORS['RED_HL'])
+        cprint(f'PLAYER 1 : {val.player_one} WINS! '.center(80),
+               run.COLORS['WHITE'], run.COLORS['RED_HL'])
         cprint('GAME OVER!'.center(80), run.COLORS['WHITE'],
                run.COLORS['RED_HL'])
         cprint(' '.center(80), run.COLORS['WHITE'], run.COLORS['RED_HL'])
     elif player == 1:
-        blank_line()
-        cprint(f'PLAYER 2 ({val.player_two}) WINS! \n'.center(80),
-               run.COLORS['WHITE'], run.COLORS['YELLOW_HL'])
         cprint(' '.center(80), run.COLORS['WHITE'], run.COLORS['YELLOW_HL'])
+        cprint(f'PLAYER 2 : {val.player_two} WINS! '.center(80),
+               run.COLORS['WHITE'], run.COLORS['YELLOW_HL'])
         cprint('GAME OVER!'.center(80), run.COLORS['WHITE'],
                run.COLORS['YELLOW_HL'])
         cprint(' '.center(80), run.COLORS['WHITE'], run.COLORS['YELLOW_HL'])
     else:
-        blank_line()
-        cprint('NO WINNERS! \n'.center(80),
-               run.COLORS['WHITE'], run.COLORS['BLUE_HL'])
         cprint(' '.center(80), run.COLORS['WHITE'], run.COLORS['BLUE_HL'])
+        cprint('NO WINNERS! '.center(80), run.COLORS['WHITE'],
+               run.COLORS['BLUE_HL'])
         cprint('GAME OVER!'.center(80), run.COLORS['WHITE'],
                run.COLORS['YELLOW_HL'])
         cprint(' '.center(80), run.COLORS['WHITE'], run.COLORS['BLUE_HL'])
