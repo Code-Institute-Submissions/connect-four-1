@@ -336,7 +336,6 @@ def run_game():
     while not game_play:
         try:
             if game.turn == 0:
-                vis.blank_line()
                 cprint(
                     f' Player 1 ({PLAYER_1} ) insert red disc in column (1-10): '
                     .center(80),
@@ -353,7 +352,6 @@ def run_game():
                     vis.game_over_text()
                     quit()
             else:
-                vis.blank_line()
                 cprint(
                     f'Player 2 ({PLAYER_2} ) insert yellow disc in column (1-10): '
                     .center(80),
@@ -366,7 +364,7 @@ def run_game():
                     cprint(f'PLAYER 2 ({PLAYER_2} ) WINS! \n'.center(80),
                            COLORS['YELLOW'],
                            attrs=['bold'])
-                    print('+', '-' * 80, '+')
+                    print('+', '-' * 78, '+')
                     vis.game_over_text()
                     quit()
 
