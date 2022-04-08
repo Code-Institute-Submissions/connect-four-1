@@ -54,12 +54,11 @@ def create_username(player, player_number):
                         .center(80),
                         run.COLORS['RED'],
                         attrs=['bold'])
-                    time.sleep(2)
-                    # Converts the player input into an list item so it can be handled in google sheets
-                    player1_username = player.split()
                     vis.blank_line()
                     loading = ".....Loading.....".center(80)
                     vis.typing_text(loading)
+                    # Converts the player input into an list item so it can be handled in google sheets
+                    player1_username = player.split()
                     USERNAME.append_row(player1_username)
 
                 else:
@@ -88,13 +87,12 @@ def create_username(player, player_number):
                         .center(80),
                         run.COLORS['YELLOW'],
                         attrs=['bold'])
-                    time.sleep(2)
-                    # Converts the player input into an list item
-                    # so it can be handled in google sheets
-                    player2_username = player.split()
                     vis.blank_line()
                     loading = ".....Loading.....".center(80)
                     vis.typing_text(loading)
+                    # Converts the player input into an list item
+                    # so it can be handled in google sheets
+                    player2_username = player.split()
                     USERNAME.append_row(player2_username)
                 else:
                     run.cls()
@@ -235,8 +233,14 @@ def get_user_one():
             # Sets the player spreadsheet coordinates
             # To be used later to update player scores
             player1_data = USERNAME.find(player_one).row
-
-            return player_one, player1_data
+            # Set the base values of 0 for new players
+            # For total wins and losses
+            USERNAME.update_cell(player1_data, 2, '0')
+            USERNAME.update_cell(player1_data, 3, '0')
+            player1_total_wins = int(USERNAME.row_values(player1_data)[1])
+            player1_total_losses = int(USERNAME.row_values(player1_data)[2])
+            
+            return player_one, player1_data, player1_total_losses, player1_total_wins
 
         elif menu_choice == '2':
             run.cls()
@@ -299,8 +303,12 @@ def get_user_two():
             # Sets the player spreadsheet coordinates
             # To be used later to update player scores
             player2_data = USERNAME.find(player_two).row
+            USERNAME.update_cell(player2_data, 2, '0')
+            USERNAME.update_cell(player2_data, 3, '0')
+            player2_total_wins = int(USERNAME.row_values(player2_data)[1])
+            player2_total_losses = int(USERNAME.row_values(player2_data)[2])
             
-            return player_two
+            return player_two, player2_data, player2_total_losses, player2_total_wins
         
         elif menu_choice == '2':
             run.cls()
