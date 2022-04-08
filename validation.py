@@ -211,6 +211,7 @@ def get_user_one():
     global player1_total_wins
     global player1_losses
     global player1_total_losses
+    global player1_data
 
     player1_total_losses = 0
     player1_total_wins = 0
@@ -271,6 +272,7 @@ def get_user_two():
     global player2_total_wins
     global player2_losses
     global player2_total_losses
+    global player2_data
 
     player2_total_wins = 0
     player2_total_losses = 0

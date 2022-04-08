@@ -51,7 +51,7 @@ def welcome_message():
     cprint('Press 1) To get started \n '.center(80),
            COLORS['YELLOW'],
            attrs=['bold'])
-    cprint('Press 2) Game Rules \n '.center(80),
+    cprint('Press 2) Game Rules '.center(80),
            COLORS['YELLOW'],
            attrs=['bold'])
     cprint(
@@ -364,16 +364,19 @@ def run_game():
                 game.drop_player_piece(int(player_move) - 1, PLAYER_1)
                 #If player 1 wins
                 if game.check_move(PLAYER_1):
+                    # Update wins and losses
+                    val.player1_wins += 1
+                    val.player1_total_wins += 1
+                    val.player2_total_losses += 1
+                    val.player2_losses += 1
+                    val.USERNAME.update_cell(val.player1_data, 2, val.player1_total_wins)
+                    val.USERNAME.update_cell(val.player2_data, 3, val.player2_total_losses)
                     vis.blank_line()
                     vis.game_over_text(0)
                     vis.blank_line()
                     cprint('Please press C to continue...'.center(80),
                            COLORS['BLUE'],
                            attrs=['bold'])
-                    val.player1_wins += 1
-                    val.player1_total_wins += 1
-                    val.player2_total_losses += 1
-                    val.player2_losses += 1
                     cont = input()
                     # Input error handling
                     val.cont_error(cont)
@@ -401,6 +404,8 @@ def run_game():
                     val.player2_total_wins += 1
                     val.player1_total_losses += 1
                     val.player1_losses += 1
+                    val.USERNAME.update_cell(val.player2_data, 2, val.player2_total_wins)
+                    val.USERNAME.update_cell(val.player1_data, 3, val.player1_total_losses)
                     cont = input()
                     # Input error handling
                     val.cont_error(cont)
