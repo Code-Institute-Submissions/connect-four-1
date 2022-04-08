@@ -469,7 +469,7 @@ def play_again():
         cprint(figlet_format(' Play?', font="banner3-D", justify='center'),
            COLORS['YELLOW'],
            attrs=['bold'])
-        cprint("Please press 1 or 2 to make your choice \n".center(80),
+        cprint("Please press 1, 2, 3, or 4 to make your choice \n".center(80),
                COLORS['RED'])
         cprint('What would you like to do? \n'.center(80),
                COLORS['YELLOW'],
@@ -509,18 +509,23 @@ def play_again():
         start_game()
 
     elif options == "3":
-        pass
+        high_scores()
 
     elif options == "4":
         cls()
         vis.connect4_title()
         cprint("Thanks for playing! See you again soon!\n".center(80),
-               COLORS['BLUE'])
+               COLORS['BLUE'], attrs=['bold'])
         sys.exit()
 
 
 def high_scores():
-    pass
+    cls()
+    cprint(figlet_format(' Play?', font="banner3-D", justify='center'),
+           COLORS['BLUE'],
+           attrs=['bold'])
+    
+    
 
 
 def start_game():
