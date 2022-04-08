@@ -51,8 +51,13 @@ def create_username(player, player_number):
                     time.sleep(2)
                     # Converts the player input into an list item so it can be handled in google sheets
                     player1_username = player.split()
+                    vis.blank_line()
+                    loading = ".....Loading.....".center(80)
+                    vis.typing_text(loading)
                     USERNAME.append_row(player1_username)
-                    run.cls()
+                    
+                    
+                    
                 else:
                     run.cls()
                     vis.connect4_title()
@@ -68,10 +73,13 @@ def create_username(player, player_number):
                 if player not in USERNAME.col_values(1):
                     run.cls()
                     vis.connect4_title()
-                    cprint(f"Hello {player} ...you are player 2 ({run.PLAYER_2} )".center(80), run.COLORS['YELLOW'], attrs=['bold'])
+                    cprint(f"Hello {player} ...you are player 2 ({run.PLAYER_2} ...)".center(80), run.COLORS['YELLOW'], attrs=['bold'])
                     time.sleep(2)
                     # Converts the player input into an list item so it can be handled in google sheets
                     player2_username = player.split()
+                    vis.blank_line()
+                    loading = ".....Loading.....".center(80)
+                    vis.typing_text(loading)
                     USERNAME.append_row(player2_username)
                 else:
                     run.cls()
@@ -181,8 +189,7 @@ def get_user_one():
             run.cls()
             vis.connect4_title()
             player_one = create_username(PLAYERS[0], 0)
-            loading = ".....Loading.....".center(80)
-            vis.typing_text(loading)
+
             return player_one
         
         elif menu_choice == '2':
@@ -236,8 +243,6 @@ def get_user_two():
             run.cls()
             vis.connect4_title()
             player_two = create_username(PLAYERS[1], 1)
-            loading = ".....Loading.....".center(80)
-            vis.typing_text(loading)
             return player_one
         elif menu_choice == '2':
             run.cls()
