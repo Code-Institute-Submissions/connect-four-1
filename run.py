@@ -1,14 +1,12 @@
 import os
 import time
 import sys
-import subprocess
+import cursor
 from pyfiglet import figlet_format
-from colorama import init
+from colorama import init, Fore
 from termcolor import cprint
 import visuals as vis
 import validation as val
-import cursor
-
 
 # use Colorama to make Termcolor work on Windows too
 init(autoreset=True)
@@ -56,6 +54,11 @@ def welcome_message():
     cprint('Press 2) Game Rules \n '.center(80),
            COLORS['YELLOW'],
            attrs=['bold'])
+    cprint(
+        'Please note: Press Enter after to register the keyboard keys pressed'.
+        center(80),
+        COLORS['RED'],
+        attrs=['bold'])
     menu_choice = input()
 
     while menu_choice not in ("1", "2"):
@@ -70,6 +73,11 @@ def welcome_message():
         cprint('Press 2) Game Rules \n '.center(80),
                COLORS['YELLOW'],
                attrs=['bold'])
+        cprint(
+            'Please note: Press Enter after to register the keyboard keys pressed'
+            .center(80),
+            COLORS['RED'],
+            attrs=['bold'])
         menu_choice = input()
         continue
 
@@ -116,7 +124,7 @@ def rules_screen():
            attrs=['bold'])
     time.sleep(1.5)
     cprint(
-        f'Player 1 will be assigned a red disc ({PLAYER_1} )and Player 2 a yellow disc ({PLAYER_2} ) \n'
+        f'Player 1 will be assigned a red disc ({PLAYER_1} ) and Player 2 a yellow disc ({PLAYER_2} ) \n'
         .center(80),
         COLORS['YELLOW'],
         attrs=['bold'])
@@ -132,11 +140,12 @@ def rules_screen():
     time.sleep(1.6)
     cprint('Have fun! \n'.center(80), COLORS['YELLOW'], attrs=['bold'])
     time.sleep(1.6)
-    cprint('Press any key to move on... \n '.center(80),
+    cprint('Press C to continue... \n '.center(80),
            COLORS['BLUE'],
            attrs=['bold'])
-    input()
-
+    cont = input()
+    # Input error handling
+    val.cont_error(cont)
     cls()
     # Input choice for users to navigate to next screen
     vis.blank_line()
@@ -189,10 +198,13 @@ def start_screen():
     cprint(f'{val.player_one}, {val.player_two} are you ready? \n'.center(80),
            COLORS['WHITE'],
            attrs=['bold'])
-    cprint('Press any key to start...\n'.center(80),
+    cprint('Please press C to continue...'.center(80),
            COLORS['BLUE'],
            attrs=['bold'])
-    input()
+    cont = input()
+
+    val.cont_error(cont)
+
     cprint('... 3...\n'.center(80), COLORS['BLUE'], attrs=['bold'])
     time.sleep(1)
     cprint('... 2...\n'.center(80), COLORS['RED'], attrs=['bold'])
@@ -203,7 +215,7 @@ def start_screen():
     cprint(figlet_format(' PLAY!', font="banner3-D", justify='center'),
            COLORS['YELLOW'],
            attrs=['bold'])
-    time.sleep(2)
+    time.sleep(1)
     cls()
     run_game()
 
@@ -341,6 +353,7 @@ def run_game():
 
     while True:
         try:
+            # Player 1's turn
             if game.turn == 0:
                 cprint(
                     f' Player 1 ({PLAYER_1} ) insert red disc in column (1-10): '
@@ -354,15 +367,19 @@ def run_game():
                     vis.blank_line()
                     vis.game_over_text(0)
                     vis.blank_line()
-                    cprint('Press any key to move on... \n '.center(80),
+                    cprint('Please press C to continue...'.center(80),
                            COLORS['BLUE'],
                            attrs=['bold'])
                     val.player1_wins += 1
                     val.player1_total_wins += 1
                     val.player2_total_losses += 1
                     val.player2_losses += 1
-                    input()
+                    cont = input()
+                    # Input error handling
+                    val.cont_error(cont)
                     play_again()
+
+            #Player 2's turn
             else:
                 cprint(
                     f'Player 2 ({PLAYER_2} ) insert yellow disc in column (1-10): '
@@ -371,20 +388,25 @@ def run_game():
                     attrs=['bold'])
                 player_move = input()
                 game.drop_player_piece(int(player_move) - 1, PLAYER_2)
+
                 # If player 2 wins
                 if game.check_move(PLAYER_2):
                     vis.blank_line()
                     vis.game_over_text(1)
                     vis.blank_line()
-                    cprint('Press any key to move on... \n '.center(80),
+                    cprint('Please press C to continue...'.center(80),
                            COLORS['BLUE'],
                            attrs=['bold'])
                     val.player2_wins += 1
                     val.player2_total_wins += 1
                     val.player1_total_losses += 1
                     val.player1_losses += 1
-                    input()
+                    cont = input()
+                    # Input error handling
+                    val.cont_error(cont)
                     play_again()
+
+            # If game is a tie
             if game.check_tie():
                 vis.blank_line()
                 cprint('No winners \n'.center(80),
@@ -393,11 +415,15 @@ def run_game():
                 print('+', '-' * 60, '+')
                 vis.game_over_text(3)
                 vis.blank_line()
-                cprint('Press any key to move on... \n '.center(80),
+                cprint('Please press C to continue...'.center(80),
                        COLORS['BLUE'],
                        attrs=['bold'])
-                input()
+                cont = input()
+
+                # Input error handling
+                val.cont_error(cont)
                 play_again()
+
         except ValueError:
             cprint(' That is not a number ... Please try again \n'.center(80),
                    COLORS['RED'],
@@ -435,7 +461,9 @@ def play_again():
 
     while options not in ('1', '2', '3', '4'):
         cls()
-        vis.connect4_title()
+        cprint(figlet_format(' Play?', font="banner3-D", justify='center'),
+           COLORS['YELLOW'],
+           attrs=['bold'])
         cprint("Please press 1 or 2 to make your choice \n".center(80),
                COLORS['RED'])
         cprint('What would you like to do? \n'.center(80),
@@ -460,21 +488,14 @@ def play_again():
     if options == "1":
         cls()
         vis.connect4_title()
-        cprint("Starting a new game between \n".center(80),
-               COLORS['BLUE'],
-               attrs=['bold'])
-        cprint(f"{val.player_one} \n".center(80),
-               COLORS['RED'],
-               attrs=['bold'])
-        cprint(f"{val.player_two}!\n".center(80),
-               COLORS['YELLOW'],
-               attrs=['bold'])
-        cprint('... 3...\n'.center(80), COLORS['BLUE'], attrs=['bold'])
-        time.sleep(1)
-        cprint('... 2...\n'.center(80), COLORS['RED'], attrs=['bold'])
-        time.sleep(1)
-        cprint('... 1...\n'.center(80), COLORS['YELLOW'], attrs=['bold'])
-        time.sleep(1)
+        new_game_line = Fore.BLUE + "Starting a new game between "
+        players_line = Fore.RED + f"{val.player_one}" + '   ' + "vs" + '   ' + Fore.YELLOW + f"{val.player_two}"
+        print(new_game_line.center(80))
+        vis.blank_line()
+        print(players_line.center(80))
+        vis.blank_line()
+        loading = ".....Loading.....".center(80)
+        vis.typing_text(loading)
         start_screen()
 
     elif options == "2":

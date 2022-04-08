@@ -1,9 +1,9 @@
-from pyfiglet import figlet_format
-import colorama
 import sys
 import time
+import colorama
+from pyfiglet import figlet_format
 from termcolor import cprint
-import run as run
+import run
 import validation as val
 
 colorama.init(autoreset=True)
@@ -82,3 +82,4 @@ def typing_text(text):
         sys.stdout.write(character)
         sys.stdout.flush()
         time.sleep(0.05)
+

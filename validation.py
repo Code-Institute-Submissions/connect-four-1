@@ -89,7 +89,8 @@ def create_username(player, player_number):
                         run.COLORS['YELLOW'],
                         attrs=['bold'])
                     time.sleep(2)
-                    # Converts the player input into an list item so it can be handled in google sheets
+                    # Converts the player input into an list item
+                    # so it can be handled in google sheets
                     player2_username = player.split()
                     vis.blank_line()
                     loading = ".....Loading.....".center(80)
@@ -311,3 +312,12 @@ def get_user_two():
                        attrs=['bold'])
                 vis.blank_line()
                 continue
+def cont_error(cont_input):
+    """
+    
+    """
+    while cont_input not in ['c', 'C']:
+        cprint('Please press C to continue...'.center(80),
+               run.COLORS['RED'],
+               attrs=['bold'])
+        cont_input = input()
