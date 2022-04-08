@@ -71,8 +71,13 @@ def game_over_text(player):
         cprint('GAME OVER!'.center(80), run.COLORS['WHITE'],
                run.COLORS['YELLOW_HL'])
         cprint(' '.center(80), run.COLORS['WHITE'], run.COLORS['BLUE_HL'])
-        
+
+
 def typing_text(text):
+    """
+    Loops through characters in a string
+    Creates the effect pf tiping using sys.stdout
+    """
     for character in text:
         sys.stdout.write(character)
         sys.stdout.flush()
