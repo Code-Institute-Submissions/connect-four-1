@@ -165,6 +165,9 @@ def get_user_one():
     global player1_total_wins
     global player1_losses
     global player1_total_losses
+    
+    player1_total_losses = 0
+    player1_total_wins = 0
     player1_wins = 0
     player1_losses = 0
     
@@ -178,15 +181,9 @@ def get_user_one():
             run.cls()
             vis.connect4_title()
             player_one = create_username(PLAYERS[0], 0)
-            
-            #Find the row corresponding to the player username data
-            player1_data = USERNAME.find(player_one).row
-            #Get the value of a specific index of row values
-            #Store the values in variables
-            player1_total_wins = int(USERNAME.row_values(player1_data)[1])
-            player1_total_losses = int(USERNAME.row_values(player1_data)[2])
-            
-            return player_one, player1_total_wins, player1_total_losses
+            loading = ".....Loading.....".center(80)
+            vis.typing_text(loading)
+            return player_one
         
         elif menu_choice == '2':
             run.cls()
@@ -223,6 +220,9 @@ def get_user_two():
     global player2_total_wins
     global player2_losses
     global player2_total_losses
+    
+    player2_total_wins = 0
+    player2_total_losses = 0
     player2_wins = 0
     player2_losses = 0
     
@@ -236,15 +236,9 @@ def get_user_two():
             run.cls()
             vis.connect4_title()
             player_two = create_username(PLAYERS[1], 1)
-            
-            #Find the row corresponding to the player username data
-            player2_data = USERNAME.find(player_two).row
-            #Get the value of a specific index of row values
-            #Store the values in variables
-            player2_total_wins = int(USERNAME.row_values(player2_data)[1])
-            player2_total_losses = int(USERNAME.row_values(player2_data)[2])
-           
-            return player_one, player2_total_wins, player2_total_losses
+            loading = ".....Loading.....".center(80)
+            vis.typing_text(loading)
+            return player_one
         elif menu_choice == '2':
             run.cls()
             vis.connect4_title()
