@@ -33,7 +33,6 @@ def game_bar():
     Function which creates a game bar displaying player info
     Using cprint statements
     """
-    blank_line()
     cprint(' '.center(80), run.COLORS['WHITE'], run.COLORS['BLUE_HL'])
     cprint(
         f'{val.player_one} - wins: {val.player1_wins}  Losses: {val.player1_losses}      {val.player_two} - wins: {val.player2_wins} Losses: {val.player2_losses}'

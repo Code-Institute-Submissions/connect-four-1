@@ -232,6 +232,9 @@ def get_user_one():
             run.cls()
             vis.connect4_title()
             player_one = create_username(PLAYERS[0], 0)
+            # Sets the player spreadsheet coordinates
+            # To be used later to update player scores
+            player1_data = USERNAME.find(player_one).row
 
             return player_one
 
@@ -293,7 +296,12 @@ def get_user_two():
             run.cls()
             vis.connect4_title()
             player_two = create_username(PLAYERS[1], 1)
-            return player_one
+            # Sets the player spreadsheet coordinates
+            # To be used later to update player scores
+            player2_data = USERNAME.find(player_two).row
+            
+            return player_two
+        
         elif menu_choice == '2':
             run.cls()
             vis.connect4_title()
@@ -304,7 +312,7 @@ def get_user_two():
             player2_total_wins = int(USERNAME.row_values(player2_data)[1])
             player2_total_losses = int(USERNAME.row_values(player2_data)[2])
 
-            return player_one, player2_total_wins, player2_total_losses
+            return player_two, player2_total_wins, player2_total_losses
         else:
             if menu_choice != '1' or '2':
                 run.cls()
@@ -314,6 +322,8 @@ def get_user_two():
                        attrs=['bold'])
                 vis.blank_line()
                 continue
+            
+            
 def cont_error(cont_input):
     """
     

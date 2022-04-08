@@ -5,6 +5,7 @@ import cursor
 from pyfiglet import figlet_format
 from colorama import init, Fore
 from termcolor import cprint
+from tabulate import tabulate
 import visuals as vis
 import validation as val
 
@@ -51,9 +52,8 @@ def welcome_message():
     cprint('Press 1) To get started \n '.center(80),
            COLORS['YELLOW'],
            attrs=['bold'])
-    cprint('Press 2) Game Rules '.center(80),
-           COLORS['YELLOW'],
-           attrs=['bold'])
+    cprint('Press 2) Game Rules '.center(80), COLORS['YELLOW'], attrs=['bold'])
+    vis.blank_line()
     cprint(
         'Please note: Press Enter after to register the keyboard keys pressed'.
         center(80),
@@ -369,8 +369,10 @@ def run_game():
                     val.player1_total_wins += 1
                     val.player2_total_losses += 1
                     val.player2_losses += 1
-                    val.USERNAME.update_cell(val.player1_data, 2, val.player1_total_wins)
-                    val.USERNAME.update_cell(val.player2_data, 3, val.player2_total_losses)
+                    val.USERNAME.update_cell(val.player1_data, 2,
+                                             val.player1_total_wins)
+                    val.USERNAME.update_cell(val.player2_data, 3,
+                                             val.player2_total_losses)
                     vis.blank_line()
                     vis.game_over_text(0)
                     vis.blank_line()
@@ -404,8 +406,10 @@ def run_game():
                     val.player2_total_wins += 1
                     val.player1_total_losses += 1
                     val.player1_losses += 1
-                    val.USERNAME.update_cell(val.player2_data, 2, val.player2_total_wins)
-                    val.USERNAME.update_cell(val.player1_data, 3, val.player1_total_losses)
+                    val.USERNAME.update_cell(val.player2_data, 2,
+                                             val.player2_total_wins)
+                    val.USERNAME.update_cell(val.player1_data, 3,
+                                             val.player1_total_losses)
                     cont = input()
                     # Input error handling
                     val.cont_error(cont)
@@ -455,7 +459,7 @@ def play_again():
         'Press 2) To go back to Welcome screen(reset players)\n '.center(80),
         COLORS['BLUE'],
         attrs=['bold'])
-    cprint('Press 3) To see your scores\n'.center(80),
+    cprint('Press 3) To see leaderboard and your scores\n'.center(80),
            COLORS['BLUE'],
            attrs=['bold'])
     cprint('Press 4) To exit game \n'.center(80),
@@ -467,8 +471,8 @@ def play_again():
     while options not in ('1', '2', '3', '4'):
         cls()
         cprint(figlet_format(' Play?', font="banner3-D", justify='center'),
-           COLORS['YELLOW'],
-           attrs=['bold'])
+               COLORS['YELLOW'],
+               attrs=['bold'])
         cprint("Please press 1, 2, 3, or 4 to make your choice \n".center(80),
                COLORS['RED'])
         cprint('What would you like to do? \n'.center(80),
@@ -482,7 +486,7 @@ def play_again():
                 80),
             COLORS['BLUE'],
             attrs=['bold'])
-        cprint('Press 3) To see your scores\n'.center(80),
+        cprint('Press 3) To see leaderboard and your scores\n'.center(80),
                COLORS['BLUE'],
                attrs=['bold'])
         cprint('Press 4) To exit game \n'.center(80),
@@ -515,17 +519,37 @@ def play_again():
         cls()
         vis.connect4_title()
         cprint("Thanks for playing! See you again soon!\n".center(80),
-               COLORS['BLUE'], attrs=['bold'])
+               COLORS['BLUE'],
+               attrs=['bold'])
         sys.exit()
 
 
 def high_scores():
     cls()
-    cprint(figlet_format(' Play?', font="banner3-D", justify='center'),
-           COLORS['BLUE'],
-           attrs=['bold'])
-    
-    
+    # Print User stats bar
+    cprint(' '.center(80), COLORS['WHITE'], COLORS['BLUE_HL'])
+    cprint(
+        f'{val.player_one}  wins: {val.player1_wins}  Losses: {val.player1_losses}      Total Overall Stats - wins: {val.player1_total_wins} Losses: {val.player1_total_losses}'
+        .center(80), COLORS['WHITE'], COLORS['BLUE_HL'])
+    cprint(' '.center(80), COLORS['WHITE'], COLORS['BLUE_HL'])
+    cprint(
+        f' {val.player_two}  wins: {val.player2_wins} Losses: {val.player2_losses}       Total Overall Stats- wins: {val.player2_total_wins}  Losses: {val.player2_total_losses}'
+        .center(80), COLORS['WHITE'], COLORS['BLUE_HL'])
+    cprint(' '.center(80), COLORS['WHITE'], COLORS['BLUE_HL'])
+    vis.blank_line()
+
+    # Prints table of top 3 overall stats
+    # sort by column 2 which is number of wins
+    val.USERNAME.sort((2, 'des'))
+    show_stats = val.USERNAME.get_all_values()
+    table = tabulate(show_stats[0:4], tablefmt='fancy_grid')
+    print(table)
+    vis.blank_line()
+    cprint('Please press C to continue...', COLORS['BLUE'], attrs=['bold'])
+    cont = input()
+    # Input error handling
+    val.cont_error(cont)
+    play_again()
 
 
 def start_game():
@@ -542,4 +566,5 @@ def start_game():
 
 if __name__ == '__main__':
     cls()
+   
     start_game()
