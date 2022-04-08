@@ -53,7 +53,6 @@ def welcome_message():
            COLORS['YELLOW'],
            attrs=['bold'])
     cprint('Press 2) Game Rules '.center(80), COLORS['YELLOW'], attrs=['bold'])
-    vis.blank_line()
     cprint(
         'Please note: Press Enter after to register the keyboard keys pressed'.
         center(80),
@@ -123,11 +122,10 @@ def rules_screen():
            COLORS['YELLOW'],
            attrs=['bold'])
     time.sleep(1.5)
-    cprint(
-        f'Player 1 will be assigned a red disc ({PLAYER_1} ) and Player 2 a yellow disc ({PLAYER_2} ) \n'
-        .center(80),
-        COLORS['YELLOW'],
-        attrs=['bold'])
+    cprint(f'Player 1 will be assigned a red disc ({PLAYER_1} )'
+           'and Player 2 a yellow disc ({PLAYER_2} ) \n'.center(80),
+           COLORS['YELLOW'],
+           attrs=['bold'])
     time.sleep(1.5)
     cprint('The goal of the game is to get 4 of your discs in a row \n'.center(
         80),
@@ -525,15 +523,26 @@ def play_again():
 
 
 def high_scores():
+
+    """
+    Prints out the values of the current players
+    Both for the current round of game and overall stats
+    Pulls data from gspread connected google sheets
+    Sorts it by the number of wins and desc order
+    Using tabulate puts the data into a table
+    """
+
     cls()
     # Print User stats bar
     cprint(' '.center(80), COLORS['WHITE'], COLORS['BLUE_HL'])
     cprint(
-        f'{val.player_one}  wins: {val.player1_wins}  Losses: {val.player1_losses}      Total Overall Stats - wins: {val.player1_total_wins} Losses: {val.player1_total_losses}'
+        f'{val.player_one}  wins: {val.player1_wins}  Losses: {val.player1_losses}      '
+        'Total Overall Stats - wins: {val.player1_total_wins} Losses: {val.player1_total_losses}'
         .center(80), COLORS['WHITE'], COLORS['BLUE_HL'])
     cprint(' '.center(80), COLORS['WHITE'], COLORS['BLUE_HL'])
     cprint(
-        f' {val.player_two}  wins: {val.player2_wins} Losses: {val.player2_losses}       Total Overall Stats- wins: {val.player2_total_wins}  Losses: {val.player2_total_losses}'
+        f' {val.player_two}  wins: {val.player2_wins} Losses: {val.player2_losses}       '
+        'Total Overall Stats- wins: {val.player2_total_wins}  Losses: {val.player2_total_losses}'
         .center(80), COLORS['WHITE'], COLORS['BLUE_HL'])
     cprint(' '.center(80), COLORS['WHITE'], COLORS['BLUE_HL'])
     vis.blank_line()
@@ -566,5 +575,5 @@ def start_game():
 
 if __name__ == '__main__':
     cls()
-   
+
     start_game()

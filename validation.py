@@ -236,7 +236,7 @@ def get_user_one():
             # To be used later to update player scores
             player1_data = USERNAME.find(player_one).row
 
-            return player_one
+            return player_one, player1_data
 
         elif menu_choice == '2':
             run.cls()
