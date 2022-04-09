@@ -3,7 +3,7 @@ import time
 import sys
 import cursor
 from pyfiglet import figlet_format
-from colorama import init, Fore
+from colorama import init, Fore, Style
 from termcolor import cprint
 from tabulate import tabulate
 import visuals as vis
@@ -497,9 +497,9 @@ def play_again():
     if options == "1":
         cls()
         vis.connect4_title()
-        print(Fore.WHITE + "Starting a new game between".center(80))
+        print(Style.BRIGHT + Fore.WHITE + "Starting a new game between".center(80))
         vis.blank_line()
-        print(Fore.BLUE + f"{val.player_one} vs {val.player_two}".center(80))
+        print(Style.BRIGHT + Fore.BLUE + f"{val.player_one} vs {val.player_two}".center(80))
         vis.blank_line()
         loading = ".....Loading.....".center(80)
         vis.typing_text(loading)

@@ -83,7 +83,7 @@ def create_username(player, player_number):
                     run.cls()
                     vis.connect4_title()
                     cprint(
-                        f"Hello {player} ...you are player 2 ({run.PLAYER_2} ...)"
+                        f"Hello {player} ...you are player 2 ({run.PLAYER_2} )..."
                         .center(80),
                         run.COLORS['YELLOW'],
                         attrs=['bold'])
