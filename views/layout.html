@@ -22,6 +22,23 @@
         justify-content: center;
      }
 
+     #btn {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 50px;
+    }
+
+    #btn button {
+      width: 123px;
+      height: 50px;
+      background-color: #0069fc;
+      color: #fff;
+      border: 1px solid #00002e;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
       /**
         * Default styles for xterm.js
         */
@@ -84,7 +101,7 @@
       .xterm .xterm-viewport {
         /* On OS X this is required in order for the scroll bar to appear fully opaque */
         background-color: #000;
-        overflow-y: scroll;
+        overflow-y: hidden;
         cursor: default;
         position: absolute;
         right: 0;
