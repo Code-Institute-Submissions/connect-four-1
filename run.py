@@ -573,6 +573,19 @@ def start_game():
 
 
 if __name__ == '__main__':
-    cls()
-
-    start_game()
+    # Wrap in try and except to handle ctrl + c error
+    try:
+        cls()
+        start_game()
+    except KeyboardInterrupt:
+        cls()
+        vis.connect4_title()
+        cprint("Player pressed ctrl + c to quit".center(80),
+               COLORS['BLUE'],
+               attrs=['bold'])
+        vis.blank_line()
+        cprint("Press the Run Program button to play again. See you again soon!".center(80),
+               COLORS['BLUE'],
+               attrs=['bold'])
+        vis.blank_line()
+        sys.exit()
