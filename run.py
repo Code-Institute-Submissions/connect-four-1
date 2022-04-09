@@ -371,7 +371,8 @@ def run_game():
                                              val.player1_total_wins)
                     val.USERNAME.update_cell(val.player2_data, 3,
                                              val.player2_total_losses)
-                    vis.blank_line()
+                    cls()
+                    game.print_board()
                     vis.game_over_text(0)
                     vis.blank_line()
                     cprint('Please press C to continue...'.center(80),
@@ -394,12 +395,6 @@ def run_game():
 
                 # If player 2 wins
                 if game.check_move(PLAYER_2):
-                    vis.blank_line()
-                    vis.game_over_text(1)
-                    vis.blank_line()
-                    cprint('Please press C to continue...'.center(80),
-                           COLORS['BLUE'],
-                           attrs=['bold'])
                     val.player2_wins += 1
                     val.player2_total_wins += 1
                     val.player1_total_losses += 1
@@ -408,6 +403,13 @@ def run_game():
                                              val.player2_total_wins)
                     val.USERNAME.update_cell(val.player1_data, 3,
                                              val.player1_total_losses)
+                    cls()
+                    game.print_board()
+                    vis.game_over_text(1)
+                    vis.blank_line()
+                    cprint('Please press C to continue...'.center(80),
+                           COLORS['BLUE'],
+                           attrs=['bold'])
                     cont = input()
                     # Input error handling
                     val.cont_error(cont)
@@ -495,11 +497,9 @@ def play_again():
     if options == "1":
         cls()
         vis.connect4_title()
-        new_game_line = Fore.BLUE + "Starting a new game between "
-        players_line = Fore.RED + f"{val.player_one}" + '   ' + "vs" + '   ' + Fore.YELLOW + f"{val.player_two}"
-        print(new_game_line.center(80))
+        print(Fore.WHITE + "Starting a new game between".center(80))
         vis.blank_line()
-        print(players_line.center(80))
+        print(Fore.BLUE + f"{val.player_one} vs {val.player_two}".center(80))
         vis.blank_line()
         loading = ".....Loading.....".center(80)
         vis.typing_text(loading)
@@ -523,7 +523,6 @@ def play_again():
 
 
 def high_scores():
-
     """
     Prints out the values of the current players
     Both for the current round of game and overall stats
@@ -551,7 +550,7 @@ def high_scores():
     # sort by column 2 which is number of wins
     val.USERNAME.sort((2, 'des'))
     show_stats = val.USERNAME.get_all_values()
-    table = tabulate(show_stats[0:4], tablefmt='fancy_grid')
+    table = tabulate(show_stats[0:6], tablefmt='fancy_grid')
     print(table)
     vis.blank_line()
     cprint('Please press C to continue...', COLORS['BLUE'], attrs=['bold'])
