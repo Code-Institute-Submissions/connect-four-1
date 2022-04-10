@@ -31,6 +31,6 @@
    },
    "python.formatting.provider": "yapf",
    "[html]": {
-      "editor.defaultFormatter": "esbenp.prettier-vscode"
+      "editor.defaultFormatter": "vscode.html-language-features"
    }
 }

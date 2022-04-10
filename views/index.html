@@ -1,9 +1,10 @@
 <body>
-        <img src="../assets/images/terminal-border.png" id="terminal-border" alt="blue rectangle border for around the terminal">
-    <div id="btn" >
+    <div id="btn">
         <button onclick="window.location.reload()">Run Program</button>
-    </div> 
-    <div id="terminal"></div>
+    </div>
+    <div id="terminal-container">
+        <div id="terminal"></div>
+    </div>
     <script>
         var term = new Terminal({
             cols: 80,
