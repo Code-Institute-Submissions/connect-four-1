@@ -44,7 +44,7 @@ def welcome_message():
     To get started creating a suername or logging in
     Or can go to the game rules - rules_screen function
     """
-    
+    vis.connect4_title()
     cursor.hide()
     cprint('Welcome to Connect4 Command Line Interface Game \n'.center(80),
            COLORS['BLUE'],
