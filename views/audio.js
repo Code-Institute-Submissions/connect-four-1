@@ -38,8 +38,8 @@ function toggleAudio() {
  */
 function toggleAudioOn() {
     audioPlaying = true;
-    audioOnButton[i].classList.remove('hide');
-    audioOffButton[i].classList.add('hide');
+    audioOnButton.classList.remove('hide');
+    audioOffButton.classList.add('hide');
     backgroundMusic.volume = 0.1;
     backgroundMusic.play();
      //loop the background audio
@@ -56,7 +56,7 @@ function toggleAudioOn() {
  */
 function toggleAudioOff() {
     audioPlaying = false;
-    audioOnButton[i].classList.add('hide');
-    audioOffButton[i].classList.remove('hide');
+    audioOnButton.classList.add('hide');
+    audioOffButton.classList.remove('hide');
     backgroundMusic.pause();
 }
