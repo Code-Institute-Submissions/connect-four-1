@@ -1,6 +1,6 @@
 //Variables
 
-const backgroundMusic = new Audio('../sounds/background-music.mp3')
+const backgroundMusic = new Audio('background-music.mp3')
 const audioOnButton = document.getElementsByClassName("audio-on");
 const audioOffButton = document.getElementsByClassName("audio-off");
 let audioPlaying = false;
