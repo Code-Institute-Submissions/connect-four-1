@@ -103,7 +103,7 @@ def create_username(player, player_number):
                 else:
                     run.cls()
                     vis.connect4_title()
-                    cprint('Username not available please pick another'.center(
+                    cprint('Username not available please pick another \n'.center(
                         80),
                            run.COLORS['RED'],
                            attrs=['bold'])
@@ -193,10 +193,11 @@ def validate_player_name(player):
     """
     try:
         if len(player) < 3 or len(player) > 10:
+            run.cls()
             vis.connect4_title()
             vis.blank_line()
             cprint(
-                'Username must be between 3 and 10 characters long'.center(80),
+                'Username must be between 3 and 10 characters long \n'.center(80),
                 run.COLORS['RED'],
                 attrs=['bold'])
         else:
@@ -269,7 +270,7 @@ def get_user_one():
             if menu_choice != '1' or '2':
                 run.cls()
                 vis.connect4_title()
-                cprint('Please press 1 or 2 to make your choice'.center(80),
+                cprint('Please press 1 or 2 to make your choice \n'.center(80),
                        run.COLORS['RED'],
                        attrs=['bold'])
                 vis.blank_line()
@@ -336,7 +337,7 @@ def get_user_two():
             if menu_choice != '1' or '2':
                 run.cls()
                 vis.connect4_title()
-                cprint('Please press 1 or 2 to make your choice'.center(80),
+                cprint('Please press 1 or 2 to make your choice \n'.center(80),
                        run.COLORS['RED'],
                        attrs=['bold'])
                 vis.blank_line()
