@@ -46,13 +46,13 @@ def welcome_message():
     """
     vis.connect4_title()
     cursor.hide()
-    cprint(
-        "Welcome to Connect4 Command Line Interface Game \n"
-        "Press Enter after you make your choice to register your input".center(
-            80),
+    cprint("Welcome to Connect4 Command Line Interface Game".center(80),
         COLORS["BLUE"],
-        attrs=["bold"],
-    )
+        attrs=['bold'])
+    cprint("Press Enter after you make your choice to register your input"
+        .center(80),
+        COLORS["BLUE"],
+        attrs=["bold"])
     vis.blank_line()
     cprint("Press 1) To get started \n ".center(80),
            COLORS["YELLOW"],
