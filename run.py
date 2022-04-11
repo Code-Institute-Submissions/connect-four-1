@@ -608,14 +608,14 @@ def high_scores():
         f"Losses: {val.player1_losses}      "
         f"Total Overall Stats - wins: "
         f"{val.player1_total_wins}"
-        f"Losses: {val.player1_total_losses}".center(80), COLORS["WHITE"],
+        f" Losses: {val.player1_total_losses}".center(80), COLORS["WHITE"],
         COLORS["BLUE_HL"])
     cprint(" ".center(80), COLORS["WHITE"], COLORS["BLUE_HL"])
     cprint(
         f" {val.player_two}  wins: {val.player2_wins} "
         f"Losses: {val.player2_losses}       "
         f"Total Overall Stats- wins: {val.player2_total_wins}"
-        f"Losses: {val.player2_total_losses}".center(80), COLORS["WHITE"],
+        f" Losses: {val.player2_total_losses}".center(80), COLORS["WHITE"],
         COLORS["BLUE_HL"])
     cprint(" ".center(80), COLORS["WHITE"], COLORS["BLUE_HL"])
     vis.blank_line()
