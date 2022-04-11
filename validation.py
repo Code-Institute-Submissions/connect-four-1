@@ -188,11 +188,22 @@ def player_login(player_number):
 def validate_player_name(player):
     """
     This functions checks the player_name(players username input)
+    It strips any blank space from the username
+    And checks to see if the username then has a value
+    And if its == 0 raises an error
     It makes sure that the player_name is between 3 and 10 characters long
     If it doesn't fulfil this criteria it prints out an error message
     """
     try:
-        if len(player) < 3 or len(player) > 10:
+        if len(player.strip()) == 0:
+            run.cls()
+            vis.connect4_title()
+            vis.blank_line()
+            cprint(
+                'Username cannot be blank, please enter a username \n'.center(80),
+                run.COLORS['RED'],
+                attrs=['bold'])
+        elif len(player) < 3 or len(player) > 10:
             run.cls()
             vis.connect4_title()
             vis.blank_line()
