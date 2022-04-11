@@ -1,10 +1,13 @@
 <body>
     <div id="btn">
         <button onclick="window.location.reload()">Run Program</button>
+        <button class="audio-on">Play Music</button>
+        <button class="audio-off hide">Music Off</button>
     </div>
     <div id="terminal-container">
         <div id="terminal"></div>
     </div>
+    <script src="../assets/js/audio.js"></script>
     <script>
         var term = new Terminal({
             cols: 80,
