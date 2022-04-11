@@ -47,7 +47,7 @@ def create_username(player, player_number):
             cprint("Player 1 please enter a username: ".center(80),
                    run.COLORS['BLUE'],
                    attrs=['bold'])
-            player = input()
+            player = input().upper()
             if validate_player_name(player):
                 if player not in USERNAME.col_values(1):
                     run.cls()
@@ -82,7 +82,7 @@ def create_username(player, player_number):
             cprint("Player 2 please enter a username: ".center(80),
                    run.COLORS['BLUE'],
                    attrs=['bold'])
-            player = input()
+            player = input().upper()
             if validate_player_name(player):
                 if player not in USERNAME.col_values(1):
                     run.cls()
@@ -130,7 +130,7 @@ def player_login(player_number):
             cprint("Player 1 please log in with your username: ".center(80),
                    run.COLORS['BLUE'],
                    attrs=['bold'])
-            player_username = input()
+            player_username = input().upper()
             if player_username in USERNAME.col_values(1):
                 run.cls()
                 vis.connect4_title()
@@ -155,7 +155,7 @@ def player_login(player_number):
             cprint("Player 2 please log in with your username: ".center(80),
                    run.COLORS['BLUE'],
                    attrs=['bold'])
-            player_username = input()
+            player_username = input().upper()
             if player_username in USERNAME.col_values(1):
                 if player_username != player_one:
                     run.cls()
