@@ -49,7 +49,7 @@ def welcome_message():
     cprint("Welcome to Connect4 Command Line Interface Game".center(80),
         COLORS["BLUE"],
         attrs=['bold'])
-    cprint("Press Enter after you make your choice to register your input"
+    cprint("Press Enter after you make your choice below to register your input"
         .center(80),
         COLORS["BLUE"],
         attrs=["bold"])
