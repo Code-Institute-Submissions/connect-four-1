@@ -1,9 +1,8 @@
 //Variables
 
-const backgroundMusic = new Audio("../assets/sounds/background-music.mp3");
+const backgroundMusic = new Audio('../sounds/background-music.mp3')
 const audioOnButton = document.getElementsByClassName("audio-on");
 const audioOffButton = document.getElementsByClassName("audio-off");
-let audioIconButton = document.getElementsByClassName('audio-icon-button');
 let audioPlaying = false;
 
 /**
@@ -39,17 +38,15 @@ function toggleAudio() {
  */
 function toggleAudioOn() {
     audioPlaying = true;
-    for (let i = 0; i < audioOnButton.length && audioOffButton.length; i++) {
-        audioOnButton[i].classList.remove('hide');
-        audioOffButton[i].classList.add('hide');
-        backgroundMusic.volume = 0.1;
-        backgroundMusic.play();
-        //loop the background audio
-        backgroundMusic.addEventListener('ended', function () {
-            this.currentTime = 0;
-            this.play();
-        }, false);
-    }
+    audioOnButton[i].classList.remove('hide');
+    audioOffButton[i].classList.add('hide');
+    backgroundMusic.volume = 0.1;
+    backgroundMusic.play();
+     //loop the background audio
+    backgroundMusic.addEventListener('ended', function () {
+        this.currentTime = 0;
+        this.play();
+    }, false);
 }
 
 /**
@@ -59,9 +56,7 @@ function toggleAudioOn() {
  */
 function toggleAudioOff() {
     audioPlaying = false;
-    for (let i = 0; i < audioOnButton.length && audioOffButton.length; i++) {
-        audioOnButton[i].classList.add('hide');
-        audioOffButton[i].classList.remove('hide');
-        backgroundMusic.pause();
-    }
+    audioOnButton[i].classList.add('hide');
+    audioOffButton[i].classList.remove('hide');
+    backgroundMusic.pause();
 }
