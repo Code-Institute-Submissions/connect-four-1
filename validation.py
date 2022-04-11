@@ -13,7 +13,8 @@ SCOPE = [
     "https://www.googleapis.com/auth/drive"
 ]
 
-# Scope as defined in the Love Sandwiches walk through project by Code Institute
+# Scope as defined in the Love Sandwiches
+# Walk through project by Code Institute
 CREDS = Credentials.from_service_account_file('creds.json')
 SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
@@ -29,9 +30,12 @@ def create_username(player, player_number):
     This function takes the passed in argument from the Class
     If this parameter is = 0 it sets up Player One's username
     If this parameter is = 1 it sets up Player Two's username
-    It calls the validate_player_name function to check that the username fills the proper criteria
-    It checks if the player_name input has already been added to out google sheets
-    if so, it calls an error and prompting the user to pick a different username
+    It calls the validate_player_name function
+    To check that the username fills the proper criteria
+    It checks if the player_name input
+    Has already been added to out google sheets
+    if so, it calls an error and prompting
+    The user to pick a different username
     if not it adds the player_name input to the google sheets
     """
     while True:
@@ -49,14 +53,16 @@ def create_username(player, player_number):
                     run.cls()
                     vis.connect4_title()
                     cprint(
-                        f"Hello {player} ...you are player 1({run.PLAYER_1} )..."
+                        f"Hello {player} ...you are player 1"
+                        f"({run.PLAYER_1} )..."
                         .center(80),
                         run.COLORS['RED'],
                         attrs=['bold'])
                     vis.blank_line()
                     loading = ".....Loading.....".center(80)
                     vis.typing_text(loading)
-                    # Converts the player input into an list item so it can be handled in google sheets
+                    # Converts the player input into an list item
+                    # So it can be handled in google sheets
                     player1_username = player.split()
                     USERNAME.append_row(player1_username)
 
@@ -82,7 +88,8 @@ def create_username(player, player_number):
                     run.cls()
                     vis.connect4_title()
                     cprint(
-                        f"Hello {player} ...you are player 2 ({run.PLAYER_2} )..."
+                        f"Hello {player} ...you are player 2 "
+                        f"({run.PLAYER_2} )..."
                         .center(80),
                         run.COLORS['YELLOW'],
                         attrs=['bold'])
@@ -113,7 +120,8 @@ def player_login(player_number):
     It checks if that username is already in google sheets
     and if not throws and error, if so it returns player_username
     Does the same thing for player 2 if player number is = 1
-    Player 2's input also has to be checked against the returned player 1 username
+    Player 2's input also has to be checked
+    Against the returned player 1 username
     So the same name cant be used twice to log in
     """
     while True:
@@ -127,7 +135,8 @@ def player_login(player_number):
                 run.cls()
                 vis.connect4_title()
                 cprint(
-                    f'Welcome back {player_username}. You are Player 1 ({run.PLAYER_1} )'
+                    f'Welcome back {player_username}. You are Player 1 '
+                    f'({run.PLAYER_1} )'
                     .center(80),
                     run.COLORS['RED'],
                     attrs=['bold'])
@@ -152,7 +161,8 @@ def player_login(player_number):
                     run.cls()
                     vis.connect4_title()
                     cprint(
-                        f'Welcome back {player_username}. You are Player 2 ({run.PLAYER_2} )'
+                        f'Welcome back {player_username}. You are Player 2 '
+                        f'({run.PLAYER_2} )'
                         .center(80),
                         run.COLORS['YELLOW'],
                         attrs=['bold'])
@@ -238,8 +248,9 @@ def get_user_one():
             USERNAME.update_cell(player1_data, 3, '0')
             player1_total_wins = int(USERNAME.row_values(player1_data)[1])
             player1_total_losses = int(USERNAME.row_values(player1_data)[2])
-            
-            return player_one, player1_data, player1_total_losses, player1_total_wins
+
+            return player_one, player1_data, player1_total_losses,
+            player1_total_wins
 
         elif menu_choice == '2':
             run.cls()
@@ -306,9 +317,10 @@ def get_user_two():
             USERNAME.update_cell(player2_data, 3, '0')
             player2_total_wins = int(USERNAME.row_values(player2_data)[1])
             player2_total_losses = int(USERNAME.row_values(player2_data)[2])
-            
-            return player_two, player2_data, player2_total_losses, player2_total_wins
-        
+
+            return player_two, player2_data, player2_total_losses,
+            player2_total_wins
+
         elif menu_choice == '2':
             run.cls()
             vis.connect4_title()
@@ -329,11 +341,13 @@ def get_user_two():
                        attrs=['bold'])
                 vis.blank_line()
                 continue
-            
-            
+
+
 def cont_error(cont_input):
     """
-    
+    Function for error handling
+    Press C to continue
+    Making sure only C or c can be pressed
     """
     while cont_input not in ['c', 'C']:
         cprint('Please press C to continue...'.center(80),

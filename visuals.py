@@ -35,10 +35,16 @@ def game_bar():
     """
     cprint(' '.center(80), run.COLORS['WHITE'], run.COLORS['BLUE_HL'])
     cprint(
-        f'{val.player_one} - wins: {val.player1_wins}  Losses: {val.player1_losses}      {val.player_two} - wins: {val.player2_wins} Losses: {val.player2_losses}'
+        f"{val.player_one} - wins: {val.player1_wins}  "
+        f"Losses: {val.player1_losses}      "
+        f"{val.player_two} - wins: {val.player2_wins} "
+        f"Losses: {val.player2_losses}"
         .center(80), run.COLORS['WHITE'], run.COLORS['BLUE_HL'])
     cprint(
-        f' History - wins: {val.player1_total_wins} Losses: {val.player1_total_losses}    History - wins: {val.player2_total_wins}  Losses: {val.player2_total_losses}'
+        f" History - wins: {val.player1_total_wins} "
+        f"Losses: {val.player1_total_losses}    "
+        f"History - wins: {val.player2_total_wins}  "
+        f"Losses: {val.player2_total_losses}"
         .center(80), run.COLORS['WHITE'], run.COLORS['BLUE_HL'])
     cprint(' '.center(80), run.COLORS['WHITE'], run.COLORS['BLUE_HL'])
 
@@ -81,4 +87,3 @@ def typing_text(text):
         sys.stdout.write(character)
         sys.stdout.flush()
         time.sleep(0.05)
-
