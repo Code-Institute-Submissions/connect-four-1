@@ -48,6 +48,7 @@ def create_username(player, player_number):
                    run.COLORS['BLUE'],
                    attrs=['bold'])
             player = input().upper()
+            player = player.strip()
             if validate_player_name(player):
                 if player not in USERNAME.col_values(1):
                     run.cls()
@@ -83,6 +84,7 @@ def create_username(player, player_number):
                    run.COLORS['BLUE'],
                    attrs=['bold'])
             player = input().upper()
+            player = player.strip()
             if validate_player_name(player):
                 if player not in USERNAME.col_values(1):
                     run.cls()
@@ -195,7 +197,7 @@ def validate_player_name(player):
     If it doesn't fulfil this criteria it prints out an error message
     """
     try:
-        if len(player.strip()) == 0:
+        if len(player) == 0:
             run.cls()
             vis.connect4_title()
             vis.blank_line()
@@ -213,7 +215,9 @@ def validate_player_name(player):
                 attrs=['bold'])
         else:
             return True
-    except TypeError:
+        
+    except ValueError:
+        print('Error: please try again')
         return False
 
 
