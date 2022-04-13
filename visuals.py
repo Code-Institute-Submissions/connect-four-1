@@ -35,9 +35,9 @@ def game_bar():
     """
     cprint(' '.center(80), run.COLORS['WHITE'], run.COLORS['BLUE_HL'])
     cprint(
-        f"{val.player_one} - wins: {val.player1_wins}  "
+        f"{val.player1_name} - wins: {val.player1_wins}  "
         f"Losses: {val.player1_losses}      "
-        f"{val.player_two} - wins: {val.player2_wins} "
+        f"{val.player2_name} - wins: {val.player2_wins} "
         f"Losses: {val.player2_losses}"
         .center(80), run.COLORS['WHITE'], run.COLORS['BLUE_HL'])
     cprint(
@@ -57,14 +57,14 @@ def game_over_text(player):
     """
     if player == 0:
         cprint(' '.center(80), run.COLORS['WHITE'], run.COLORS['RED_HL'])
-        cprint(f'PLAYER 1 : {val.player_one} WINS! '.center(80),
+        cprint(f'PLAYER 1 : {val.player1_name} WINS! '.center(80),
                run.COLORS['WHITE'], run.COLORS['RED_HL'])
         cprint('GAME OVER!'.center(80), run.COLORS['WHITE'],
                run.COLORS['RED_HL'])
         cprint(' '.center(80), run.COLORS['WHITE'], run.COLORS['RED_HL'])
     elif player == 1:
         cprint(' '.center(80), run.COLORS['WHITE'], run.COLORS['YELLOW_HL'])
-        cprint(f'PLAYER 2 : {val.player_two} WINS! '.center(80),
+        cprint(f'PLAYER 2 : {val.player2_name} WINS! '.center(80),
                run.COLORS['WHITE'], run.COLORS['YELLOW_HL'])
         cprint('GAME OVER!'.center(80), run.COLORS['WHITE'],
                run.COLORS['YELLOW_HL'])
