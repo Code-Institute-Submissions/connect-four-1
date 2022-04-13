@@ -254,6 +254,120 @@ Make use of a profanity filter when creating usernames.
 
 # Testing
 
+## Manual Testing
+
+**Note** All inputs have been validated and tested manually. See [Validation](<#validation>)
+
+### Welcome Screen
+
+  * Verified that the user validation is working correctly
+  * Verified that when the user presses '1' and 'Enter', they are taken to the 'Get Started' screen
+  * Verified that when the user presses '2' and 'Enter' they are taken to the rules screen
+
+## Rules Screen
+
+  * Verified that the console screen clears and the Rules screen has loaded.
+  * Verified that the rules scroll up as intended until it asks for user input
+  * Verified that the user validation works as intended
+  * Verified that when the user presses 'c' or 'C' and 'Enter', they are taken to the second part of the Rules screen which is a navigation menu
+  * Verified that the user validation for the menu works correctly
+  * Verified that when the user presses '1' and 'Enter' they are returned to the Welcome Screen
+  * Verified that when the user presses '2' and 'Enter they move on to the 'Get Started' screen
+
+## Get Started Screen - Create Username/Player Login
+
+  * Verified that the Player 1 menu is called first.
+  * Verified that input validation works as intended.
+  * Verified that if the user presses '1' and 'Enter' they are take to the Create Username Screen
+    * Verified that the user input validation works as intended. See [Username Testing](<#username-testing>)
+    * Verified that once the user creates their username, they are greeted on screen and that the username was added to the Google Sheets worksheet
+    * Verified that the correct data(0 for Total Wins and 0 for Total Losses) was set for the new user in Google Sheets
+    * Verified that once the username passes validation, Player 2's menu screen loads
+  * Verified that if the user presses '2' and Enter they are taken to the Login Screen
+    * Verified that the user input validation works as insteded. See [Username Testing](<#username-testing>)
+    * Verified that once the user logins, they are greeted on screen and that the relevant data history for the user that logged in has been correctly retrieved.
+    * Verified tha once the username login passes validation, Player 2's menu screen load. 
+
+## Validation
+
+### Username Testing
+
+The username should between 3 and 10 characters. A username consisting of just blank spaces is not allowed and blank spaces at the beginning and end of username inputs are removed. A username already stored in the system is not allowed.
+
+In the username section:
+
+* Press the 'Enter' key without input and the following is returned:
+
+  * A red string reports the error to the user.
+  * The input is initiated again
+
+* Enter a two character username and the following is returned:
+
+  * A red string reports the error to the user
+  * The input is initiated again
+
+* Enter a string greater than 10 characters and the following is returned:
+
+  * A red string reports the error to the user
+  * The input is initiated again
+
+* Enter a string between 3 and 10 characters and the following is returned:
+
+  * A string in the color of the player (player 1 red and player 2 yellow) greeting the player
+  * Progression to the next screen
+
+### Press 'C' to continue ...
+
+Press 'C' to continue accepts both small 'c' and capital 'C'. It cannot be any other key, letter or number. It cannot be blank.
+
+* Enter any character other than 'c' or 'C':
+
+  * A red string reports the error to the user
+  * The input is initiated again
+
+* Enter a blank space and the following is returned:
+
+  * A string reports the error to the user
+  * The input is initiated again
+
+* Enter the 'c' or 'C' key and the following is returned:
+
+  * The users move onto the next screen
+
+### Menu Items
+
+Press 1) to do something, Press 2) to do something else ... Depending on the number of items in the menu, the user could be asked to press '1' or '2' and for the Play Again screen, '1', '2', '3' or '4'. The input does not accept any other character including blank spaces.
+
+* Enter any key other than '1', '2', '3' or '4' and the following is returned:
+  
+  * A string reports the error to the user
+  * The input is initiated again
+
+* Enter the keys '1', '2', '3' or '4' and the following is returned:
+
+  * The user is taken to the relevant screen depending on their choice.
+
+### Game Validation
+
+During the game, the input only accepts numbers between 1 and 10 (representing the columns on the board). It doesn't accept any other letters or numbers or blank spaces. When a column is full, the user cannot pick that column anymore. 
+
+* Enter a letter and the following is return:
+
+  * A red string reports the error to the user#
+  * The input is initiated again
+
+* Enter a number other than those between and including 1 and 10 and the following is returned:
+
+  * A res string reports the error to the user
+  * The input is initiated again
+
+* Enter the number of a column which is full and the following is returned:
+
+  * A red string reports the error to the user
+  * The input is initiated again
+
+
+
 [Back to top](<#contents>)
 
 ## Bugs Fixed
