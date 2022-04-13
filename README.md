@@ -199,6 +199,10 @@ The Connect 4 Command Line Interface game was created to produce a retro style, 
 
 # Future Features
 
+## Single Player Mode
+
+A mode where the user plays against the computer would add a better user experience to the game and appeal to a wider range of people.
+
 ## Important Note & Update Security
 
 * Please note that the use of the username only as a system to login is a security risk as players need only see their opponents username and could potentially login as that user. This was done purely to show input error handling while dealing with two different inputs one after the other, and storing and retrieving values associated with those inputs.
@@ -208,6 +212,10 @@ Ideally a password would also be used to authenticate a users login, as well as 
 ## Username Flexibility
 
 At the Login section for users, if the user cannot remember their username there is no option to go back to create a username or retrieve a username. This is an important feature to have for better user experience
+
+## Profanity Filter
+
+Make use of a profanity filter when creating usernames.
 
 [Back to top](<#contents>)
 
