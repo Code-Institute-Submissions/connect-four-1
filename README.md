@@ -213,6 +213,35 @@ At the Login section for users, if the user cannot remember their username there
 
 # Technologies Used
 
+* HTML5 - to provide some structure to the program
+* CSS3 - to provide the styling for the program
+* Python - To provide the functionality to the program
+* Google Chrome DevTools - Used to debug
+* Draw.io - Used to create the flow chart
+* Google sheets - used to host the programs data
+* VSCode - Used to create, edit and compile the code for the program
+
+## Python Libraries
+
+* gspread - allows communication with Google Sheets
+* colorama - allows terminal text to be printed in different colors
+* termcolor - can be used in conjunction with colorama for access to an even wider range of colors and tex-highlights
+* time - sleep used to pause the program for whatever time uou have determined
+* pyfiglet - used to access figlet fonts
+* cursor - used to hide the terminal cursor
+* sys - used in a function to clear the console
+* tabulate - used to format and prettify google sheets data into tables
+
+## VsCode Extensions
+
+* Python
+* GitHub Pull and Request
+* Markdown all in one
+* Draw.io
+* Pylance
+* Pylance
+* Python Indent
+
 [Back to top](<#contents>)
 
 # Testing
