@@ -37,20 +37,18 @@ def cls():
 
 def welcome_message():
     """
-    This is the first screen seen by the player.
-    It prints off the initial welcome message and title
-    And opens the welcome screen menu
-    From here the user can go to Get Started - val.get_users function
-    To get started creating a suername or logging in
-    Or can go to the game rules - rules_screen function
+    Prints off the initial welcome message and title
+    and opens the welcome screen menu
+    User's can navigate to next screen via user input
     """
     vis.connect4_title()
     cursor.hide()
     cprint("Welcome to Connect4 Command Line Interface Game".center(80),
-        COLORS["BLUE"],
-        attrs=['bold'])
-    cprint("Press Enter after you make your choice below to register your input"
-        .center(80),
+           COLORS["BLUE"],
+           attrs=['bold'])
+    cprint(
+        "Press Enter after you make your choice below to register your input".
+        center(80),
         COLORS["BLUE"],
         attrs=["bold"])
     vis.blank_line()
@@ -80,7 +78,7 @@ def welcome_message():
     if menu_choice == "1":
         cls()
         vis.connect4_title()
-        val.get_user_one()
+        val.get_user()
     elif menu_choice == "2":
         cls()
         rules_screen()
@@ -88,10 +86,11 @@ def welcome_message():
 
 def rules_screen():
     """
-    This function issues a series of print statements to the user
-    Explaining the rules of the game
+    Issues a series of print statements to the user
+    explaining the rules of the game
     Once the rules are explained, the user can naviagte
-    Back to the Welcome Screen or to get started
+    Back to the between different screens via
+    user input
     """
     vis.blank_line()
     cprint(
@@ -200,13 +199,14 @@ def rules_screen():
     elif menu_choice == "2":
         cls()
         vis.connect4_title()
-        val.get_user_one()
+        val.get_user()
 
 
 def start_screen():
     """
-    This will show users a start screen message
+    This shows users a start screen message
     And allow users to start the game when they are ready
+    via user input
     """
     cls()
     cprint(
@@ -215,7 +215,7 @@ def start_screen():
         attrs=["bold"],
     )
     cprint(
-        f"{val.player_one}, {val.player_two} are you ready? \n".center(80),
+        f"{val.player1_name}, {val.player2_name} are you ready? \n".center(80),
         COLORS["WHITE"],
         attrs=["bold"],
     )
@@ -247,6 +247,12 @@ class GameBoard:
     """
     Declares a string to self.board
     Function print_board() prints the current game board
+    
+    Attributes:
+        board:
+            Declares a string to self.board
+        turn:
+            Sets players turn
     """
 
     def __init__(self, turn):
@@ -295,6 +301,10 @@ class GameBoard:
         """
         Drops a piece into the Connect4 selected column
         Fills the position with the PLAYER piece
+        
+        Parameters:
+            column = user input
+            player = Player 1(0) or Player 2 (1)
         """
         column = int(column)
         # Checks that the number input is between 1 and 10
@@ -330,7 +340,7 @@ class GameBoard:
     def check_move(self, player: str):
         """
         Check the horizontal, vertical and diagonal lines
-        For 4 in a row for a win
+        for 4 in a row for a win
         """
         # Check horizontal lines
         for column in range(COLUMN_COUNT - 3):
@@ -386,6 +396,7 @@ class GameBoard:
 def run_game():
     """
     Starts the game and sets the turn value for Player 1 to start
+    Ends the game when the check_move function finds a win
     """
     game = GameBoard(0)  # Set the turn to 0
     game.print_board()  # Initial game board
@@ -396,8 +407,7 @@ def run_game():
             if game.turn == 0:
                 cprint(
                     f" Player 1 ({PLAYER_1} ) "
-                    f"insert red disc in column (1-10): "
-                    .center(80),
+                    f"insert red disc in column (1-10): ".center(80),
                     COLORS["RED"],
                     attrs=["bold"],
                 )
@@ -432,8 +442,7 @@ def run_game():
             else:
                 cprint(
                     f"Player 2 ({PLAYER_2} ) "
-                    f"insert yellow disc in column (1-10): "
-                    .center(80),
+                    f"insert yellow disc in column (1-10): ".center(80),
                     COLORS["YELLOW"],
                     attrs=["bold"],
                 )
@@ -494,9 +503,9 @@ def run_game():
 
 def play_again():
     """
-    Function that uses and input to record the users choice
+    User input gets the users choice
     From there run the appropriate function
-    To direct the user to the next screen
+    to direct the user to the next screen
     """
     cls()
     cprint(
@@ -566,7 +575,7 @@ def play_again():
               "Starting a new game between".center(80))
         vis.blank_line()
         print(Style.BRIGHT + Fore.BLUE +
-              f"{val.player_one} vs {val.player_two}".center(80))
+              f"{val.player1_name} vs {val.player2_name}".center(80))
         vis.blank_line()
         loading = ".....Loading.....".center(80)
         vis.typing_text(loading)
@@ -594,17 +603,17 @@ def play_again():
 def high_scores():
     """
     Prints out the values of the current players
-    Both for the current round of game and overall stats
+    both for the current round of game and overall stats
     Pulls data from gspread connected google sheets
-    Sorts it by the number of wins and desc order
-    Using tabulate puts the data into a table
+    and sorts it by the number of wins and desc order
+    Tabulate puts the data into a table
     """
 
     cls()
     # Print User stats bar
     cprint(" ".center(80), COLORS["WHITE"], COLORS["BLUE_HL"])
     cprint(
-        f"{val.player_one}  wins: {val.player1_wins}  "
+        f"{val.player1_name}  wins: {val.player1_wins}  "
         f"Losses: {val.player1_losses}      "
         f"Total Overall Stats - wins: "
         f"{val.player1_total_wins}"
@@ -612,7 +621,7 @@ def high_scores():
         COLORS["BLUE_HL"])
     cprint(" ".center(80), COLORS["WHITE"], COLORS["BLUE_HL"])
     cprint(
-        f" {val.player_two}  wins: {val.player2_wins} "
+        f" {val.player2_name}  wins: {val.player2_wins} "
         f"Losses: {val.player2_losses}       "
         f"Total Overall Stats- wins: {val.player2_total_wins}"
         f" Losses: {val.player2_total_losses}".center(80), COLORS["WHITE"],
@@ -639,11 +648,7 @@ def start_game():
     Loads the various functions in order to create the game
     """
     welcome_message()
-    cls()
-    vis.connect4_title()
-    val.get_user_two()
-    cls()
-    start_screen()
+    val.get_user()
 
 
 if __name__ == "__main__":
