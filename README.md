@@ -63,7 +63,8 @@ The Connect 4 Command Line Interface game was created to produce a retro style, 
 ## Navigation
 
   * The programs navigation is done mainly via the use of on screen menus and user input to navigate from one screen to another
-  * The user input is handled so as to prompt the users of the correct input needed to move to the screen of choice.
+  * For the most part the menu is dictated by numbers e.g. Press 1) To Get Started ...
+  * The user input is handled so as to prompt the users of the correct input needed to move to the screen of choice if an incorrect input is entered.
 
 ## Welcome Screen
 
@@ -84,10 +85,28 @@ The Connect 4 Command Line Interface game was created to produce a retro style, 
 * Once the user input is validated the user is brought to another menu, allowing the user to choose to go back to the Welcome Screen or move ahead to the Get Started screen.
 * This user input is also validated before allowing the user to move ahead.
 
-## Create Username
+## Create Username/Login
 
+* The get started, one must either create a username or login and this screen can be reached via the Welcome screen and user input ('2') or the Game Rules screen and user input('2')
+* The screen itself has the signature Connect 4 title banner in yellow on top.
+* Player 1 always starts and is prompted via a user input on whether they would like to create a username('1') or login('2').
+* This input is validated.
 
-## Login
+### Create Username
+  
+  * If the user decides to create a username, they are then prompted to input a username of choice.
+  * This input is first converted to all capitals for consistency and to prevent two different usernames such as 'Rhi' and 'rhi' existing.
+  * This also future proofs logins for users if they decide to play again, as any mistypes in terms of capitilisation are handled by converting the input to all capitals, avoiding the user potentially mistakenly logging in with someone elses username.
+  * Using the .strip() method the user input for username removes any blank spaces from the beginning and the end of the input so as not to throw an error when appending to google sheets as blank space is translated differently there.
+  * The user input is then validated so that:
+    1. The length of the string(user input) is not empty
+    2. The username itself is between 2 and 10 characters
+    3. The user cannot input a username that is already saved in Google Sheets
+  * Once the input passes validation, there username is saved in Google Sheets and their Total Wins and Total Loss values are set to 0.
+  * The user is prompted with a personalised screen, stating their name, what player they are and what their player piece is and the string is in red for player 1 and yellow for player 2.
+  * Once Player 1 has input their details, Player 2 is then brought to the same initial on screen menu as player one and if they choose to create a username as well they go through the same steps as player 1.
+
+### Player Login
 
 
 ## Start Screen
