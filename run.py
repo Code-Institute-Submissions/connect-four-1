@@ -635,7 +635,7 @@ def high_scores():
         COLORS["BLUE_HL"])
     cprint(" ".center(80), COLORS["WHITE"], COLORS["BLUE_HL"])
     vis.blank_line()
-
+    cprint(" Leadboard Scores ".center(80), COLORS["WHITE"], COLORS["RED_HL"])
     # Prints table of top 3 overall stats
     # sort by column 2 which is number of wins
     val.USERNAME.sort((2, "des"))
@@ -643,7 +643,7 @@ def high_scores():
     table = tabulate(show_stats[0:6], tablefmt="fancy_grid")
     print(table)
     vis.blank_line()
-    cprint("Please press C to continue...", COLORS["BLUE"], attrs=["bold"])
+    cprint(" Please press C to continue...", COLORS["BLUE"], COLORS["YELLOW_HL"] attrs=["bold"])
     cont = input()
     # Input error handling
     val.cont_error(cont)
