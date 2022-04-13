@@ -56,6 +56,45 @@ The **user** is any person who has an interest in the old school board games lik
 
 # Features
 
+The Connect 4 Command Line Interface game was created to produce a retro style, immersive experience through the use of limited design (due to the nature of Python) and site structure. It has a game like structure with the use of screens and user input to navigate from one screen to another.
+
+## Navigation
+  * The programs navigation is done mainly via the use of on screen menus and user input to navigate from one screen to another
+  * The user input is handled so as to prompt the users of the correct input needed to move to the screen of choice.
+
+## Welcome Screen
+  * The welcome screen is the first screen the user will see when they run the program.
+  * Figlet fonts are used to create the Connect 4 title banner that displays
+  across multiple other screens also throughout the program
+  * The user is greeted by a message explaining the program and explaining how to input values
+  * Through the use of print statements and user input, the user can navigate to the Get Started screen or the Rules screen.
+  * The user input is validated before proceeding to the next screen.
+
+## Game Rules
+
+
+## Create Username
+
+
+## Login
+
+
+## Start Screen
+
+
+## Game Screen
+
+
+## Play Again
+
+
+## High Scores Screen
+
+
+## Quite Screen
+
+
+
 [Back to top](<#contents>)
 
 # Future Features
