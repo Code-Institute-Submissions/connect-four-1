@@ -325,12 +325,17 @@ class GameBoard:
                             self.turn = self.turn % 2
                         break
             else:
+                cls()
+                self.print_board()
                 cprint(
                     "Column full, please choose another column".center(80),
                     COLORS["RED"],
                     attrs=["bold"],
                 )
+                vis.blank_line()
         else:
+            cls()
+            self.print_board()
             cprint(
                 " That is not a valid number, try again \n".center(80),
                 COLORS["RED"],
@@ -494,6 +499,8 @@ def run_game():
                 play_again()
 
         except ValueError:
+            cls()
+            game.print_board()
             cprint(
                 " That is not a number ... Please try again \n".center(80),
                 COLORS["RED"],
