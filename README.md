@@ -146,7 +146,7 @@ The Connect 4 Command Line Interface game was created to produce a retro style, 
   * The game bar is also utilised in the high scores screen to give the scores related to the current users as well as the verall top scores.
 
   ### Game Board
-  
+
   * The game board is a representation of the classic connect 4 game, but larger.
   * It is created through various empty strings and character strings.
   * Visually it looks like a large rectangle split into columns and rows.
@@ -169,12 +169,23 @@ The Connect 4 Command Line Interface game was created to produce a retro style, 
 * A tie is also possible, and if all the spaces are filled in the board, the game finishes with the declaration of no winner and the user can continue on to the play again screen.
 
 ## Play Again
-
+ 
+* The play again screen is the screen the user is taken to after they finish a game of connect4.
+* From here they are faced with four choices, chosen via user input:
+  1. Play Again
+  2. Go Back to Welcome Screen - which resets the players without closing the program
+  3. Go to the High Scores screen
+  4. Exit Game
+* Option 1, brings the user straight back to the start screen in a loop, there scores are still present for the current game, te user names are all set and their overall stats are updated no matter how many games they play in the loop.
+* Option 2 brings the users back to the welcome screen - effectively resetting the users, allowing for new users to log in and play without exiting the program. Any scores they received in their previous game will have been saved to their overall stats via google sheets and their current game scores will be reset.
+* Option 4, takes the users to the high scores screen.
+* Option 5, allows the users to exit the program.
+* The user input is validated making sure only numbers 1-4 can be selected to progress.
 
 ## High Scores Screen
 
 
-## Quite Screen
+## Quit Screen
 
 
 
