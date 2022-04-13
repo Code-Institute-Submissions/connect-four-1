@@ -303,7 +303,7 @@ class GameBoard:
         Fills the position with the PLAYER piece
         
         Parameters:
-            column = user input
+            column = column number of user input
             player = Player 1(0) or Player 2 (1)
         """
         column = int(column)

@@ -103,10 +103,10 @@ The Connect 4 Command Line Interface game was created to produce a retro style, 
     2. The username itself is between 2 and 10 characters
     3. The user cannot input a username that is already saved in Google Sheets
   * Once the input passes validation, there username is saved in Google Sheets and their Total Wins and Total Loss values are set to 0.
-  * The user is prompted with a personalised screen, stating their name, what player they are and what their player piece is and the string is in red for player 1 and yellow for player 2.
+  * The user is greeted with a personalised screen, stating their name, what player they are and what their player piece is and the string is in red for player 1 and yellow for player 2.
   * Once Player 1 has input their details, Player 2 is then brought to the same initial on screen menu as player one and if they choose to create a username as well they go through the same steps as player 1.
 
-### Player Login
+  ### Player Login
 
   * If the user decides to Login, they are then prompted to enter in their username.
   * This input is then first converted to all Capitals in case a user mistypes re capitilisation.
@@ -115,6 +115,10 @@ The Connect 4 Command Line Interface game was created to produce a retro style, 
   * If Player 2 decides to log in there is an extra step; their input is validated by the above steps but it also checked against Player 1's Username.
     * If it matches the user will be prompted with a message, stating user already logged in, to prevent the same user logging in twice
     * If it doesn't match and the input value found in Google Sheets, the the player data is pulled in for that user and the player 'logged' in.
+  * Once validated the username value is matched with that on google sheets and the relevant data pulled into the program; The user's Total Win history and Total Losses history to be displayed when playing the game.
+  * The users are greeted with a personalised screen, the same as when a user creates a username
+
+  * Once the username data is all validated and the data pulled into the game the users are brought automatically to the next screen which is the start screen.
 
 ## Start Screen
 
