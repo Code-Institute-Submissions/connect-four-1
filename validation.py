@@ -142,12 +142,19 @@ class UserData:
                         run.COLORS['RED'],
                         attrs=['bold'])
                 else:
-                    cprint(
-                        f'Welcome back {player_username}. You are {PLAYERS[1]}'
-                        f' {run.PLAYER_2}'.center(80),
-                        run.COLORS['YELLOW'],
-                        attrs=['bold'])
-                vis.blank_line()
+                    if player_username != player1_name:
+                        cprint(
+                            f'Welcome back {player_username}. You are {PLAYERS[1]}'
+                            f' {run.PLAYER_2}'.center(80),
+                            run.COLORS['YELLOW'],
+                            attrs=['bold'])
+                        vis.blank_line()
+                    else:
+                        cprint('Username already logged in'.center(80),
+                               run.COLORS['RED'],
+                               attrs=['bold'])
+                        vis.blank_line()
+                        continue
 
                 return player_username
             else:
@@ -222,7 +229,7 @@ def get_user():
     global player2_data
     global player2_total_losses
     global player2_total_wins
-
+    player1_name = None
     player1_wins = 0
     player1_losses = 0
     player2_wins = 0
@@ -285,6 +292,7 @@ def get_user():
                 run.cls()
                 vis.connect4_title()
                 player1_name = player.player_login(0)
+                vis.blank_line()
                 loading = ".....Loading.....".center(80)
                 vis.typing_text(loading)
                 player1_data = USERNAME.find(player1_name).row

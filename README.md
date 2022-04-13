@@ -145,10 +145,17 @@ The Connect 4 Command Line Interface game was created to produce a retro style, 
   * Once a game is won, the game bar is updated immediately and visibly at the end of the game. 
   * The game bar is also utilised in the high scores screen to give the scores related to the current users as well as the verall top scores.
 
-* The game board is a representation of the classic connect 4 game, but larger.
-* It is created through various empty strings and character strings.
-* Visually it looks like a large rectangle split into columns and rows.
-* When a player piece is dropped into the board, like the classic game it fills the next available blank spot to the corresponding column picked.
+  ### Game Board
+  
+  * The game board is a representation of the classic connect 4 game, but larger.
+  * It is created through various empty strings and character strings.
+  * Visually it looks like a large rectangle split into columns and rows.
+  * When a player piece is dropped into the board, like the classic game it fills the next available blank spot to the corresponding column picked.
+
+  ### Player information area
+
+  * All player input, error handling and information is printed below the game board.
+
 * Player 1 always starts and is prompted to choose a column between 1 and 10 via user input.
 * This input is validated:
   1. To check if the column is free first and if its full it lets the user know and asks them to pick a different one.
