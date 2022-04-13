@@ -184,8 +184,16 @@ The Connect 4 Command Line Interface game was created to produce a retro style, 
 
 ## High Scores Screen
 
+* High Scores screen can only be accessed from the play again screen (option 3)
+* It consists of the game bar on top - the same as that when the game is running
+* And the top 5 high scores, sorted by the number of winds in desscending order in table form
+* To exit this screen the user must press c to continue.
+* The input is validated and if passed brings the user back to the play again screen.
 
 ## Quit Screen
+
+* The exit screen can only be acessed from the play again screen (option 4)
+* This shows the user a goodbye message before exiting the program
 
 
 
