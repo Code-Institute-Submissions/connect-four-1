@@ -108,6 +108,13 @@ The Connect 4 Command Line Interface game was created to produce a retro style, 
 
 ### Player Login
 
+  * If the user decides to Login, they are then prompted to enter in their username.
+  * This input is then first converted to all Capitals in case a user mistypes re capitilisation.
+  * The input value is then checked against the usernames already in Google Sheets and if it is there, it will pull that players data into the game and 'log' them in.
+  * If it isn't there, the user will be prompted with a message saying Cannot find username and the user can re-enter their username.
+  * If Player 2 decides to log in there is an extra step; their input is validated by the above steps but it also checked against Player 1's Username.
+    * If it matches the user will be prompted with a message, stating user already logged in, to prevent the same user logging in twice
+    * If it doesn't match and the input value found in Google Sheets, the the player data is pulled in for that user and the player 'logged' in.
 
 ## Start Screen
 
