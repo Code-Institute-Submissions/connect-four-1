@@ -195,11 +195,19 @@ The Connect 4 Command Line Interface game was created to produce a retro style, 
 * The exit screen can only be acessed from the play again screen (option 4)
 * This shows the user a goodbye message before exiting the program
 
-
-
 [Back to top](<#contents>)
 
 # Future Features
+
+## Important Note & Update Security
+
+* Please note that the use of the username only as a system to login is a security risk as players need only see their opponents username and could potentially login as that user. This was done purely to show input error handling while dealing with two different inputs one after the other, and storing and retrieving values associated with those inputs.
+
+Ideally a password would also be used to authenticate a users login, as well as an email address  associatet with the username for retrievals. This could most definitely be a future update but for the moment, the storage of potentially sensitive data was being avoided without some sort of consent from the user and better security.
+
+## Username Flexibility
+
+At the Login section for users, if the user cannot remember their username there is no option to go back to create a username or retrieve a username. This is an important feature to have for better user experience
 
 [Back to top](<#contents>)
 
