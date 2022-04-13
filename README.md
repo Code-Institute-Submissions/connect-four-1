@@ -2,6 +2,8 @@
 
 Connect4 is a Command Line Interface styled interactive game that allows 2 players to play against each other on the same device.Connect4 is based off the popular Connect4 game uses a similar concept of a connecting 4 pieces in a row to win.
 
+You can view the live program here: <a href ='https://cli-connect-four.herokuapp.com/' target="_blank"> Connect 4 CLI game</a>
+
 # Contents
 
 * [Objective](<#objective>)
@@ -59,19 +61,28 @@ The **user** is any person who has an interest in the old school board games lik
 The Connect 4 Command Line Interface game was created to produce a retro style, immersive experience through the use of limited design (due to the nature of Python) and site structure. It has a game like structure with the use of screens and user input to navigate from one screen to another.
 
 ## Navigation
+
   * The programs navigation is done mainly via the use of on screen menus and user input to navigate from one screen to another
   * The user input is handled so as to prompt the users of the correct input needed to move to the screen of choice.
 
 ## Welcome Screen
+
   * The welcome screen is the first screen the user will see when they run the program.
-  * Figlet fonts are used to create the Connect 4 title banner that displays
-  across multiple other screens also throughout the program
+  * Figlet fonts are used to create the Connect 4 title banner that displays in yellow.
+  * This banner is also displayed across multiple other screens throughout the program for consistency.
   * The user is greeted by a message explaining the program and explaining how to input values
   * Through the use of print statements and user input, the user can navigate to the Get Started screen or the Rules screen.
   * The user input is validated before proceeding to the next screen.
 
 ## Game Rules
 
+* The Game Rules screen can be accessed by the user from the Welcome Screen via user input of '2'.
+* Figlet font is used to display the title banner of Game Rules in a red colour to distinguish it from the main title banner.
+* A timed scolling up, line by line text goes through the rules of the game in yellow.
+* The information about usernames is in a red font so as to stand out as important information.
+* Once the end of the rules is reached, user input is required to move on, allowing the user to scroll back and read the rules in their own time if need be.
+* Once the user input is validated the user is brought to another menu, allowing the user to choose to go back to the Welcome Screen or move ahead to the Get Started screen.
+* This user input is also validated before allowing the user to move ahead.
 
 ## Create Username
 
