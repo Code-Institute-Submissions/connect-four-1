@@ -118,13 +118,48 @@ The Connect 4 Command Line Interface game was created to produce a retro style, 
   * Once validated the username value is matched with that on google sheets and the relevant data pulled into the program; The user's Total Win history and Total Losses history to be displayed when playing the game.
   * The users are greeted with a personalised screen, the same as when a user creates a username
 
-  * Once the username data is all validated and the data pulled into the game the users are brought automatically to the next screen which is the start screen.
+* Once the username data is all validated and the data pulled into the game the users are brought automatically to the next screen which is the start screen.
 
 ## Start Screen
 
+* The start screen is only accessed in two situations; 
+  1. When the users first create usernames/login
+  2. Or when the users finish a game and decide to play again they are brought directly to this screen.
+* The user is prompted with a message asking them if they are ready and to press 'C' to continue.
+* The user input is validated and if passed, gives a countdown of 3, 2, 1 before disappearing and 'PLAY' appears on the screen and the user is brought to the game screen.
 
 ## Game Screen
 
+* The game screen consists of 3 parts;
+  1. The game bar on the top
+  2. The 'Game Board' itself
+  3. The text for user input and information
+
+  ### Game Bar
+
+  * The Game bar consists of a number of strings printed together consisting of 
+  blank strings and text, with a text highlight (from termcolor and colorama libraries) on all the printed strings to give the illusion of a rectangle.
+  * The bar itself has two sets of info on it;
+    1. That for the current game which consists of the stats(Player 1s wins and losses and player 2s wins and losses for their game agains each other)
+    2. And the history of games played of the two players(Player 1s total wins and losses from whenever the have played the game, and similarly the same for Player 2. )
+  * Once a game is won, the game bar is updated immediately and visibly at the end of the game. 
+  * The game bar is also utilised in the high scores screen to give the scores related to the current users as well as the verall top scores.
+
+* The game board is a representation of the classic connect 4 game, but larger.
+* It is created through various empty strings and character strings.
+* Visually it looks like a large rectangle split into columns and rows.
+* When a player piece is dropped into the board, like the classic game it fills the next available blank spot to the corresponding column picked.
+* Player 1 always starts and is prompted to choose a column between 1 and 10 via user input.
+* This input is validated:
+  1. To check if the column is free first and if its full it lets the user know and asks them to pick a different one.
+  2. To make sure the input they entered is a number and if not prompts the user to make the correct choice
+  3. To make sure if the user input is a name, that its between 1 and 10 and if it isn't to prompt the user to make the correct choice. 
+* If it passes the player piece (which is a unicode image of a red disc for Player 1 and a yellow disc for Plyer 2), is placed in.
+* After every move, the board is checked for a 'win', if there is 4 particular characters in a row either horizontally, vertically or diagonally.
+* If not the next player goes and if so the game board is updated with the new results, the players are let know who won.
+* The board isn't wiped immediately allowing the user's to see the winning play.
+* To move on requires the user input of 'C' to continue which is validated and if it passes the user continues on to the Play Again screen.
+* A tie is also possible, and if all the spaces are filled in the board, the game finishes with the declaration of no winner and the user can continue on to the play again screen.
 
 ## Play Again
 
