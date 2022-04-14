@@ -93,13 +93,7 @@ class UserData:
                     vis.blank_line()
                     loading = ".....Loading.....".center(80)
                     vis.typing_text(loading)
-                    # Converts the player input into an list item
-                    # So it can be handled in google sheets
-                    # Adds a string to user input to allow for a .split()
-                    # At a specified character rather than a blank space
-                    player_saved = player_username + ','
-                    player_saved = player_username.split(',')
-                    USERNAME.append_row(player_saved)
+                    USERNAME.append_row([player_username,'0','0'])
                     return player_username
                 else:
                     run.cls()
@@ -268,8 +262,6 @@ def get_user():
                 vis.connect4_title()
                 player1_name = player.create_username(0)
                 player1_data = USERNAME.find(player1_name).row
-                USERNAME.update_cell(player1_data, 2, '0')
-                USERNAME.update_cell(player1_data, 3, '0')
                 player1_total_wins = int(USERNAME.row_values(player1_data)[1])
                 player1_total_losses = int(
                     USERNAME.row_values(player1_data)[2])
@@ -283,8 +275,6 @@ def get_user():
                 vis.connect4_title()
                 player2_name = player.create_username(1)
                 player2_data = USERNAME.find(player2_name).row
-                USERNAME.update_cell(player2_data, 2, '0')
-                USERNAME.update_cell(player2_data, 3, '0')
                 player2_total_wins = int(USERNAME.row_values(player2_data)[1])
                 player2_total_losses = int(
                     USERNAME.row_values(player2_data)[2])
