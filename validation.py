@@ -71,7 +71,7 @@ class UserData:
                        run.COLORS['RED'],
                        attrs=['bold'])
                 cprint(
-                    "Note that any spaces in username input will be removed to make a single word "
+                    "Note that any spaces in username input will be removed"
                     .center(80),
                     run.COLORS['RED'],
                     attrs=['bold'])
@@ -80,7 +80,7 @@ class UserData:
                        run.COLORS['YELLOW'],
                        attrs=['bold'])
                 cprint(
-                    "Note that any spaces in username input will be removed to make a single word "
+                    "Note that any spaces in username input will be removed"
                     .center(80),
                     run.COLORS['RED'],
                     attrs=['bold'])
