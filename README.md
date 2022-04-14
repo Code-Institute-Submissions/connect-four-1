@@ -371,30 +371,50 @@ In the username section:
   * A red string reports the error to the user.
   * The input is initiated again
 
+  ![Error for hitting Enter without input](docs/images/input-error-handling-blank.png)
+
+* Press 'spacebar' key multiple times creating a blank username and the following is returned:
+
+  * A red string reports the error to the user
+  * The in put is initiated again
+
+  ![Error for hitting Enter without input](docs/images/input-error-handling-blank.png)
+
 * Enter a two character username and the following is returned:
 
   * A red string reports the error to the user
   * The input is initiated again
+
+  ![Username with less than 3 characters](docs/images/input-error-handling-specific-length.png)
 
 * Enter a string greater than 10 characters and the following is returned:
 
   * A red string reports the error to the user
   * The input is initiated again
 
+  ![Username with less than 3 characters](docs/images/input-error-handling-specific-length.png)
+
 * Enter a username that is already saved in Google Sheets and the following is returned:
 
   * A red string reports the error to the user
   * The input is initiated again
+
+  ![Username not available](docs/images/input-error-handling-username-taken.png)
 
 * For Player 2 login - Enter a username that is already logged in (Player 1) and the following is returned:
 
   * A red string reports the error to the user
   * The input is initiated again
 
+  ![Player already logged in](docs/images/cannot-log-in.png)
+
 * Enter a string between 3 and 10 characters and the following is returned:
 
   * A string in the color of the player (player 1 red and player 2 yellow) greeting the player
   * Progression to the next screen
+
+  ![Player successfully validates create username](docs/images/create_username_success.png)
+  ![Player successfully validates login](docs/images/player2-success-login.png)
 
 ### Press 'C' to continue
 
@@ -405,14 +425,16 @@ Press 'C' to continue accepts both small 'c' and capital 'C'. It cannot be any o
   * A red string reports the error to the user
   * The input is initiated again
 
+  ![Error handling for press c to continue](docs/images/error-handling-continue.png)
+
 * Enter a blank space and the following is returned:
 
   * A string reports the error to the user
   * The input is initiated again
 
-* Enter the 'c' or 'C' key and the following is returned:
+  ![Error handling for press c to continue](docs/images/error-handling-continue.png)
 
-  * The users move onto the next screen
+* Enter the 'c' or 'C' key and the users move onto the next screen
 
 ### Menu Items
 
@@ -423,9 +445,10 @@ Press 1) to do something, Press 2) to do something else ... Depending on the num
   * A string reports the error to the user
   * The input is initiated again
 
-* Enter the keys '1', '2', '3' or '4' and the following is returned:
+  ![Menu error handling numeric choices](docs/images/menu-error-handling.png)
+  ![Menu error handling numeric choices](docs/images/error-handling-play-again.png)
 
-  * The user is taken to the relevant screen depending on their choice.
+* Enter the keys '1', '2', '3' or '4' and the following is returned and the user is taken to the relevant screen depending on their choice.
 
 ### Game Validation
 
@@ -436,16 +459,21 @@ During the game, the input only accepts numbers between 1 and 10 (representing t
   * A red string reports the error to the user#
   * The input is initiated again
 
+  ![Using a letter instead of number](docs/images/letter-input.png)
+
 * Enter a number other than those between and including 1 and 10 and the following is returned:
 
   * A res string reports the error to the user
   * The input is initiated again
+
+  ![Using an invalid number](docs/images/not-valid-number.png)
 
 * Enter the number of a column which is full and the following is returned:
 
   * A red string reports the error to the user
   * The input is initiated again
 
+![Entering the column number thats full](docs/images/column-full-error.png)
 
 
 [Back to top](<#contents>)
