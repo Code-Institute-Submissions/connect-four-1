@@ -264,7 +264,7 @@ Make use of a profanity filter when creating usernames.
   * Verified that when the user presses '1' and 'Enter', they are taken to the 'Get Started' screen
   * Verified that when the user presses '2' and 'Enter' they are taken to the rules screen
 
-## Rules Screen
+### Rules Screen
 
   * Verified that the console screen clears and the Rules screen has loaded.
   * Verified that the rules scroll up as intended until it asks for user input
@@ -274,19 +274,89 @@ Make use of a profanity filter when creating usernames.
   * Verified that when the user presses '1' and 'Enter' they are returned to the Welcome Screen
   * Verified that when the user presses '2' and 'Enter they move on to the 'Get Started' screen
 
-## Get Started Screen - Create Username/Player Login
+### Get Started Screen - Create Username/Player Login
 
   * Verified that the Player 1 menu is called first.
   * Verified that input validation works as intended.
   * Verified that if the user presses '1' and 'Enter' they are take to the Create Username Screen
     * Verified that the user input validation works as intended. See [Username Testing](<#username-testing>)
-    * Verified that once the user creates their username, they are greeted on screen and that the username was added to the Google Sheets worksheet
+    * Verified that once the user creates their username, they are greeted on screen by their usernam and that the username was added to the Google Sheets worksheet
     * Verified that the correct data(0 for Total Wins and 0 for Total Losses) was set for the new user in Google Sheets
     * Verified that once the username passes validation, Player 2's menu screen loads
   * Verified that if the user presses '2' and Enter they are taken to the Login Screen
     * Verified that the user input validation works as insteded. See [Username Testing](<#username-testing>)
-    * Verified that once the user logins, they are greeted on screen and that the relevant data history for the user that logged in has been correctly retrieved.
-    * Verified that once the username login passes validation, Player 2's menu screen load. 
+    * Verified that once the user logins, they are greeted on screen y their username and that the relevant data history for the user that logged in has been correctly retrieved.
+    * Verified that once the username login passes validation, Player 2's menu screen loads.
+  * Verified that all the above steps also apply to the player 2 login
+  * Verified that a combination of Player 1 Create Username, Player 2 Create Username; Player 1 Create Username, Player 2 Login; Player 1 Login, Player 2 Create Username; Player 1 Login, Player 2 Login, all work seamlessing, no matter what combination you try and that the appropriate data is pulled for each isntance of the user.
+
+### Start Screen
+
+  * Verified that both players are asked by their usernames if they are ready
+  * Verified that 'Press 'C' to continue input is called.
+  * Verified that input validation works as intended. See [Press C to Continue](<#press-c-to-continue>)
+  * Verified that if the user presses 'C' a 3 secound countdown is initiated on screen
+  * Verified that upon finish of the countdown, the console is cleared and that 'Play' appears on the screen
+  * Verified that the Game Screen loads after the above
+
+### Game Screen
+
+  * Verified that the Game Bar is called first, with the gameboard secound and user input third.
+  * Verified that the information called in the Game Bar is correct; that the current game stats are set to all 0 for both players and that the History/Overall Stats match the information saved in the Google Sheets
+  * Verified that Player 1 is called first to make their move
+  * Verified that input validation works correctly. See [Game Validation](<#game-validation>)
+  * Verified that once the player one makes their move:
+    1. The player piece drops in the appropriate column, matching the users input value
+    2. That the player pieces match the player correectly (Red for player 1 and yellow for Player 2)
+    3. That if the column is full the player cannot place their piece there.
+    4. That player 2 is called after player 1 in a seamless loop until the game ends.
+  * Verified that the game can be won if 4 pieces are matched horizontally in a row of one color
+  * Verified that the game can be won if 4 pieces are matched vertically in a row of one color
+  * Verified that the game can be won if 4 pieces are matched diagonally in a row of one color(both ways)
+  * Verified that the game can end in a tie if no 4 in a row matched are made
+  * Verified that once the win is made the appropriate player is congratulated by name as the winner and that the scores are immediately updated, both on screen and in Google Sheets
+  * Verified that if there is no winner, that the appropriate message appears on the screen and the scores are not updated
+  * Verified that once the game ends, the players cannot place any more pieces on the board and that the user input appears ('Press C to continue)
+  * Verified that input validation works as intended. See [Press c to continue](<#press-c-to-continue>)
+  * Verified that after the user presses 'C' they are taken to the Play Again screen
+
+### Play Again Screen
+
+  * Verified that the Play Again menu loads.
+  * Verified that all input validation works correctly. See [Menu Items](<#menu-items>)
+  * Verified that if the user press '1':
+    1. That the users is taken to a loading screen, telling the players a new game is started and both players are called by their usernames on screen
+    2. That after the loading screen the users are taken straight to the Start Screen
+    3. That after playing the game from there, that things like the player username and scores are all correct, and continued from the last game.
+    4. That the game loops seemlessly as they users play back to the Play Again screen
+  * Verified that if the user presses '2':
+    1. That the users are taken back to the Welcome Screen
+    2. That if they play from there (create username or logging in again), that the user data is reset appropriately i.e. Current game stats are reset, total overal stats are pulled correctly and relevant to whatever users logged in/created a username.
+    3. That the game plays seemlessly in a loop
+  * Verified that if the user presses '3':
+    1. That the users are taken to the High Scores screen
+  * Verified that if the user presses '4':
+    1. That the users are taken to the exit screen
+
+### High Scores Screen
+
+  * Verified that the High Scores screen load
+  * Verified that the current user stats are displayed in a Game Bar (same as that in the Game Screen)
+  * Verified that the leaderboard data displays the top 5 scores, sorted by number of wins in descending order and that it matcges the data in Google Sheets
+  * Verified that all input validation works as intended. See [Press C to Continue](<#press-c-to-continue>)
+  * Verified that if the user presses 'C' they are brought back to the Play Again screen
+  
+### Exit Screen
+
+  * Verified that the Exit screen loads
+  * Verified that a goodbye message appears on the screen for the users.
+  * Verified that the program quits
+
+### Other
+
+  * Verified that all data being pushed and pulled from Google Sheets is correct; Usernames, total wins and total losses
+  * Verified that the game plays seemlessly in a loop regardless of which option is chosen in the Play Again screen
+    
 
 ## Validation
 
@@ -326,7 +396,7 @@ In the username section:
   * A string in the color of the player (player 1 red and player 2 yellow) greeting the player
   * Progression to the next screen
 
-### Press 'C' to continue ...
+### Press 'C' to continue
 
 Press 'C' to continue accepts both small 'c' and capital 'C'. It cannot be any other key, letter or number. It cannot be blank.
 
