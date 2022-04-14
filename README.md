@@ -286,7 +286,7 @@ Make use of a profanity filter when creating usernames.
   * Verified that if the user presses '2' and Enter they are taken to the Login Screen
     * Verified that the user input validation works as insteded. See [Username Testing](<#username-testing>)
     * Verified that once the user logins, they are greeted on screen and that the relevant data history for the user that logged in has been correctly retrieved.
-    * Verified tha once the username login passes validation, Player 2's menu screen load. 
+    * Verified that once the username login passes validation, Player 2's menu screen load. 
 
 ## Validation
 
@@ -307,6 +307,16 @@ In the username section:
   * The input is initiated again
 
 * Enter a string greater than 10 characters and the following is returned:
+
+  * A red string reports the error to the user
+  * The input is initiated again
+
+* Enter a username that is already saved in Google Sheets and the following is returned:
+
+  * A red string reports the error to the user
+  * The input is initiated again
+
+* For Player 2 login - Enter a username that is already logged in (Player 1) and the following is returned:
 
   * A red string reports the error to the user
   * The input is initiated again
