@@ -556,6 +556,16 @@ To catch the username adding just blank spaces as a username, another comparison
 
 [Back to top](<#contents>)
 
+
+## Terminal Compatibility
+
+This project is intended to be used and deployed via Heroku, and the terminal template given to us. Therefore this project was created with that fact in mind. It is not recommended to use this project on a local terminal as certain display positioning would be off, even if the functionality of the game would still be working.
+
+![Heroku Terminal](docs/images/heroku-terminal.png)
+![Local Terminal](docs/images/local-terminal.png)
+
+[Back to top](<#contents>)
+
 # Deployment
 
 ## To fork the repository on GitHub
