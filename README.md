@@ -43,6 +43,8 @@ The aim of this project is to deliver an interactive and engaging command line i
 * To provide an interactive experience that is easy to navigate and understand
 * To provide a clear and appropriate response to any user inputs
 
+[Back to top](<#contents>)
+
 ## User Stories
 
 The **user** is any person who has an interest in the old school board games like Connect4, and any games that run via command line.
@@ -62,6 +64,8 @@ The **user** is any person who has an interest in the old school board games lik
 ## Flowchart
 
 ![Connect4 Flowchart](docs/flowchart/connect4-flowchart.png)
+
+[Back to top](<#contents>)
 
 # Features
 
@@ -244,6 +248,10 @@ The Connect 4 Command Line Interface game was created to produce a retro style, 
 
 # Future Features
 
+## Timer
+
+The timer would add an extra bit of challenge to the user experience and definitely worth implementing as a future feature. Details of the logic flow of the timer can be seen in the [Flowchart](<#flowchart>) section above but it wasn't implemented in the end due to time constraints.
+
 ## Single Player Mode
 
 A mode where the user plays against the computer would add a better user experience to the game and appeal to a wider range of people.
@@ -303,6 +311,7 @@ Google Sheets was used to store all the data for the Connect 4 CLI application. 
 
 ![Google sheets](docs/images/google-sheets.png)
 
+[Back to top](<#contents>)
 
 # Testing
 
@@ -648,13 +657,14 @@ A copy of the GitHub Repository can be made by forking the GitHub account. Chang
 
 # Credits
 
-[Emoji Unicodes](https://unicode.org/emoji/charts/emoji-list.html)
-[Python tutorial for Connect4 game](https://www.askpython.com/python/examples/connect-four-game) - helped figure out the logic for the game, particularly for the winning moves
-[Exiting a Python Program](https://www.geeksforgeeks.org/python-exit-commands-quit-exit-sys-exit-and-os-_exit/) - helped to figure out the best way to do this
-[Figlet fonts sample](http://www.jave.de/figlet/fonts/overview.html)
-[How to structure long strings](https://note.nkmk.me/en/python-long-string/)
-[Try & Except](https://www.w3schools.com/python/python_try_except.asp) - Helped me understand the concept of try and except
-[.replace()](https://www.journaldev.com/23763/python-remove-spaces-from-string) - Used to fix the bug in the username creation
+* [Emoji Unicodes](https://unicode.org/emoji/charts/emoji-list.html)
+* [Python tutorial for Connect4 game](https://www.askpython.com/python/examples/connect-four-game) - helped figure out the logic for the game, particularly for the winning moves
+* [Exiting a Python Program](https://www.geeksforgeeks.org/python-exit-commands-quit-exit-sys-exit-and-os-_exit/) - helped to figure out the best way to do this
+* [Figlet fonts sample](http://www.jave.de/figlet/fonts/overview.html)
+* [How to structure long strings](https://note.nkmk.me/en/python-long-string/)
+* [Try & Except](https://www.w3schools.com/python/python_try_except.asp) - Helped me understand the concept of try and except
+* [.replace()](https://www.journaldev.com/23763/python-remove-spaces-from-string) - Used to fix the bug in the username creation
+
 [Back to top](<#contents>)
 
 # Acknowledgements
