@@ -247,7 +247,7 @@ class GameBoard:
     """
     Declares a string to self.board
     Function print_board() prints the current game board
-    
+
     Attributes:
         board:
             Declares a string to self.board
@@ -301,7 +301,7 @@ class GameBoard:
         """
         Drops a piece into the Connect4 selected column
         Fills the position with the PLAYER piece
-        
+
         Parameters:
             column = column number of user input
             player = Player 1(0) or Player 2 (1)
@@ -346,7 +346,7 @@ class GameBoard:
         """
         Check the horizontal, vertical and diagonal lines
         for 4 in a row for a win
-        
+
         Return:
             True for win
         """
@@ -356,29 +356,29 @@ class GameBoard:
         # Check horizontal lines
         for column in range(COLUMN_COUNT - 3):
             for row in range(ROW_COUNT):
-                if (self.board[row][column] == player
-                        and self.board[row][column + 1] == player
-                        and self.board[row][column + 2] == player
-                        and self.board[row][column + 3] == player):
+                if (self.board[row][column] == player and
+                        self.board[row][column + 1] == player and
+                        self.board[row][column + 2] == player and
+                        self.board[row][column + 3] == player):
                     return True
 
         # Check the vertical lines
         for column in range(COLUMN_COUNT):
             for row in range(ROW_COUNT - 3):
-                if (self.board[row][column] == player
-                        and self.board[row + 1][column] == player
-                        and self.board[row + 2][column] == player
-                        and self.board[row + 3][column] == player):
+                if (self.board[row][column] == player and
+                        self.board[row + 1][column] == player and
+                        self.board[row + 2][column] == player and
+                        self.board[row + 3][column] == player):
                     return True
 
         # Check the diagonal line win to the right
         # counting positively up the columns and rows each time
         for column in range(COLUMN_COUNT - 3):
             for row in range(ROW_COUNT - 3):
-                if (self.board[row][column] == player
-                        and self.board[row + 1][column + 1] == player
-                        and self.board[row + 2][column + 2] == player
-                        and self.board[row + 3][column + 3] == player):
+                if (self.board[row][column] == player and
+                        self.board[row + 1][column + 1] == player and
+                        self.board[row + 2][column + 2] == player and
+                        self.board[row + 3][column + 3] == player):
                     return True
 
         # Check the diagonal line win to the left
@@ -386,17 +386,17 @@ class GameBoard:
         # counting positively up the rows each time
         for column in range(COLUMN_COUNT - 3):
             for row in range(3, ROW_COUNT):
-                if (self.board[row][column] == player
-                        and self.board[row - 1][column + 1] == player
-                        and self.board[row - 2][column + 2] == player
-                        and self.board[row - 3][column + 3] == player):
+                if (self.board[row][column] == player and
+                        self.board[row - 1][column + 1] == player and
+                        self.board[row - 2][column + 2] == player and
+                        self.board[row - 3][column + 3] == player):
                     return True
 
     def check_tie(self):
         """
         Checks if all the spaces have been filled
         If so it returns True
-        
+
         return:
             True for full board, False for space left
         """
@@ -644,7 +644,9 @@ def high_scores():
         COLORS["BLUE_HL"])
     cprint(" ".center(80), COLORS["WHITE"], COLORS["BLUE_HL"])
     vis.blank_line()
-    cprint(" Leaderboard Scores ".center(80), COLORS["WHITE"], COLORS["RED_HL"])
+    cprint(" Leaderboard Scores ".center(80), COLORS["WHITE"],
+           COLORS["RED_HL"])
+
     # Prints table of top 3 overall stats
     # sort by column 2 which is number of wins
     val.USERNAME.sort((2, "des"))
@@ -652,9 +654,7 @@ def high_scores():
     table = tabulate(show_stats[0:6], tablefmt="fancy_grid")
     print(table)
     vis.blank_line()
-    cprint(" Please press C to continue...",
-           COLORS["BLUE"],
-           attrs=["bold"])
+    cprint(" Please press C to continue...", COLORS["BLUE"], attrs=["bold"])
     cont = input()
     # Input error handling
     val.cont_error(cont)

@@ -305,6 +305,22 @@ Google Sheets was used to store all the data for the Connect 4 CLI application. 
 
 # Testing
 
+## PEP8 Validation
+
+[PEP8](http://pep8online.com/) Online validation was used to check that the code is up to standard. All pages cleared the PEP8 validation with no errors.
+
+### run.py
+
+![run.py PEP8 test result](docs/images/run-py-pep8.png)
+
+### validation.py
+
+![validation.py PEP8 test result](docs/images/validation-py-pep8.png)
+
+### visuals.py
+
+![visuals.py PEP8 test result](docs/images/visuals-py-pep8.png)
+
 ## Manual Testing
 
 **Note** All inputs have been validated and tested manually. See [Validation](<#validation>)

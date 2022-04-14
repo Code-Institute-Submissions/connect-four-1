@@ -38,14 +38,14 @@ def game_bar():
         f"{val.player1_name} - wins: {val.player1_wins}  "
         f"Losses: {val.player1_losses}      "
         f"{val.player2_name} - wins: {val.player2_wins} "
-        f"Losses: {val.player2_losses}"
-        .center(80), run.COLORS['WHITE'], run.COLORS['BLUE_HL'])
+        f"Losses: {val.player2_losses}".center(80), run.COLORS['WHITE'],
+        run.COLORS['BLUE_HL'])
     cprint(
         f" History - wins: {val.player1_total_wins} "
         f"Losses: {val.player1_total_losses}    "
         f"History - wins: {val.player2_total_wins}  "
-        f"Losses: {val.player2_total_losses}"
-        .center(80), run.COLORS['WHITE'], run.COLORS['BLUE_HL'])
+        f"Losses: {val.player2_total_losses}".center(80), run.COLORS['WHITE'],
+        run.COLORS['BLUE_HL'])
     cprint(' '.center(80), run.COLORS['WHITE'], run.COLORS['BLUE_HL'])
 
 

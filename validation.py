@@ -55,7 +55,7 @@ class UserData:
         Parameters:
             player_number:
                 Sets Player1 or Player 2
-                
+
         Return:
             The current players user input - username
         """
@@ -123,7 +123,7 @@ class UserData:
         Parameters:
             player_number:
                 Sets Player 1 or Player 2
-                
+
         Return:
             The current players user input - username
         """
@@ -154,7 +154,8 @@ class UserData:
                 else:
                     if player_username != player1_name:
                         cprint(
-                            f'Welcome back {player_username}. You are {PLAYERS[1]}'
+                            f'Welcome back {player_username}.'
+                            f'You are {PLAYERS[1]}'
                             f' ({run.PLAYER_2} )'.center(80),
                             run.COLORS['YELLOW'],
                             attrs=['bold'])
@@ -175,7 +176,7 @@ class UserData:
                        run.COLORS['RED'],
                        attrs=['bold'])
                 continue
-       
+
     def validate_player_name(self, player):
         """
         Checks user input
@@ -213,6 +214,7 @@ class UserData:
             return False
         else:
             return True
+
 
 def get_user():
     """
