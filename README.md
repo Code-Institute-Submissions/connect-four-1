@@ -143,7 +143,7 @@ The Connect 4 Command Line Interface game was created to produce a retro style, 
   * Once validated the username value is matched with that on google sheets and the relevant data pulled into the program; The user's Total Win history and Total Losses history to be displayed when playing the game.
   * The users are greeted with a personalised screen, the same as when a user creates a username
 
-  ![Player login success](docs/images/player2-success-login.png)
+  ![Player login success](docs/images/p2-successful-login.png)
 
 * Once the username data is all validated and the data pulled into the game the users are brought automatically to the next screen which is the start screen.
 
