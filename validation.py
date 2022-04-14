@@ -70,22 +70,23 @@ class UserData:
                 cprint(f"{PLAYERS[0]} please enter a username: ".center(80),
                        run.COLORS['RED'],
                        attrs=['bold'])
+                vis.blank_line()
                 cprint(
-                    "Note that any spaces in username input will be removed"
-                    .center(80),
+                    "Note that any spaces in username input will be removed".
+                    center(80),
                     run.COLORS['RED'],
                     attrs=['bold'])
             else:
                 cprint(f"{PLAYERS[1]} please enter a username: ".center(80),
                        run.COLORS['YELLOW'],
                        attrs=['bold'])
+                vis.blank_line()
                 cprint(
-                    "Note that any spaces in username input will be removed"
-                    .center(80),
+                    "Note that any spaces in username input will be removed".
+                    center(80),
                     run.COLORS['RED'],
                     attrs=['bold'])
             player_username = input().upper()
-            player_username = player_username.strip()
             player_username = player_username.replace(' ', '')
             if validate_player_name(player_username):
                 if player_username not in USERNAME.col_values(1):
@@ -241,7 +242,6 @@ def get_user():
     global player2_data
     global player2_total_losses
     global player2_total_wins
-    player1_name = None
     player1_wins = 0
     player1_losses = 0
     player2_wins = 0

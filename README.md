@@ -452,9 +452,40 @@ During the game, the input only accepts numbers between 1 and 10 (representing t
 
 ## Bugs Fixed
 
-When initially adding user to Google sheets using the update 
+### Adding Data to Google Sheets via Gspread
 
+When initially adding users to Google sheets using the append_row method, there was an invalid data values. Upon research on the use of gspread, it was realised that the data that was being appending was not in a list format. To remedy this, the .split() was used initially.
+![Google spread error](docs/images/convert-to-list.png)
+But later, that was changed to where the list was added directly in the append_rows statement and as the code was being refactored to make it more efficient by setting the data values of the other two columns at the same time rather than in a different statement.
+![Fixed using split method](docs/images/convert-to-list2.png)
+![Refactored more efficient code](docs/images/create-list-gspread.png)
+
+### Logic Error When Dealing with Two Usernames
+
+A logic error occured when the creation of the usernames weas initially coded. It occured when Player 1 creates a new username or logs in, it allowed Player 2 to log in with the same username.
+
+![Double player login](docs/images/double-login-bug.png)
+
+To fix this, Player 2's username input had an additional comparison element to it, comparing it to Player 1 ... and if true, it would report an error to the user that the username was already logged in ... and if false it would allow Player 2 to log in.
 [Back to top](<#contents>)
+
+![Double player login fix](docs/images/double-login-bug.png)
+
+### Blank Space in Username & Blank Username
+
+User create name and login seemed to be working well, however an error was found when the user entered any blank spaces in their username, whether this was at the beginning of the input or a 2 or 3 word input or just blank spaces for the username.
+
+![Error returned if username is all blank spaces](docs/images/blank-space-username-error.png)
+
+To fix this, the .replace(' ', '') function was used to replace all the white space with a string without any. A string was also added to let the user know when creating their username, that any blank space would be removed from the username.
+
+![Blank space in username bug](docs/images/blank-space-fix.png)
+![String added to let user know blank spaces would be removed](docs/images/user-string-added.png)
+
+To catch the username adding just blank spaces as a username, another comparison was added to the validate_player_name function which checks the users input string length and if it is equal to 0 (blank space) then it would return an error to user and reinitiate the input.
+
+![Code fix for checking if the user input is blank](docs/images/blank_space_username-fix.png)
+![If a user tries to use blank spaces as a username](docs/images/blank-username-fix.png)
 
 # Deployment
 
