@@ -88,7 +88,7 @@ class UserData:
                     attrs=['bold'])
             player_username = input().upper()
             player_username = player_username.replace(' ', '')
-            if validate_player_name(player_username):
+            if self.validate_player_name(player_username):
                 if player_username not in USERNAME.col_values(1):
                     run.cls()
                     vis.connect4_title()
@@ -177,20 +177,18 @@ class UserData:
                        run.COLORS['RED'],
                        attrs=['bold'])
                 continue
+       
+    def validate_player_name(self, player):
+        """
+        Checks user input
+        It strips any blank space from the username
+        and checks to see if the username then has a value
+        Also checks that the user input is between 3 and 10 characters long
 
-
-def validate_player_name(player):
-    """
-    Checks user input
-    It strips any blank space from the username
-    and checks to see if the username then has a value
-    Also checks that the user input is between 3 and 10 characters long
-
-    Parameters:
-        player:
-            player input from create_username function
-    """
-    try:
+        Parameters:
+            player:
+                player input from create_username function
+        """
         if len(player) == 0:
             run.cls()
             vis.connect4_title()
@@ -213,11 +211,6 @@ def validate_player_name(player):
             return False
         else:
             return True
-
-    except ValueError:
-        print('Error: please try again')
-        return False
-
 
 def get_user():
     """
