@@ -346,6 +346,9 @@ class GameBoard:
         """
         Check the horizontal, vertical and diagonal lines
         for 4 in a row for a win
+        
+        Return:
+            True for win
         """
         # Source code for figuring out the winning moves
         # Can be found below
@@ -393,6 +396,9 @@ class GameBoard:
         """
         Checks if all the spaces have been filled
         If so it returns True
+        
+        return:
+            True for full board, False for space left
         """
         for i in self.board:
             for j in i:

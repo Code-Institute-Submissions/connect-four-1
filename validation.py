@@ -44,11 +44,6 @@ class UserData:
     def __init__(self, player_number):
         self.player_number = player_number
 
-    player1_total_losses = 0
-    player1_total_wins = 0
-    player1_wins = 0
-    player1_losses = 0
-
     def create_username(self, player_number):
         """
         Creates a username for the player
@@ -61,8 +56,8 @@ class UserData:
             player_number:
                 Sets Player1 or Player 2
                 
-            return:
-                The current players user input - username
+        Return:
+            The current players user input - username
         """
         while True:
             # Player One creates username
@@ -128,6 +123,9 @@ class UserData:
         Parameters:
             player_number:
                 Sets Player 1 or Player 2
+                
+        Return:
+            The current players user input - username
         """
         while True:
             # Player inputs username
@@ -188,6 +186,10 @@ class UserData:
         Parameters:
             player:
                 player input from create_username function
+
+            Return:
+                True for passing validation
+                False if it fails
         """
         if len(player) == 0:
             run.cls()

@@ -1,12 +1,12 @@
 import sys
 import time
-import colorama
+from colorama import init
 from pyfiglet import figlet_format
 from termcolor import cprint
 import run
 import validation as val
 
-colorama.init(autoreset=True)
+init(autoreset=True)
 
 
 def blank_line():
