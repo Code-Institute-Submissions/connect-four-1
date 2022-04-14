@@ -4,7 +4,7 @@ Connect4 is a Command Line Interface styled interactive game that allows 2 playe
 
 You can view the live program here: <a href ='https://cli-connect-four.herokuapp.com/' target="_blank"> Connect 4 CLI game</a>
 
-![Connect4 Image](docs/images/connect4.mp4)
+![Connect4 Image](docs/images/connect4.png)
 
 # Contents
 
@@ -13,12 +13,16 @@ You can view the live program here: <a href ='https://cli-connect-four.herokuapp
   * [Site Aims](<#site-aims>)
   * [User Stories](<#user-stories>)
   * [Site Structure](<#site-structure>)
+  * [Flow Chart](<#flowchart>)
 * [Features](<#features>)
 * [Future Features](<#future-features>)
 * [Technologies Used](<#technologies-used>)
+* [Data Model](<#data-model>)
 * [Testing](<#testing>)
   * [Manual Testing](<#manual-testing>)
+  * [Validation](<#validation>)
   * [Bugs Fixed](<#bugs-fixed>)
+  * [Terminal Compatibility](<#terminal-compatibility>)
 * [Deployment](<#deployment>)
 * [Credits](<#credits>)
 * [Acknowledgements](<#acknowledgements>)
@@ -54,7 +58,7 @@ The **user** is any person who has an interest in the old school board games lik
 
 [Back to top](<#contents>)
 
-## Flowchart - Python Logic
+## Flowchart
 
 ![Connect4 Flowchart](docs/flowchart/connect4-flowchart.png)
 
