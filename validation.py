@@ -60,6 +60,9 @@ class UserData:
         Parameters:
             player_number:
                 Sets Player1 or Player 2
+                
+            return:
+                The current players user input - username
         """
         while True:
             # Player One creates username
@@ -92,7 +95,10 @@ class UserData:
                     vis.typing_text(loading)
                     # Converts the player input into an list item
                     # So it can be handled in google sheets
-                    player_saved = player_username.split()
+                    # Adds a string to user input to allow for a .split()
+                    # At a specified character rather than a blank space
+                    player_saved = player_username + ','
+                    player_saved = player_username.split(',')
                     USERNAME.append_row(player_saved)
                     return player_username
                 else:
@@ -149,6 +155,7 @@ class UserData:
                             run.COLORS['YELLOW'],
                             attrs=['bold'])
                         vis.blank_line()
+                        return player_username
                     else:
                         cprint('Username already logged in'.center(80),
                                run.COLORS['RED'],
