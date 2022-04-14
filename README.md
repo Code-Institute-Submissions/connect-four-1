@@ -62,11 +62,16 @@ The Connect 4 Command Line Interface game was created to produce a retro style, 
 
 ## Navigation
 
+![Menu example of 4 options](docs/images/play-again-screen.png)
+
   * The programs navigation is done mainly via the use of on screen menus and user input to navigate from one screen to another
   * For the most part the menu is dictated by numbers e.g. Press 1) To Get Started ...
   * The user input is handled so as to prompt the users of the correct input needed to move to the screen of choice if an incorrect input is entered.
 
+
 ## Welcome Screen
+
+![Welcome Screen](docs/images/welcome-screen.png)
 
   * The welcome screen is the first screen the user will see when they run the program.
   * Figlet fonts are used to create the Connect 4 title banner that displays in yellow.
@@ -77,15 +82,22 @@ The Connect 4 Command Line Interface game was created to produce a retro style, 
 
 ## Game Rules
 
-* The Game Rules screen can be accessed by the user from the Welcome Screen via user input of '2'.
-* Figlet font is used to display the title banner of Game Rules in a red colour to distinguish it from the main title banner.
-* A timed scolling up, line by line text goes through the rules of the game in yellow.
-* The information about usernames is in a red font so as to stand out as important information.
-* Once the end of the rules is reached, user input is required to move on, allowing the user to scroll back and read the rules in their own time if need be.
-* Once the user input is validated the user is brought to another menu, allowing the user to choose to go back to the Welcome Screen or move ahead to the Get Started screen.
-* This user input is also validated before allowing the user to move ahead.
+![Game Rules screen](docs/images/rules-screen.png)
+
+  * The Game Rules screen can be accessed by the user from the Welcome Screen via user input of '2'.
+  * Figlet font is used to display the title banner of Game Rules in a red colour to distinguish it from the main title banner.
+  * A timed scolling up, line by line text goes through the rules of the game in yellow.
+  * The information about usernames is in a red font so as to stand out as important information.
+
+  ![Important info in red](docs/images/important-info.png)
+
+  * Once the end of the rules is reached, user input is required to move on, allowing the user to scroll back and read the rules in their own time if need be.
+  * Once the user input is validated the user is brought to another menu, allowing the user to choose to go back to the Welcome Screen or move ahead to the Get Started screen.
+  * This user input is also validated before allowing the user to move ahead.
 
 ## Create Username/Login
+
+![Create Username/Login page](docs/images/create-username-login-screen%20-p1.png)
 
 * The get started, one must either create a username or login and this screen can be reached via the Welcome screen and user input ('2') or the Game Rules screen and user input('2')
 * The screen itself has the signature Connect 4 title banner in yellow on top.
@@ -93,20 +105,27 @@ The Connect 4 Command Line Interface game was created to produce a retro style, 
 * This input is validated.
 
 ### Create Username
+
+![Create username screen](docs/images/username-screen.png)
   
   * If the user decides to create a username, they are then prompted to input a username of choice.
   * This input is first converted to all capitals for consistency and to prevent two different usernames such as 'Rhi' and 'rhi' existing.
   * This also future proofs logins for users if they decide to play again, as any mistypes in terms of capitilisation are handled by converting the input to all capitals, avoiding the user potentially mistakenly logging in with someone elses username.
-  * Using the .strip() method the user input for username removes any blank spaces from the beginning and the end of the input so as not to throw an error when appending to google sheets as blank space is translated differently there.
+  * Using the .replace() method the user input for username removes any blank spaces from the input so as not to throw an error when appending to google sheets as blank space is translated differently there.
   * The user input is then validated so that:
     1. The length of the string(user input) is not empty
     2. The username itself is between 2 and 10 characters
     3. The user cannot input a username that is already saved in Google Sheets
   * Once the input passes validation, there username is saved in Google Sheets and their Total Wins and Total Loss values are set to 0.
   * The user is greeted with a personalised screen, stating their name, what player they are and what their player piece is and the string is in red for player 1 and yellow for player 2.
+
+  ![Create username validated](docs/images/create_username_success.png)
+
   * Once Player 1 has input their details, Player 2 is then brought to the same initial on screen menu as player one and if they choose to create a username as well they go through the same steps as player 1.
 
   ### Player Login
+
+  ![Player login screen](docs/images/p2-login.png)
 
   * If the user decides to Login, they are then prompted to enter in their username.
   * This input is then first converted to all Capitals in case a user mistypes re capitilisation.
@@ -114,13 +133,17 @@ The Connect 4 Command Line Interface game was created to produce a retro style, 
   * If it isn't there, the user will be prompted with a message saying Cannot find username and the user can re-enter their username.
   * If Player 2 decides to log in there is an extra step; their input is validated by the above steps but it also checked against Player 1's Username.
     * If it matches the user will be prompted with a message, stating user already logged in, to prevent the same user logging in twice
-    * If it doesn't match and the input value found in Google Sheets, the the player data is pulled in for that user and the player 'logged' in.
+    * If it doesn't match and the input value found in Google Sheets, then the player data is pulled in for that user and the player 'logged' in.
   * Once validated the username value is matched with that on google sheets and the relevant data pulled into the program; The user's Total Win history and Total Losses history to be displayed when playing the game.
   * The users are greeted with a personalised screen, the same as when a user creates a username
+
+  ![Player login success](docs/images/player2-success-login.png)
 
 * Once the username data is all validated and the data pulled into the game the users are brought automatically to the next screen which is the start screen.
 
 ## Start Screen
+
+![Player start screen](docs/images/start-screen.png)
 
 * The start screen is only accessed in two situations; 
   1. When the users first create usernames/login
@@ -130,12 +153,16 @@ The Connect 4 Command Line Interface game was created to produce a retro style, 
 
 ## Game Screen
 
+![Game Screen](docs/images/game-screen.png)
+
 * The game screen consists of 3 parts;
   1. The game bar on the top
   2. The 'Game Board' itself
   3. The text for user input and information
 
   ### Game Bar
+
+  ![Game Bar](docs/images/game-bar.png)
 
   * The Game bar consists of a number of strings printed together consisting of 
   blank strings and text, with a text highlight (from termcolor and colorama libraries) on all the printed strings to give the illusion of a rectangle.
@@ -154,6 +181,9 @@ The Connect 4 Command Line Interface game was created to produce a retro style, 
 
   ### Player information area
 
+  ![Player 1's turn](docs/images/p1-drop-piece.png)
+  ![Player 2's turn](docs/images/p2-drop-piece.png)
+
   * All player input, error handling and information is printed below the game board.
 
 * Player 1 always starts and is prompted to choose a column between 1 and 10 via user input.
@@ -164,11 +194,15 @@ The Connect 4 Command Line Interface game was created to produce a retro style, 
 * If it passes the player piece (which is a unicode image of a red disc for Player 1 and a yellow disc for Plyer 2), is placed in.
 * After every move, the board is checked for a 'win', if there is 4 particular characters in a row either horizontally, vertically or diagonally.
 * If not the next player goes and if so the game board is updated with the new results, the players are let know who won.
+
+![Player won the game](docs/images/Player2-winner.png)
 * The board isn't wiped immediately allowing the user's to see the winning play.
 * To move on requires the user input of 'C' to continue which is validated and if it passes the user continues on to the Play Again screen.
 * A tie is also possible, and if all the spaces are filled in the board, the game finishes with the declaration of no winner and the user can continue on to the play again screen.
 
 ## Play Again
+
+![Play Again Screen](docs/images/play-again-screen.png)
  
 * The play again screen is the screen the user is taken to after they finish a game of connect4.
 * From here they are faced with four choices, chosen via user input:
@@ -184,6 +218,8 @@ The Connect 4 Command Line Interface game was created to produce a retro style, 
 
 ## High Scores Screen
 
+![High Scores Screen](docs/images/high-scores-screen.png)
+
 * High Scores screen can only be accessed from the play again screen (option 3)
 * It consists of the game bar on top - the same as that when the game is running
 * And the top 5 high scores, sorted by the number of winds in desscending order in table form
@@ -191,6 +227,8 @@ The Connect 4 Command Line Interface game was created to produce a retro style, 
 * The input is validated and if passed brings the user back to the play again screen.
 
 ## Quit Screen
+
+![Exit Screen](docs/images/exit-screen.png)
 
 * The exit screen can only be acessed from the play again screen (option 4)
 * This shows the user a goodbye message before exiting the program
@@ -356,7 +394,8 @@ Make use of a profanity filter when creating usernames.
 
   * Verified that all data being pushed and pulled from Google Sheets is correct; Usernames, total wins and total losses
   * Verified that the game plays seemlessly in a loop regardless of which option is chosen in the Play Again screen
-    
+
+[Back to top](<#contents>)  
 
 ## Validation
 
@@ -514,6 +553,8 @@ To catch the username adding just blank spaces as a username, another comparison
 
 ![Code fix for checking if the user input is blank](docs/images/blank_space_username-fix.png)
 ![If a user tries to use blank spaces as a username](docs/images/blank-username-fix.png)
+
+[Back to top](<#contents>)
 
 # Deployment
 
