@@ -4,7 +4,7 @@ Connect4 is a Command Line Interface styled interactive game that allows 2 playe
 
 You can view the live program here: <a href ='https://cli-connect-four.herokuapp.com/' target="_blank"> Connect 4 CLI game</a>
 
-[Connect4 Image](docs/images/connect4.png)
+![Connect4 Image](docs/images/connect4.mp4)
 
 # Contents
 
@@ -305,6 +305,8 @@ Google Sheets was used to store all the data for the Connect 4 CLI application. 
 
 **Note** All inputs have been validated and tested manually. See [Validation](<#validation>)
 
+<details><summary> Manual Testing Info</summary>
+
 ### Welcome Screen
 
   * Verified that the user validation is working correctly
@@ -404,9 +406,13 @@ Google Sheets was used to store all the data for the Connect 4 CLI application. 
   * Verified that all data being pushed and pulled from Google Sheets is correct; Usernames, total wins and total losses
   * Verified that the game plays seemlessly in a loop regardless of which option is chosen in the Play Again screen
 
+</details>
+
 [Back to top](<#contents>)  
 
 ## Validation
+
+<details><summary>Validation Info </summary>
 
 ### Username Testing
 
@@ -523,10 +529,13 @@ During the game, the input only accepts numbers between 1 and 10 (representing t
 
 ![Entering the column number thats full](docs/images/column-full-error.png)
 
+</details>
 
 [Back to top](<#contents>)
 
 ## Bugs Fixed
+
+<details><summary>Bugs Fixed info</summary>
 
 ### Adding Data to Google Sheets via Gspread
 
@@ -562,6 +571,8 @@ To catch the username adding just blank spaces as a username, another comparison
 
 ![Code fix for checking if the user input is blank](docs/images/blank_space_username-fix.png)
 ![If a user tries to use blank spaces as a username](docs/images/blank-username-fix.png)
+
+</details>
 
 [Back to top](<#contents>)
 
@@ -610,6 +621,8 @@ A copy of the GitHub Repository can be made by forking the GitHub account. Chang
 5. Type git clone, and then paste the URL copied from GitHub.
 6. Press enter and the clone of your repository will be created.
 
+</details>
+
 [Back to top](<#contents>)
 
 # Credits
@@ -624,5 +637,7 @@ A copy of the GitHub Repository can be made by forking the GitHub account. Chang
 [Back to top](<#contents>)
 
 # Acknowledgements
+
+This program, Connect4 CLI Game was designed and developed in conjunction with the Full Stack Software Developer Diploma course (eccommerce) at the Code Institute. I would like to thank my mentor, my cohort facilitator, the members of our cohort, the Slack community and Code Institute for all their support.
 
 [Back to top](<#contents>)
