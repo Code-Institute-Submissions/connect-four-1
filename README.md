@@ -4,7 +4,7 @@ Connect4 is a Command Line Interface styled interactive game that allows 2 playe
 
 You can view the live program here: <a href ='https://cli-connect-four.herokuapp.com/' target="_blank"> Connect 4 CLI game</a>
 
-![Connect4 GIF](https://github.com/rhiannonmcn/connect-four/blob/main/docs/images/connect4.gif)
+[Connect4 GIF](docs/video/connect4.mp4)
 
 # Contents
 
@@ -620,6 +620,7 @@ A copy of the GitHub Repository can be made by forking the GitHub account. Chang
 [Figlet fonts sample](http://www.jave.de/figlet/fonts/overview.html)
 [How to structure long strings](https://note.nkmk.me/en/python-long-string/)
 [Try & Except](https://www.w3schools.com/python/python_try_except.asp) - Helped me understand the concept of try and except
+[.replace()](https://www.journaldev.com/23763/python-remove-spaces-from-string) - Used to fix the bug in the username creation
 [Back to top](<#contents>)
 
 # Acknowledgements
