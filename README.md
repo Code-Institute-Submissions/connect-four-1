@@ -19,6 +19,7 @@ You can view the live program here: <a href ='https://cli-connect-four.herokuapp
 * [Technologies Used](<#technologies-used>)
 * [Data Model](<#data-model>)
 * [Testing](<#testing>)
+  * [PEP8 Valdation](<#pep8-validation>)
   * [Manual Testing](<#manual-testing>)
   * [Validation](<#validation>)
   * [Bugs Fixed](<#bugs-fixed>)
