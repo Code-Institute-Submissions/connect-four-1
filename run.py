@@ -347,6 +347,9 @@ class GameBoard:
         Check the horizontal, vertical and diagonal lines
         for 4 in a row for a win
         """
+        # Source code for figuring out the winning moves
+        # Can be found below
+        # https://www.askpython.com/python/examples/connect-four-game
         # Check horizontal lines
         for column in range(COLUMN_COUNT - 3):
             for row in range(ROW_COUNT):

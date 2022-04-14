@@ -290,6 +290,13 @@ Make use of a profanity filter when creating usernames.
 
 [Back to top](<#contents>)
 
+# Data Model
+
+Google Sheets was used to store all the data for the Connect 4 CLI application. Data was sent to and retrieved from it. The google sheet had a singular worksheet which stored all the data. Usernames stored any users created and their relevant stats, linked to their username via columns; their total wins ever at the game and total losses ever at the game.
+
+![Google sheets](docs/images/google-sheets.png)
+
+
 # Testing
 
 ## Manual Testing
@@ -568,6 +575,22 @@ This project is intended to be used and deployed via Heroku, and the terminal te
 
 # Deployment
 
+## Deployment to Heroku
+
+* Log into Heroku (create an account if necessary)
+* Click the button called 'New' from the dashboard, underneath the header in the top right corner.
+* Pick the 'Create new app' option
+* Enter your application name - this name has to be unique - select your region and then click 'Create App'
+* This will bring you to your project page. From here, click the 'Settings' tab and scroll down to Config Vars.
+* In the KEY input field, enter 'PORT' and in the VALUE input field, enter '8000'.
+* Click the 'Add' button to the right to add the Convig Vars.
+* On the same page scroll down to the buildpacks section and click 'Add Buildpack'
+* Add both the Python and node.js buildpacks but make sure that the **Python buildpack is above the node.js one**
+* Go back to the tabs at the top of the page and this time select the 'Deploy' tab.
+* Select Github deployment method.
+* Search for your repository name and click the 'Connect' button to link your chosen repository
+* At the bottom of that page, select your preferred deplyment type; Automatic Deployment or Manual Deployment and wait a few minutes for your project to be deployed.
+
 ## To fork the repository on GitHub
 
 A copy of the GitHub Repository can be made by forking the GitHub account. Changes can be made on this copy without affecting the original repository.
@@ -588,6 +611,12 @@ A copy of the GitHub Repository can be made by forking the GitHub account. Chang
 [Back to top](<#contents>)
 
 # Credits
+
+[Emoji Unicodes](https://unicode.org/emoji/charts/emoji-list.html)
+[Python tutorial for Connect4 game](https://www.askpython.com/python/examples/connect-four-game) - helped figure out the logic for the game, particularly for the winning moves
+[Exiting a Python Program](https://www.geeksforgeeks.org/python-exit-commands-quit-exit-sys-exit-and-os-_exit/) - helped to figure out the best way to do this
+[Figlet fonts sample](http://www.jave.de/figlet/fonts/overview.html)
+[How to structure long strings](https://note.nkmk.me/en/python-long-string/)
 
 [Back to top](<#contents>)
 
