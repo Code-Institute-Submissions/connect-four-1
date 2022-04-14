@@ -4,6 +4,8 @@ Connect4 is a Command Line Interface styled interactive game that allows 2 playe
 
 You can view the live program here: <a href ='https://cli-connect-four.herokuapp.com/' target="_blank"> Connect 4 CLI game</a>
 
+[Connect4 GIF](https://github.com/rhiannonmcn/connect-four/blob/main/docs/images/connect4.gif)
+
 # Contents
 
 * [Objective](<#objective>)
@@ -24,8 +26,6 @@ You can view the live program here: <a href ='https://cli-connect-four.herokuapp
 # Objective
 
 The aim of this project is to deliver an interactive and engaging command line interface game that is satisfying for the user to play.
-
-[Connect4 GIF](docs/images/connect4.gif)
 
 [Back to top](<#contents>)
 
