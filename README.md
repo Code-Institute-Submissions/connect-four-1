@@ -25,6 +25,8 @@ You can view the live program here: <a href ='https://cli-connect-four.herokuapp
 
 The aim of this project is to deliver an interactive and engaging command line interface game that is satisfying for the user to play.
 
+[Connect4 GIF](docs/images/connect4.gif)
+
 [Back to top](<#contents>)
 
 # User Experience (UX)
@@ -617,7 +619,7 @@ A copy of the GitHub Repository can be made by forking the GitHub account. Chang
 [Exiting a Python Program](https://www.geeksforgeeks.org/python-exit-commands-quit-exit-sys-exit-and-os-_exit/) - helped to figure out the best way to do this
 [Figlet fonts sample](http://www.jave.de/figlet/fonts/overview.html)
 [How to structure long strings](https://note.nkmk.me/en/python-long-string/)
-
+[Try & Except](https://www.w3schools.com/python/python_try_except.asp) - Helped me understand the concept of try and except
 [Back to top](<#contents>)
 
 # Acknowledgements
