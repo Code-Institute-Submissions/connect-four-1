@@ -70,12 +70,23 @@ class UserData:
                 cprint(f"{PLAYERS[0]} please enter a username: ".center(80),
                        run.COLORS['RED'],
                        attrs=['bold'])
+                cprint(
+                    "Note that any spaces in username input will be removed to make a single word "
+                    .center(80),
+                    run.COLORS['RED'],
+                    attrs=['bold'])
             else:
                 cprint(f"{PLAYERS[1]} please enter a username: ".center(80),
                        run.COLORS['YELLOW'],
                        attrs=['bold'])
+                cprint(
+                    "Note that any spaces in username input will be removed to make a single word "
+                    .center(80),
+                    run.COLORS['RED'],
+                    attrs=['bold'])
             player_username = input().upper()
             player_username = player_username.strip()
+            player_username = player_username.replace(' ', '')
             if validate_player_name(player_username):
                 if player_username not in USERNAME.col_values(1):
                     run.cls()
@@ -93,7 +104,7 @@ class UserData:
                     vis.blank_line()
                     loading = ".....Loading.....".center(80)
                     vis.typing_text(loading)
-                    USERNAME.append_row([player_username,'0','0'])
+                    USERNAME.append_row([player_username, '0', '0'])
                     return player_username
                 else:
                     run.cls()

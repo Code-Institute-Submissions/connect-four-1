@@ -452,6 +452,8 @@ During the game, the input only accepts numbers between 1 and 10 (representing t
 
 ## Bugs Fixed
 
+When initially adding user to Google sheets using the update 
+
 [Back to top](<#contents>)
 
 # Deployment
