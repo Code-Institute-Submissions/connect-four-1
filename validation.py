@@ -150,14 +150,14 @@ class UserData:
                 if player_number == 0:
                     cprint(
                         f'Welcome back {player_username}. You are {PLAYERS[0]}'
-                        f' ({run.PLAYER_1})'.center(80),
+                        f' ({run.PLAYER_1} )'.center(80),
                         run.COLORS['RED'],
                         attrs=['bold'])
                 else:
                     if player_username != player1_name:
                         cprint(
                             f'Welcome back {player_username}. You are {PLAYERS[1]}'
-                            f' ({run.PLAYER_2})'.center(80),
+                            f' ({run.PLAYER_2} )'.center(80),
                             run.COLORS['YELLOW'],
                             attrs=['bold'])
                         vis.blank_line()
